@@ -598,6 +598,21 @@ html[data-theme=green] section:hover::after{opacity:.16}
 .tvx{background-repeat:repeat;background-size:48px 48px;image-rendering:pixelated;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:rgba(255,255,255,.38);text-shadow:2px 0 0 rgba(255,40,90,.85),-2px 0 0 rgba(0,235,255,.85);transform:translate(var(--jx,0px),var(--jy,0px)) skewX(var(--jk,0deg));filter:contrast(1.35)}
 .strip>.wrap>div:hover>b,.strip>.wrap>div:hover>.mono{cursor:default}
 
+
+/* ---- tour tiles: the flyer is shown whole, with nothing written over it; the details sit underneath ---- */
+.tourlist{align-items:start}
+.item.tflyer{aspect-ratio:auto;padding:0;gap:0;justify-content:flex-start;overflow:hidden}
+.tf-img{display:block;background:rgba(0,0,0,.25)}
+.tf-img img{width:100%;height:auto;display:block}
+.tf-info{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px 16px;align-items:center;padding:16px 20px 18px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+.tf-info .date b{font-size:36px}
+.tf-info .date span{font-size:11px}
+.tf-info h3{align-self:center}
+.tf-info .go{align-self:center}
+@media(max-width:480px){.tf-info{grid-template-columns:auto minmax(0,1fr);}.tf-info .go{grid-column:1/-1}}
+/* the fixed top bar keeps the page's letters from showing through the logo and the buttons */
+nav::before{content:"";position:absolute;inset:0 0 -26px 0;z-index:-1;pointer-events:none;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);-webkit-mask-image:linear-gradient(#000 52%,transparent);mask-image:linear-gradient(#000 52%,transparent);background:linear-gradient(var(--nav) 35%,transparent)}
+
 /* sections UNFOLD: they open from a centre line like a folded sheet, tiles then open one by one from a triangle corner */
 
 /* YouTube tiles + click-to-play set */
@@ -695,16 +710,14 @@ html[data-theme=green] section:hover::after{opacity:.16}
 <section id="tour">
   <div class="wrap">
     <div class="sec-h rv"><span class="n">01</span><h2>Tour <span class="ac">dates</span></h2></div>
-    <div class="list rv">
-      <a class="item has-img real tilt" href="https://ra.co/events/2568792" target="_blank" rel="noopener" style="--img:url(https://imgproxy.ra.co/_/quality:80/w:800/rt:fill/aHR0cHM6Ly9pbWFnZXMucmEuY28vNjYzZjllMjkyYTMyYTRmY2E1MTI2ZGM1MDQ0MTYzNjVmZDQ2NWRlOC5qcGc=)">
-        <span class="date"><b>28</b><span>NOV 2026</span></span>
-        <h3>Gallery Club<small>London, United Kingdom</small></h3>
-        <span class="go">Tickets <i>→</i></span>
+    <div class="list rv tourlist">
+      <a class="item tflyer tilt" href="https://ra.co/events/2568792" target="_blank" rel="noopener">
+        <span class="tf-img"><img loading="lazy" decoding="async" src="https://imgproxy.ra.co/_/quality:82/w:900/rt:fit/aHR0cHM6Ly9pbWFnZXMucmEuY28vNjYzZjllMjkyYTMyYTRmY2E1MTI2ZGM1MDQ0MTYzNjVmZDQ2NWRlOC5qcGc=" alt="Flyer: Hypnotized x Magdalena at Gallery, London"></span>
+        <span class="tf-info"><span class="date"><b>28</b><span>NOV 2026</span></span><h3>Gallery Club<small>London, United Kingdom</small></h3><span class="go">Tickets <i>→</i></span></span>
       </a>
-      <a class="item has-img real tilt" href="https://link.dice.fm/c0eeaf6af844" target="_blank" rel="noopener" style="--img:url(https://dice-media.imgix.net/attachments/2026-10-21/d987f0cc-73c1-4315-928f-7dba7a035527.jpg?rect=1%2C0%2C2000%2C2000&auto=format%2Ccompress&q=75&w=800&h=800&fit=crop)">
-        <span class="date"><b>04</b><span>DEC 2026</span></span>
-        <h3>Factory Basel (Friday)<small>Miami, United States</small></h3>
-        <span class="go">Tickets <i>→</i></span>
+      <a class="item tflyer tilt" href="https://link.dice.fm/c0eeaf6af844" target="_blank" rel="noopener">
+        <span class="tf-img"><img loading="lazy" decoding="async" src="https://dice-media.imgix.net/attachments/2026-10-21/d987f0cc-73c1-4315-928f-7dba7a035527.jpg?auto=format%2Ccompress&q=78&w=900" alt="Flyer: Factory Basel, Friday 4 December, Miami"></span>
+        <span class="tf-info"><span class="date"><b>04</b><span>DEC 2026</span></span><h3>Factory Basel (Friday)<small>Miami, United States</small></h3><span class="go">Tickets <i>→</i></span></span>
       </a>
     </div>
     <div class="btns rv" style="margin-top:22px"><a class="btn ghost" href="https://www.bandsintown.com/a/409761-magdalena" target="_blank" rel="noopener"><span>All dates on Bandsintown</span></a></div>
@@ -1390,6 +1403,11 @@ html[data-theme=green] section:hover::after{opacity:.16}
     document.querySelectorAll('.strip>.wrap>div').forEach(function(d){d.addEventListener('pointerenter',function(){rain([].slice.call(d.children),650)})});
     setInterval(function(){var r=strip&&strip.getBoundingClientRect();if(r&&r.top<innerHeight&&r.bottom>0&&Math.random()<.5)rain([els[Math.floor(Math.random()*els.length)]],520)},6000);
   })();
+
+
+  // ---- live follower count: whatever Magdalena last saved at /actualizar (falls back to the number already on the page) ----
+  (function(){try{fetch('/api/stats',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
+    if(!d||!d.followers||!/^[0-9.]+[KM]?$/.test(d.followers))return;var b=document.querySelector('.strip>.wrap>div:first-child>b');if(b)b.textContent=d.followers}).catch(function(){})}catch(e){}})();
 
   // ---- scroll progress + fullscreen menu ----
   var prog=document.getElementById('prog'),menu=document.getElementById('menu'),mbtn=document.getElementById('menuBtn');
