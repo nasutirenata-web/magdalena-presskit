@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magdalena — Press Kit</title>
+<meta name="description" content="Official press kit of Magdalena: tour dates, releases, live sets, mixes, riders, press photos and booking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#17222e; --ink:#eef2f6; --mute:#8d9aa7; --lime:#dfeaf3; --line:rgba(190,210,228,.20);
+  --glow-x:50%; --glow-y:30%;
+  --beam:200,228,255;
+  --g1:rgba(150,190,230,.12); --g2:rgba(88,116,144,.75); --g3:linear-gradient(180deg,#1b2733 0%,#1a2531 52%,#0c0f13 100%);
+  --panel:rgba(10,20,32,.40); --panel-h:rgba(200,218,235,.10); --nav:rgba(23,34,46,.9); --flyer:#1b2a3a;
+}
+/* GREEN mode: the greens of her Instagram avatar, lime on deep forest */
+html[data-theme=green]{
+  --bg:#06150b; --ink:#eaf6e2; --mute:#8fae95; --lime:#b6f23a; --line:rgba(182,242,58,.22);
+  --beam:182,242,58;
+  --g1:rgba(182,242,58,.14); --g2:rgba(120,200,30,.42); --g3:linear-gradient(180deg,#0f2a17 0%,#08170d 50%,#030a05 100%);
+  --panel:rgba(5,22,11,.55); --panel-h:rgba(182,242,58,.10); --nav:rgba(6,21,11,.9); --flyer:#0a2415;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--bg);transition:background-color .5s;color:var(--ink);font-family:'Instrument Sans',system-ui,sans-serif;font-size:17px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:var(--g3)}
+body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:50;opacity:.07;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+main,header,footer,.strip{position:relative;z-index:1}
+main{overflow-x:clip}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px max(16px,calc((100% - 1180px)/2));background:linear-gradient(var(--nav),transparent)}
+nav .logo{font-family:'Bricolage Grotesque';font-weight:700;letter-spacing:.02em}
+nav ul{display:flex;gap:26px;list-style:none}
+nav ul a{font-family:'Syncopate',sans-serif;font-weight:700;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);transition:color .2s}
+nav ul a:hover{color:var(--lime)}
+
+
+/* hero: her portrait + the original MAGDALENA wordmark */
+.hero{padding:96px 0 48px;position:relative;overflow:hidden}
+.stage{position:relative;z-index:1;perspective:1100px;display:grid;place-items:center}
+.portrait{position:relative;width:min(100%,760px);aspect-ratio:1;transform-style:preserve-3d;transition:transform .25s ease-out;will-change:transform;
+  }
+.portrait img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
+.portrait .l-bg{-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 47%,#000 52%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 47%,#000 52%,transparent 100%)}
+.portrait .l-cut{transform:translate(calc(var(--mx,0)*4px),calc(var(--my,0)*3px))}
+.wordmark{position:absolute;left:5%;width:90%;bottom:24%;height:auto;color:#fff;pointer-events:none}
+.wordmark.l-back{transform:translate(calc(var(--mx,0)*-5px),calc(var(--my,0)*-3px));filter:drop-shadow(0 6px 30px rgba(0,0,0,.4))}
+.wordmark.l-front{transform:translate(calc(var(--mx,0)*9px),calc(var(--my,0)*5px));-webkit-mask-image:linear-gradient(#000,#000),radial-gradient(ellipse 15% 130% at var(--rx,50%) 50%,#000 50%,transparent 100%);mask-image:linear-gradient(#000,#000),radial-gradient(ellipse 15% 130% at var(--rx,50%) 50%,#000 50%,transparent 100%);-webkit-mask-size:100% 46%,100% 100%;mask-size:100% 46%,100% 100%;-webkit-mask-position:0 100%,0 0;mask-position:0 100%,0 0;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;filter:drop-shadow(0 6px 24px rgba(0,0,0,.5))}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.hero .row{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-end;margin-top:36px}
+.tag b{display:block;font-family:'Bricolage Grotesque';font-weight:500;font-size:clamp(20px,2.4vw,28px);line-height:1.2;margin-bottom:6px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+@property --fill{syntax:'<percentage>';inherits:false;initial-value:58%}
+.btn{--c:14px;--w:1.5px;--fill:58%;
+  position:relative;display:inline-flex;align-items:center;padding:18px 32px;border:0;border-radius:0;cursor:pointer;color:#fff;
+  font-family:'Syncopate','DM Mono',sans-serif;font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  clip-path:polygon(0 0,calc(100% - var(--c)) 0,100% var(--c),100% 100%,var(--c) 100%,0 calc(100% - var(--c)));
+  background:
+    linear-gradient(105deg,#fff 0,#fff var(--fill),transparent var(--fill)),
+    linear-gradient(#fff,#fff) 0 0/calc(100% - var(--c)) var(--w) no-repeat,
+    linear-gradient(#fff,#fff) 100% var(--c)/var(--w) calc(100% - var(--c)) no-repeat,
+    linear-gradient(#fff,#fff) 100% 100%/calc(100% - var(--c)) var(--w) no-repeat,
+    linear-gradient(#fff,#fff) 0 0/var(--w) calc(100% - var(--c)) no-repeat,
+    linear-gradient(to top right,transparent calc(50% - .8px),#fff calc(50% - .8px),#fff calc(50% + .8px),transparent calc(50% + .8px)) 100% 0/var(--c) var(--c) no-repeat,
+    linear-gradient(to top right,transparent calc(50% - .8px),#fff calc(50% - .8px),#fff calc(50% + .8px),transparent calc(50% + .8px)) 0 100%/var(--c) var(--c) no-repeat;
+  transition:--fill .45s cubic-bezier(.2,.7,.2,1),transform .15s;will-change:transform}
+.btn span{mix-blend-mode:difference;color:#fff}
+.btn.ghost{--fill:28%}
+.btn:hover{--fill:100%}
+.strip{border-block:1px solid var(--line);background:var(--panel)}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.strip div{padding:26px 0 26px 22px;border-left:1px solid var(--line)}
+.strip div:first-child{border-left:0;padding-left:0}
+.strip b{display:block;font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(26px,4vw,44px);line-height:1;color:var(--lime);margin-bottom:6px}
+@media(max-width:620px){.strip .wrap{grid-template-columns:1fr}.strip div{border-left:0;padding-left:0;border-top:1px solid var(--line)}.strip div:first-child{border-top:0}}
+
+section{padding:clamp(64px,10vw,130px) 0}
+.sec-h{display:flex;gap:18px;align-items:baseline;margin-bottom:40px}
+.sec-h .n{font-family:'DM Mono';color:var(--lime);font-size:13px}
+.sec-h h2{font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(34px,6vw,76px);letter-spacing:-.03em;line-height:1;text-transform:uppercase}
+.sub{margin:44px 0 14px}
+
+.todo{border:1px dashed var(--line);padding:22px;color:var(--mute);border-radius:6px}
+.todo b{display:block;color:var(--lime);font-family:'DM Mono';font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;font-weight:500}
+
+.bio{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,5vw,80px)}
+@media(max-width:820px){.bio{grid-template-columns:1fr}}
+
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:14px}
+.item{display:flex;flex-direction:column;justify-content:space-between;gap:14px;aspect-ratio:1;padding:22px;border:1px solid var(--line);border-radius:0;background:var(--panel);transition:transform .3s,background .3s,border-color .3s,box-shadow .3s;position:relative;overflow:hidden}
+a.item:hover{transform:translateY(-6px);background:var(--panel-h);border-color:var(--lime);box-shadow:0 18px 50px rgba(0,0,0,.45),0 0 40px rgba(var(--beam),.14)}
+.item>.mono:first-child{color:var(--lime)}
+.item h3{align-self:stretch}
+.item h3{font-family:'Bricolage Grotesque';font-weight:600;font-size:clamp(20px,2.6vw,30px);letter-spacing:-.02em;line-height:1.15}
+.item h3 small{display:block;margin-top:4px;font-family:'DM Mono';font-weight:400;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.item .go{color:var(--lime);font-family:'Syncopate',sans-serif;font-weight:700;font-size:10px;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.item .go i{font-style:normal;display:inline-block;transition:transform .25s}
+a.item:hover .go i{transform:translateX(6px)}
+.date{font-family:'Bricolage Grotesque';font-weight:700;line-height:1;color:var(--lime)}
+.date b{display:block;font-size:34px}
+.date span{font-family:'DM Mono';font-size:12px;letter-spacing:.14em;color:var(--mute);font-weight:400}
+@media(max-width:560px){.list{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.item{padding:16px}.item h3{font-size:18px}}
+
+.scrollhint{display:flex;justify-content:center;margin-top:26px}
+.flyers{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:14px}
+.flyers a{display:block;aspect-ratio:1;overflow:hidden;border-radius:6px;border:1px solid var(--line);transition:transform .3s,border-color .3s,box-shadow .3s;background:var(--flyer)}
+.flyers a:hover{transform:translateY(-6px) rotate(-.6deg);border-color:var(--lime);box-shadow:0 18px 50px rgba(0,0,0,.5)}
+.flyers img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:560px){.flyers{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+
+.tabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+.tab{padding:11px 20px;border:1px solid var(--line);border-radius:0;background:none;color:var(--mute);cursor:pointer;font-family:'Syncopate',sans-serif;font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+.tab[aria-selected=true]{background:var(--lime);color:#0a0d11;border-color:var(--lime)}
+.panel[hidden]{display:none}
+
+.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:760px){.photos{grid-template-columns:repeat(2,1fr)}}
+.photos .todo{aspect-ratio:3/4;display:grid;place-items:center;text-align:center;padding:12px}
+
+.socials{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:10px;margin-top:30px}
+.socials a{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 18px;border:1px solid var(--line);border-radius:0;font-family:'Syncopate',sans-serif;font-weight:700;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--panel);cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));transition:background .25s,color .25s,border-color .25s,transform .2s}
+.socials a i{font-style:normal;font-size:15px;line-height:1;color:var(--lime);transition:transform .25s,color .25s}
+.socials a:hover,.socials a:focus-visible{background:var(--lime);color:#0a0d11;border-color:var(--lime);transform:translateY(-3px)}
+.socials a:hover i,.socials a:focus-visible i{color:#0a0d11;transform:translate(3px,-3px)}
+a.ul{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+a.ul:hover{color:var(--lime)}
+.contact h2{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(48px,12vw,170px);line-height:.88;letter-spacing:-.04em;text-transform:uppercase;margin-bottom:36px}
+.contact h2 span{color:var(--lime)}
+.contact p.mono{margin-top:22px}
+footer{padding:30px 0 40px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+
+/* ---- reflector: an alien tractor-beam that follows the pointer ---- */
+.beam{position:absolute;left:50%;top:-14px;width:0;height:0;z-index:0;pointer-events:none;mix-blend-mode:screen;transform:rotate(var(--a,0deg));transform-origin:0 0;will-change:transform}
+.beam i{position:absolute;left:0;top:0;display:block;height:var(--len,900px);transform:translateX(-50%);clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);transition:filter .5s}
+.beam .b1{width:calc(var(--len,900px)*.80);filter:blur(12px);opacity:.55;
+  background:linear-gradient(180deg,rgba(var(--beam),.75) 0%,rgba(var(--beam),.20) 55%,rgba(var(--beam),0) 100%)}
+.beam .b2{width:calc(var(--len,900px)*.26);opacity:.75;
+  background:
+    repeating-linear-gradient(180deg,transparent 0 22px,rgba(var(--beam),.22) 22px 25px),
+    linear-gradient(180deg,rgba(var(--beam),.95) 0%,rgba(var(--beam),.25) 65%,rgba(var(--beam),0) 100%);
+  animation:flick 3.2s infinite,scan 2.4s linear infinite}
+.beam .spot{position:absolute;left:0;top:var(--len,900px);width:calc(var(--len,900px)*.62);height:calc(var(--len,900px)*.12);transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(ellipse,rgba(var(--beam),.45),transparent 70%)}
+html[data-theme=green] .beam,html[data-theme=green] .tri-mark{display:none}
+.beam.pulse .b2{filter:brightness(2.2)}
+.beam.pulse .b1{filter:brightness(2) blur(14px)}
+.dust{position:absolute;left:0;top:0;width:0;height:var(--len,900px)}
+.dust s{position:absolute;display:block;width:3px;height:3px;border-radius:50%;background:rgb(var(--beam));opacity:0;animation:rise var(--d,6s) linear infinite;animation-delay:var(--w,0s)}
+@keyframes rise{0%{opacity:0;transform:translateY(0)}15%{opacity:.9}100%{opacity:0;transform:translateY(-120px)}}
+@keyframes flick{0%,100%{opacity:.75}45%{opacity:.55}50%{opacity:.85}55%{opacity:.5}}
+@keyframes scan{to{background-position:0 25px,0 0}}
+.tri-mark{position:absolute;left:50%;top:40px;width:min(92vw,980px);transform:translateX(-50%);color:rgba(var(--beam),.28);z-index:0;pointer-events:none}
+.hero .row{z-index:3}
+
+/* two designs, one per mode */
+.v-green{display:none}
+html[data-theme=green] .v-blue{display:none}
+html[data-theme=green] .v-green{display:block}
+.cover{position:relative;width:min(100%,760px);font-size:0;transform-style:preserve-3d;transition:transform .25s ease-out;will-change:transform;
+  clip-path:polygon(0 0,calc(100% - 46px) 0,100% 46px,100% 100%,46px 100%,0 calc(100% - 46px))}
+.cover img{width:100%;height:auto;display:block}
+
+/* triangle = her symbol (the pyramid rigs and the El Atico triangle on her stages) */
+.sec-h .n::before{content:"";display:inline-block;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:10px solid currentColor;margin-right:9px;vertical-align:-1px}
+.item::after{content:"";position:absolute;right:0;bottom:0;width:34px;height:34px;background:rgba(var(--beam),.14);clip-path:polygon(100% 0,100% 100%,0 100%);transition:background .3s,width .3s,height .3s}
+a.item:hover::after{background:rgba(var(--beam),.55);width:52px;height:52px}
+.theme-btn{position:fixed;right:max(14px,calc((100% - 1180px)/2));bottom:18px;z-index:40}
+.theme-btn span{white-space:nowrap}
+
+
+/* progress bar + fullscreen menu (from the JWOLF reference in the Segundo Cerebro) */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:60;background:var(--lime);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+.menu-btn{--fill:0%;padding:12px 22px}
+.navr{display:flex;gap:10px;align-items:center}
+.lang-btn{--fill:0%;padding:12px 16px}
+#langLbl i{font-style:normal;opacity:.5;padding:0 3px}
+#langLbl i.on{opacity:1;text-decoration:underline;text-underline-offset:4px}
+#langLbl i+i::before{content:'/';margin-right:6px;opacity:.6;text-decoration:none;display:inline-block}
+.menu{position:fixed;inset:0;z-index:30;background:var(--bg);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .35s}
+.menu::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 600px at 60% 20%,rgba(var(--beam),.18),transparent 70%)}
+.menu.open{opacity:1}
+.menu ol{list-style:none;position:relative;width:min(1180px,100% - 32px)}
+.menu li{overflow:hidden;border-bottom:1px solid var(--line)}
+.menu a{display:flex;align-items:baseline;gap:22px;padding:14px 0;font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(30px,6.4vw,76px);letter-spacing:-.03em;line-height:1;text-transform:uppercase;transition:transform .3s,color .3s;transform:translateY(0)}
+.menu a b{font-family:'DM Mono';font-weight:400;font-size:13px;letter-spacing:.14em;color:var(--lime)}
+.menu a:hover{color:var(--lime);transform:translateX(14px)}
+body.menu-open{overflow:hidden}
+nav{z-index:40}
+
+
+/* posters + photos: square tiles that open in a viewer */
+.flyers a.g{position:relative;cursor:zoom-in}
+.flyers .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-family:'Bricolage Grotesque';font-weight:600;font-size:16px;line-height:1.15;color:#fff;pointer-events:none}
+.flyers .cap small{display:block;margin-top:3px;font-family:'DM Mono';font-weight:400;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.flyers a.logo-tile{display:grid;place-items:center;background:var(--panel);cursor:pointer}
+.flyers a.logo-tile svg{width:78%;height:auto;color:#fff}
+.lb{position:fixed;inset:0;z-index:70;background:rgba(3,8,14,.94);display:flex;align-items:center;justify-content:center;gap:12px;padding:16px;opacity:0;transition:opacity .25s}
+.lb.open{opacity:1}
+.lb figure{max-width:min(960px,86vw);display:flex;flex-direction:column;gap:14px;align-items:center}
+.lb img{max-width:100%;max-height:76vh;width:auto;height:auto;display:block;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.lb figcaption{display:flex;gap:16px;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;font-family:'DM Mono';font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.lb-n{background:none;border:1px solid var(--line);color:#fff;width:46px;height:46px;font-size:26px;cursor:pointer;flex:none}
+.lb-n:hover{border-color:var(--lime);color:var(--lime)}
+.lb-x{position:absolute;top:14px;right:14px}
+@media(max-width:700px){.lb{flex-wrap:wrap}.lb figure{max-width:100%;order:1}.lb-n{order:2}}
+
+
+/* 2026 run tiles carry an image: the real poster when we have it, otherwise one of her photos as mood */
+.item.has-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,26,.30) 0%,rgba(8,16,26,.82) 100%),var(--img) center/cover no-repeat;opacity:.9;z-index:0;transition:transform .5s}
+.item.has-img.real::before{background:linear-gradient(180deg,rgba(8,16,26,.18) 0%,rgba(8,16,26,.78) 100%),var(--img) center/cover no-repeat}
+.item.has-img>*{position:relative;z-index:1}
+.item.has-img:hover::before{transform:scale(1.06)}
+.item.has-img h3,.item.has-img .date{text-shadow:0 2px 16px rgba(0,0,0,.6)}
+
+
+/* the glasses leave her face, grow and drift down while you scroll; at the second part they burst into triangles, and her symbol (a light rig) draws itself */
+.fx{position:fixed;inset:0;z-index:25;pointer-events:none;overflow:hidden}
+.fx .gl{position:absolute;left:0;top:0;width:100px;height:auto;display:block;will-change:transform;filter:drop-shadow(0 18px 40px rgba(0,0,0,.55))}
+.fx .shards{position:absolute;left:0;top:0;display:none;will-change:transform}
+.fx .shards i{position:absolute;inset:0;background:url(img/lentes2.png) center/100% 100% no-repeat;animation:shard .95s cubic-bezier(.15,.7,.2,1) forwards}
+@keyframes shard{from{transform:none;opacity:1}to{transform:translate(var(--dx),var(--dy)) rotate(var(--r)) scale(var(--s));opacity:0}}
+.fx .emblem{position:absolute;left:50%;top:var(--ey,60%);width:min(64vw,460px);transform:translate(-50%,-50%);color:var(--lime);opacity:0;transition:opacity .6s;filter:drop-shadow(0 0 16px rgba(var(--beam),.65))}
+.fx .emblem path,.fx .emblem line{fill:none;stroke:currentColor;stroke-width:.8;stroke-dasharray:1;stroke-dashoffset:1}
+.fx .emblem line{opacity:.45}
+.fx.emb .emblem{opacity:1}
+.fx.emb .emblem path,.fx.emb .emblem line{animation:draw 1.5s cubic-bezier(.3,.7,.2,1) forwards}
+.fx.emb .emblem path:nth-of-type(2){animation-delay:.18s}
+.fx.emb .emblem path:nth-of-type(3){animation-delay:.36s}
+.fx.emb .emblem line{animation-delay:.55s}
+@keyframes draw{to{stroke-dashoffset:0}}
+html[data-theme=green] .fx{display:none}
+@media(prefers-reduced-motion:reduce){.fx{display:none}}
+
+
+/* her pages are "moved to the sides": a smeared copy of the photo drifts sideways, text enters from the sides with ghost trails */
+.portrait .l-smear{filter:url(#hbs);opacity:.7;mix-blend-mode:screen;transform:translateX(calc(var(--mx,0)*-46px)) scale(1.12);-webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 47%,#000 40%,transparent 100%);mask-image:radial-gradient(ellipse 60% 55% at 50% 47%,#000 40%,transparent 100%)}
+.js .rv:not(.in) .sec-h h2,.js .sec-h.rv:not(.in) h2{text-shadow:-64px 0 0 rgba(var(--beam),.20),-32px 0 0 rgba(var(--beam),.32),64px 0 0 rgba(var(--beam),.12)}
+.sec-h h2{transition:text-shadow 1.2s cubic-bezier(.2,.8,.2,1),transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.js .sec-h.rv:not(.in) h2{transform:translateX(-70px)}
+.js main section:nth-of-type(even) .sec-h.rv:not(.in) h2{transform:translateX(70px);text-shadow:64px 0 0 rgba(var(--beam),.20),32px 0 0 rgba(var(--beam),.32),-64px 0 0 rgba(var(--beam),.12)}
+.js .rv:not(.in) .item,.js .rv:not(.in) a.g{translate:var(--sx,0) 0}
+@media(prefers-reduced-motion:reduce){.portrait .l-smear{display:none}}
+
+
+/* new figure: tall portrait, soft lights, no beam */
+.portrait{aspect-ratio:720/1130;width:min(100%,560px)}
+.portrait img{object-fit:contain}
+.wordmark{bottom:49%}
+.portrait .frame{display:none!important}
+/* one continuous background: no rules, no panels between sections */
+.strip{border:0!important;background:transparent!important}
+.strip div,.strip div:first-child{border:0!important}
+footer{border-top:0!important}
+.portrait .l-main{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 16%,#000 94%,transparent 100%)!important;mask-image:linear-gradient(to right,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 16%,#000 94%,transparent 100%)!important}
+
+.tri-bg{display:none!important}
+/* the whole page has her photo's backdrop: blue studio smoke, fixed while you scroll */
+html:not([data-theme=green]) body::before{background:linear-gradient(180deg,rgba(8,16,26,.0) 0%,rgba(8,14,22,.18) 55%,rgba(6,10,16,.45) 100%),url(img/humo-fondo3.jpg) center/cover no-repeat}
+html:not([data-theme=green]) body{background-color:#1a2531}
+.portrait .l-main{-webkit-mask-composite:source-in;mask-composite:intersect}
+
+.beam,.tri-mark,.fx{display:none!important}
+.portrait .l-cut,.portrait .l-smear{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%),linear-gradient(to bottom,#000 74%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%),linear-gradient(to bottom,#000 74%,transparent 100%);-webkit-mask-composite:source-in;mask-composite:intersect}
+.lights{display:none!important}
+.lights i{position:absolute;border-radius:50%;filter:blur(40px);mix-blend-mode:screen;animation:drift 14s ease-in-out infinite alternate}
+.lights .l1{left:8%;top:6%;width:min(46vw,520px);aspect-ratio:1;background:radial-gradient(circle,rgba(var(--beam),.42),transparent 65%)}
+.lights .l2{right:4%;top:22%;width:min(40vw,440px);aspect-ratio:1;background:radial-gradient(circle,rgba(110,160,220,.34),transparent 65%);animation-duration:18s;animation-delay:-5s}
+.lights .l3{left:50%;top:-4%;width:min(60vw,700px);aspect-ratio:1;transform:translateX(-50%);background:radial-gradient(circle,rgba(var(--beam),.22),transparent 60%);animation-duration:11s;animation-delay:-3s}
+@keyframes drift{from{translate:-3% -2%;opacity:.75}to{translate:4% 5%;opacity:1}}
+
+
+/* sunglasses portrait (A) and the made-up photo (B) share eyes and face; the glasses leave downward on scroll and B appears */
+.portrait{aspect-ratio:1;width:min(100%,760px);clip-path:inset(-40% -40% 0 -40%)}
+.portrait img{object-fit:fill}
+.portrait .l-a,.portrait .l-b{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(to bottom,#000 70%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(to bottom,#000 70%,transparent 100%);-webkit-mask-composite:source-in;mask-composite:intersect}
+.portrait .l-b{inset:auto;left:-16.6%;top:-16.7%;width:128.9%;height:auto;opacity:0;transform:translate(calc(var(--mx,0)*4px),calc(var(--my,0)*3px))}
+.portrait .l-a{opacity:1;transform:translate(calc(var(--mx,0)*4px),calc(var(--my,0)*3px))}
+.wordmark{bottom:8%}
+.beam,.tri-mark,.fx .emblem{display:none!important}
+.fx{display:block!important}
+html[data-theme=green] .fx{display:none!important}
+@media(prefers-reduced-motion:reduce){.fx{display:none!important}}
+
+
+/* full photos on blue now: both fade into the page with the same soft edge; the logo sits whole in front */
+.portrait .l-a,.portrait .l-b,.portrait .l-smear{-webkit-mask-image:radial-gradient(ellipse 52% 52% at 50% 47%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 52% 52% at 50% 47%,#000 55%,transparent 100%);-webkit-mask-composite:source-over;mask-composite:add}
+.portrait .l-b{left:-16.7%;top:-16.8%;width:129.1%}
+.portrait .ph{position:absolute;inset:0;-webkit-mask-image:linear-gradient(to bottom,#000 76%,transparent 100%);mask-image:linear-gradient(to bottom,#000 76%,transparent 100%)}
+.wordmark.l-front{-webkit-mask-image:none!important;mask-image:none!important}
+.wordmark.l-back{display:none}
+.portrait .l-smear{opacity:.55}
+
+
+/* hero = her real photo on blue, whole (ears included); no glasses */
+.portrait{aspect-ratio:941/1672;width:min(100%,560px);clip-path:none}
+.portrait .ph{-webkit-mask-image:none;mask-image:none}
+.portrait .l-main{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 16%,#000 96%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0,#000 9%,#000 91%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 16%,#000 96%,transparent 100%)}
+.portrait .l-smear{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;opacity:.45;filter:url(#hbs);-webkit-mask-image:linear-gradient(to right,transparent 0,#000 18%,#000 82%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 14%,#000 66%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 18%,#000 82%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 14%,#000 66%,transparent 100%);-webkit-mask-composite:source-in;mask-composite:intersect}
+.wordmark{bottom:42%}
+.portrait .l-smear{display:none}
+.fx,.gl,.shards{display:none!important}
+
+
+.navr .theme-btn{position:static;right:auto;bottom:auto;padding:12px 14px}
+.navr .btn{font-size:10px}
+@media(max-width:620px){nav .logo{display:none}nav{justify-content:flex-end}.navr{gap:6px}.navr .btn{padding:11px 12px;letter-spacing:.14em}}
+
+
+/* ---- 1. her symbol as texture: a fine triangle lattice over the whole page ---- */
+.tri-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:rgba(var(--beam),.16);
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg stroke='black' stroke-width='1' fill='none'%3E%3Cpath d='M0 .5H56M0 48.5H56M0 96.5H56'/%3E%3Cpath d='M0 48.5L28 0L56 48.5M0 97L28 48.5L56 97M28 48.5L0 0M28 97L0 48.5M28 48.5L56 0M28 97L56 48.5'/%3E%3C/g%3E%3C/svg%3E"),radial-gradient(ellipse 90% 80% at 50% 38%,#000 0,transparent 100%);
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg stroke='black' stroke-width='1' fill='none'%3E%3Cpath d='M0 .5H56M0 48.5H56M0 96.5H56'/%3E%3Cpath d='M0 48.5L28 0L56 48.5M0 97L28 48.5L56 97M28 48.5L0 0M28 97L0 48.5M28 48.5L56 0M28 97L56 48.5'/%3E%3C/g%3E%3C/svg%3E"),radial-gradient(ellipse 90% 80% at 50% 38%,#000 0,transparent 100%);
+  -webkit-mask-size:56px 97px,100% 100%;mask-size:56px 97px,100% 100%;-webkit-mask-composite:source-in;mask-composite:intersect;
+  animation:triDrift 90s linear infinite}
+@keyframes triDrift{from{-webkit-mask-position:0 0,0 0;mask-position:0 0,0 0}to{-webkit-mask-position:56px 97px,0 0;mask-position:56px 97px,0 0}}
+
+/* ---- 2. frame with cut corners around the photo (like her logo and buttons) ---- */
+.portrait .frame{--c:26px;--l:74px;--w:1.5px;--k:rgba(var(--beam),.85);position:absolute;inset:-6px -14px;z-index:3;pointer-events:none;
+  background:
+    linear-gradient(var(--k),var(--k)) left top/var(--l) var(--w) no-repeat,
+    linear-gradient(var(--k),var(--k)) left top/var(--w) var(--l) no-repeat,
+    linear-gradient(var(--k),var(--k)) right var(--c) top/var(--l) var(--w) no-repeat,
+    linear-gradient(var(--k),var(--k)) right top var(--c)/var(--w) var(--l) no-repeat,
+    linear-gradient(to top right,transparent calc(50% - .8px),var(--k) calc(50% - .8px),var(--k) calc(50% + .8px),transparent calc(50% + .8px)) right top/var(--c) var(--c) no-repeat,
+    linear-gradient(var(--k),var(--k)) left bottom var(--c)/var(--w) var(--l) no-repeat,
+    linear-gradient(var(--k),var(--k)) left var(--c) bottom/var(--l) var(--w) no-repeat,
+    linear-gradient(to top right,transparent calc(50% - .8px),var(--k) calc(50% - .8px),var(--k) calc(50% + .8px),transparent calc(50% + .8px)) left bottom/var(--c) var(--c) no-repeat,
+    linear-gradient(var(--k),var(--k)) right bottom/var(--w) var(--l) no-repeat,
+    linear-gradient(var(--k),var(--k)) right bottom/var(--l) var(--w) no-repeat}
+
+/* ---- 3. one accent word in every title ---- */
+.sec-h h2 .ac{color:var(--lime)}
+
+
+/* ---- the 2026 run as a route: a line that travels city to city while you scroll the dates ---- */
+.routebox{position:sticky;top:62px;z-index:6;margin:0 0 18px;padding:12px 14px 10px;border:1px solid var(--line);background:var(--nav);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px))}
+.routebox:empty{display:none}
+.routebox svg{width:100%;height:auto;max-height:34vh;display:block}
+.routebox .r-grid{stroke:rgba(var(--beam),.10);stroke-width:1;fill:none}
+.routebox .r-base{stroke:rgba(var(--beam),.28);fill:none;stroke-width:1.2;stroke-dasharray:3 7}
+.routebox .r-line{stroke:var(--lime);fill:none;stroke-width:2.2;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(var(--beam),.7))}
+.routebox .rn{fill:rgba(var(--beam),.30);transition:fill .3s}
+.routebox .rn.on{fill:var(--lime)}
+.routebox .r-head{fill:#fff;filter:drop-shadow(0 0 8px rgba(var(--beam),.9))}
+.r-cap{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.r-cap b{font-weight:500;color:var(--lime)}
+.r-cap span{color:var(--mute);white-space:nowrap}
+#highlights .item.now{border-color:var(--lime);box-shadow:0 0 0 1px var(--lime),0 0 44px rgba(var(--beam),.28)}
+
+
+/* ---- green mode: liquid lime that flows, merges and follows the cursor (WebGL, drawn at half size) ---- */
+html[data-theme=green] .sec-h h2{text-shadow:0 0 18px rgba(2,12,6,.85),0 2px 4px rgba(2,12,6,.7)}
+.liquid{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:none;opacity:.62}
+html[data-theme=green] .liquid{display:block}
+
+
+/* ---- one gesture per section (each one says something about its content) ---- */
+.js #tour .list.rv,.js #music .list.rv,.js #live .list.rv,.js #bio .list.rv,.js #highlights .list.rv,.js #posters .flyers.rv,.js #press .flyers.rv,.js #contact .socials.rv{clip-path:none;transform:none;opacity:1;transition:none}
+.js #tour .item,.js #music .item,.js #live .item,.js #bio .item,.js #highlights .item,.js #posters a.g,.js #press a.g,.js #contact .socials a{clip-path:none;opacity:0}
+.js #tour .rv.in .item,.js #music .rv.in .item,.js #live .rv.in .item,.js #bio .rv.in .item,.js #highlights .rv.in .item,.js #posters .rv.in a.g,.js #press .rv.in a.g,.js #contact .rv.in .socials a,.js #contact .socials.rv.in a{opacity:1}
+/* tour dates: the ticket is torn in from the left, the day number counts up */
+.js #tour .rv.in .item{animation:gTour .95s cubic-bezier(.2,.9,.2,1) backwards}
+@keyframes gTour{from{transform:translateX(-90px) skewX(-14deg);opacity:0;clip-path:inset(0 100% 0 0)}to{transform:none;opacity:1;clip-path:inset(0)}}
+/* music: records flip over one after another */
+.js #music .item{transform-origin:0 50%}
+.js #music .rv.in .item{animation:gFlip 1s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i)*75ms)}
+@keyframes gFlip{from{transform:perspective(900px) rotateY(-100deg) scale(.9);opacity:0}to{transform:none;opacity:1}}
+/* live: the screen opens like a curtain, the sets slide in from the right */
+.js #live .player.rv{clip-path:inset(0 50% 0 50%);transform:none;opacity:1;transition:clip-path 1.2s cubic-bezier(.2,.8,.2,1)}
+.js #live .player.rv.in{clip-path:inset(0 0 0 0)}
+.js #live .rv.in .item{animation:gSlide .8s cubic-bezier(.2,.9,.2,1) backwards;animation-delay:calc(var(--i)*70ms)}
+.js #bio .rv.in .item{animation:gSlide .8s cubic-bezier(.2,.9,.2,1) backwards}
+@keyframes gSlide{from{transform:translateX(90px);opacity:0}to{transform:none;opacity:1}}
+/* 2026 run: dates rise and settle, leaning left and right */
+.js #highlights .rv.in .item:nth-child(odd){animation:gRiseL .9s cubic-bezier(.2,.9,.2,1) backwards;animation-delay:calc(var(--i)*60ms)}
+.js #highlights .rv.in .item:nth-child(even){animation:gRiseR .9s cubic-bezier(.2,.9,.2,1) backwards;animation-delay:calc(var(--i)*60ms)}
+@keyframes gRiseL{from{transform:translateY(80px) rotate(-7deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes gRiseR{from{transform:translateY(80px) rotate(7deg);opacity:0}to{transform:none;opacity:1}}
+/* posters: a stack of flyers thrown on the table, then spread out */
+.js #posters .rv.in a.g{animation:gDeck 1.1s cubic-bezier(.2,.85,.2,1) backwards;animation-delay:calc(var(--i)*45ms)}
+@keyframes gDeck{from{transform:translate(var(--tx,0px),var(--ty,0px)) rotate(var(--tr,0deg)) scale(.7);opacity:0}25%{opacity:1}to{transform:none;opacity:1}}
+/* bio: opens like blinds from the top */
+.js #bio .bio.rv{clip-path:inset(0 0 100% 0);transform:none;opacity:1;transition:clip-path 1.1s cubic-bezier(.2,.8,.2,1)}
+.js #bio .bio.rv.in{clip-path:inset(0 0 0 0)}
+/* riders: tabs drop in, panels slide when you switch */
+.js #rider .rv:not(.sec-h){clip-path:none;transform:none;opacity:0;transition:opacity .6s}
+.js #rider .rv.in:not(.sec-h){opacity:1}
+.js #rider .rv.in .tab{animation:gDrop .75s cubic-bezier(.3,1.5,.4,1) backwards}
+.js #rider .rv.in .tab:nth-child(2){animation-delay:.12s}
+@keyframes gDrop{from{transform:translateY(-60px);opacity:0}to{transform:none;opacity:1}}
+.panel.pin{animation:panelIn .55s cubic-bezier(.2,.9,.2,1)}
+@keyframes panelIn{from{transform:translateX(var(--pd,40px));opacity:0}to{transform:none;opacity:1}}
+/* press: the photos are developed, from dark and grey to colour */
+.js #press .rv.in a.g{animation:gDevelop 1.5s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i)*55ms)}
+@keyframes gDevelop{from{filter:grayscale(1) brightness(.2) blur(8px);opacity:0}30%{opacity:1}to{filter:none;opacity:1}}
+/* contact: the links light up one after another */
+.js #contact .rv.in .socials a,.js #contact .socials.rv.in a{animation:gPop .7s cubic-bezier(.2,.9,.2,1) backwards,gFlash 1s ease-out;animation-delay:calc(var(--i)*80ms),calc(var(--i)*80ms + .25s)}
+@keyframes gPop{from{transform:translateY(30px) scale(.85);opacity:0}to{transform:none;opacity:1}}
+@keyframes gFlash{from{background:var(--lime);color:#0a0d11}}
+
+/* sections UNFOLD: they open from a centre line like a folded sheet, tiles then open one by one from a triangle corner */
+
+/* YouTube tiles + click-to-play set */
+.item.yt.has-img::before{background:linear-gradient(180deg,rgba(8,16,26,.38) 0%,rgba(8,16,26,.62) 45%,rgba(8,16,26,.92) 100%),var(--img) center/cover no-repeat}
+.item.yt .play{position:absolute;top:14px;right:14px;z-index:2;width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.6);color:#fff;font-size:11px;background:rgba(0,0,0,.35)}
+.item.yt h3{font-size:clamp(17px,2vw,24px)}
+.player{position:relative;aspect-ratio:16/9;cursor:pointer;overflow:hidden;background:#06101a;box-shadow:0 0 0 1px var(--line)}
+.player img,.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;display:block}
+.player::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.7));pointer-events:none}
+.player.on::after,.player.on .pbtn,.player.on .ptxt{display:none}
+.pbtn{position:absolute;left:50%;top:50%;width:84px;height:84px;transform:translate(-50%,-50%);z-index:2;border:1.5px solid #fff;background:rgba(0,0,0,.35);clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px));transition:background .3s,transform .3s}
+.pbtn i{position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent}
+.player:hover .pbtn{background:rgba(var(--beam),.5);transform:translate(-50%,-50%) scale(1.08)}
+.ptxt{position:absolute;left:18px;bottom:14px;z-index:2;font-family:'Syncopate',sans-serif;font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#fff}
+
+.js .rv{opacity:0;transform:perspective(1200px) rotateX(-62deg) translateY(36px);transform-origin:50% 0;
+  clip-path:polygon(50% -10%,50% -10%,50% 110%,50% 110%);
+  transition:opacity .5s ease,transform 1.15s cubic-bezier(.2,.8,.2,1),clip-path 1.15s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:none;clip-path:polygon(-6% -10%,106% -10%,106% 110%,-6% 110%)}
+.js .rv .item,.js .rv a.g{clip-path:polygon(0 100%,0 100%,0 100%,0 100%);transition:clip-path .8s cubic-bezier(.2,.8,.2,1),transform .3s,background .3s,border-color .3s,box-shadow .3s;transition-delay:calc(var(--i,0)*55ms + .25s),0s,0s,0s,0s}
+.js .rv.in .item,.js .rv.in a.g{clip-path:polygon(-25% -25%,125% -25%,125% 125%,-25% 125%)}
+/* hero: the portrait opens from a vertical line on load */
+.js .portrait{animation:unfold 1.5s cubic-bezier(.2,.8,.2,1) .15s backwards}
+@keyframes unfold{from{clip-path:polygon(50% 0,50% 0,50% 100%,50% 100%);opacity:.2}to{clip-path:polygon(-10% -10%,110% -10%,110% 110%,-10% 110%);opacity:1}}
+.js .cover{animation:unfoldc 1.5s cubic-bezier(.2,.8,.2,1) .15s backwards}
+@keyframes unfoldc{from{clip-path:polygon(50% 0,50% 0,50% 100%,50% 100%);opacity:.2}to{clip-path:polygon(0 0,calc(100% - 46px) 0,100% 46px,100% 100%,46px 100%,0 calc(100% - 46px))}}
+@media(prefers-reduced-motion:reduce){.portrait{transition:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');setTimeout(function(){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})},2500)</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="hbs" x="-20%" y="0" width="140%" height="100%"><feGaussianBlur stdDeviation="38 0"/></filter><filter id="hbv" x="-20%" y="0" width="140%" height="100%"><feGaussianBlur id="hbvv" stdDeviation="0 0"/></filter></defs><clipPath id="wmT"><rect x="-80" y="-5" width="1200" height="57"/></clipPath><clipPath id="wmB"><rect x="-80" y="52" width="1200" height="60"/></clipPath><symbol id="wm" viewBox="0 0 3840 417"><g fill="currentColor" fill-rule="evenodd"><g class="lt"><path transform="translate(8 0)" d="M404.0 396.5 L325.1 396.0 L325.0 147.8 L202.0 297.0 L83.0 147.1 L82.7 396.0 L0.0 396.5 L0.0 11.4 L75.0 11.6 L202.0 173.8 L329.0 11.6 L404.0 11.5 L404.0 396.5Z"/></g><g class="lt"><path transform="translate(500 0)" d="M79.0 396.5 L0.1 396.0 L146.5 12.0 L221.0 11.4 L221.4 14.0 L79.0 396.5Z M384.0 396.5 L302.0 396.5 L266.0 305.7 L159.1 305.0 L186.6 234.0 L313.4 234.0 L384.0 396.5Z"/></g><g class="lt"><path transform="translate(929 0)" d="M207.0 404.1 L166.0 403.3 L132.0 396.3 L98.0 382.3 L71.0 364.4 L43.7 337.0 L24.6 308.0 L9.7 272.0 L1.6 234.0 L-0.3 194.0 L4.7 152.0 L15.6 116.0 L25.7 95.0 L35.6 79.0 L58.0 52.7 L88.0 29.6 L122.0 13.7 L162.0 4.8 L192.0 3.5 L216.0 5.7 L242.0 11.7 L266.0 20.7 L292.0 34.7 L318.0 53.7 L341.3 76.0 L356.7 95.0 L298.0 146.0 L272.0 118.8 L253.0 102.6 L236.0 92.7 L215.0 85.7 L187.0 82.7 L160.0 85.7 L134.0 95.5 L115.3 109.0 L98.6 129.0 L86.7 154.0 L80.6 180.0 L79.6 214.0 L84.6 243.0 L93.9 267.0 L107.8 289.0 L125.0 306.4 L140.0 316.5 L158.0 324.2 L176.0 328.2 L195.0 329.0 L214.0 327.3 L238.0 321.2 L263.0 310.4 L285.6 297.0 L285.0 249.6 L222.2 249.0 L223.0 182.3 L369.1 183.0 L368.9 333.0 L332.0 362.1 L291.0 384.3 L248.0 398.3 L207.0 404.1Z"/></g><g class="lt"><path transform="translate(1421 0)" d="M149.0 396.1 L0.2 396.0 L1.0 11.4 L149.0 11.9 L182.0 15.7 L220.0 25.7 L256.0 42.7 L286.6 66.0 L302.3 83.0 L312.4 97.0 L329.1 130.0 L336.2 153.0 L340.3 177.0 L341.6 199.0 L340.3 227.0 L336.2 251.0 L329.4 274.0 L319.5 296.0 L309.3 313.0 L295.2 331.0 L280.0 346.2 L263.0 359.4 L243.0 371.4 L221.0 381.3 L199.0 388.3 L176.0 393.2 L149.0 396.1Z M139.2 317.0 L168.0 313.1 L196.0 303.2 L218.0 289.3 L234.3 273.0 L247.4 252.0 L255.4 229.0 L258.3 199.0 L255.4 175.0 L247.1 152.0 L236.3 135.0 L219.0 117.7 L198.0 104.7 L177.0 96.8 L151.0 91.8 L84.0 90.7 L83.5 316.0 L84.0 317.3 L139.2 317.0Z"/></g><g class="lt"><path transform="translate(1803 0)" d="M78.0 396.5 L-0.5 396.0 L146.0 12.2 L221.0 11.5 L78.0 396.5Z M384.0 396.4 L301.0 396.1 L265.0 305.3 L159.0 305.3 L186.0 234.1 L313.0 234.0 L384.0 396.4Z"/></g><g class="lt"><path transform="translate(2271 0)" d="M261.0 396.5 L-0.2 396.0 L0.0 11.8 L83.4 12.0 L83.7 317.0 L261.0 317.3 L261.0 396.5Z"/></g><g class="lt"><path transform="translate(2617 0)" d="M289.0 396.4 L-0.6 396.0 L0.0 11.4 L285.4 12.0 L285.0 86.6 L83.0 87.1 L83.0 162.1 L237.0 162.4 L237.6 237.0 L83.0 237.9 L82.7 320.0 L84.0 321.2 L289.0 321.4 L289.0 396.4Z"/></g><g class="lt"><path transform="translate(3006 0)" d="M345.0 396.1 L273.2 396.0 L84.0 163.5 L82.9 396.0 L-0.5 396.0 L0.0 11.5 L71.0 11.5 L261.0 244.9 L261.6 12.0 L345.0 11.9 L345.0 396.1Z"/></g><g class="lt"><path transform="translate(3431 0)" d="M79.0 396.2 L-0.4 396.0 L146.3 12.0 L221.0 11.4 L79.0 396.2Z M384.0 396.5 L301.1 396.0 L265.0 305.3 L159.0 305.3 L186.0 234.3 L313.0 233.8 L384.0 396.5Z"/></g></g></symbol></svg>
+<i class="progress" id="prog" aria-hidden="true"></i>
+<canvas class="liquid" id="liquid" aria-hidden="true"></canvas>
+<div class="tri-bg" aria-hidden="true"></div>
+<nav>
+  <a class="logo" href="#top">Magdalena</a>
+  <div class="navr"><button class="btn ghost theme-btn" id="themeBtn" type="button" aria-label="Switch colour mode"><span id="themeLbl">Green mode</span></button><button class="btn ghost lang-btn" id="langBtn" type="button" aria-label="Cambiar a español / Switch to English"><span id="langLbl"><i class="on">EN</i><i>ES</i></span></button><button class="btn ghost menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu"><span>Menu</span></button></div>
+</nav>
+<div class="menu" id="menu" hidden>
+  <ol>
+    <li><a href="#tour"><b>01</b>Tour dates</a></li>
+    <li><a href="#music"><b>02</b>Music</a></li>
+    <li><a href="#live"><b>03</b>Live &amp; mixes</a></li>
+    <li><a href="#highlights"><b>04</b>2026 run</a></li>
+    <li><a href="#posters"><b>05</b>Posters</a></li>
+    <li><a href="#bio"><b>06</b>Bio</a></li>
+    <li><a href="#rider"><b>06</b>Riders</a></li>
+    Press photos
+    Booking &amp; contact
+  </ol>
+</div>
+
+<header class="hero" id="top">
+  <svg class="tri-mark" viewBox="0 0 100 90" aria-hidden="true"><path d="M50 4 L96 86 H4 Z" fill="none" stroke="currentColor" stroke-width=".6"/></svg>
+  <div class="lights" aria-hidden="true"><i class="l1"></i><i class="l2"></i><i class="l3"></i></div>
+  <div class="beam" id="beam" aria-hidden="true"><i class="b1"></i><i class="b2"></i><span class="dust" id="dust"></span><b class="spot"></b></div>
+  <div class="wrap">
+    <h1 class="sr">Magdalena</h1>
+    <div class="stage" id="stage">
+      <div class="portrait v-blue" id="portrait"><span class="frame" aria-hidden="true"></span>
+        <div class="ph">
+          <img class="l-smear" src="img/retrato-azul.jpg" alt="" width="941" height="1672" aria-hidden="true">
+          <img class="l-main" src="img/retrato-azul.jpg" alt="Portrait of Magdalena in a black leather coat and turtleneck, against a blue studio backdrop" width="941" height="1672">
+        </div>
+        <svg class="wordmark l-front" viewBox="0 0 3840 417" role="img" aria-label="Magdalena"><use href="#wm"/></svg>
+      </div>
+      <div class="cover v-green" id="cover">
+        <img src="img/portada-hero.jpg" alt="Magdalena seated, in black and white polka-dot trousers, with her name logo across the image" width="1482" height="845">
+        <img src="img/portada-piernas.jpg" alt="The photo continues down to her black boots" width="1482" height="947" loading="lazy">
+      </div>
+    </div>
+    <div class="row">
+      <p class="tag"><b>Melodic house &amp; melodic techno</b><span class="mono">Hamburg · Official press kit</span></p>
+      <div class="btns">
+        <a class="btn solid" href="#contact"><span>Booking</span></a>
+        <a class="btn ghost" href="#music"><span>Listen</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<div class="strip">
+  <div class="wrap">
+    <div><b>158K</b><span class="mono">Instagram followers</span></div>
+    <div><b>Hamburg</b><span class="mono">Based in</span></div>
+    <div><b>Melodic</b><span class="mono">House &amp; techno</span></div>
+  </div>
+</div>
+
+<main>
+<section id="tour">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="n">01</span><h2>Tour <span class="ac">dates</span></h2></div>
+    <div class="list rv">
+      <a class="item" href="https://ra.co/events/2568792" target="_blank" rel="noopener">
+        <span class="date"><b>28</b><span>NOV 2026</span></span>
+        <h3>Gallery Club<small>London, United Kingdom</small></h3>
+        <span class="go">Tickets <i>→</i></span>
+      </a>
+      <a class="item" href="https://link.dice.fm/c0eeaf6af844" target="_blank" rel="noopener">
+        <span class="date"><b>04</b><span>DEC 2026</span></span>
+        <h3>Factory Basel (Friday)<small>Miami, United States</small></h3>
+        <span class="go">Tickets <i>→</i></span>
+      </a>
+    </div>
+    <div class="btns rv" style="margin-top:22px"><a class="btn ghost" href="https://www.bandsintown.com/a/409761-magdalena" target="_blank" rel="noopener"><span>All dates on Bandsintown</span></a></div>
+  </div>
+</section>
+
+<section id="music">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="n">02</span><h2>Her <span class="ac">music</span></h2></div>
+    <div class="list rv">
+      <a class="item" href="https://open.spotify.com/track/1ZNkbSuEpmxNiU6pQGAVoL" target="_blank" rel="noopener">
+        <span class="mono">Out now</span>
+        <h3>Tell Me How You Want It<small>Magdalena</small></h3>
+        <span class="go">Spotify <i>→</i></span>
+      </a>
+      <a class="item" href="https://www.beatport.com/de/release/four-to-the-floor-52/7346857" target="_blank" rel="noopener">
+        <span class="mono">Out now</span>
+        <h3>Tell Me How You Want It<small>Magdalena</small></h3>
+        <span class="go">Beatport <i>→</i></span>
+      </a>
+      <a class="item" href="https://laylo.com/magdalena_ofc/FQdoAu" target="_blank" rel="noopener">
+        <span class="mono">2026</span>
+        <h3>Mountains Of Es Cubells Rework<small>RSVP for the exclusive VIP stream and download</small></h3>
+        <span class="go">RSVP <i>→</i></span>
+      </a>
+    </div>
+    <div class="btns rv" style="margin-top:22px">
+      <a class="btn ghost" href="https://open.spotify.com/intl-de/artist/4wlgF2WCCPNhQ0FpNwO3vc" target="_blank" rel="noopener"><span>Spotify</span></a>
+      <a class="btn ghost" href="https://www.beatport.com/artist/magdalena-de/575841" target="_blank" rel="noopener"><span>Beatport</span></a>
+      <a class="btn ghost" href="https://soundcloud.com/magdalena_diy" target="_blank" rel="noopener"><span>SoundCloud</span></a>
+    </div>
+      <p class="mono sub rv">Productions</p>
+    <div class="list rv">
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=1Vs1vAojQ84" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/1Vs1vAojQ84/hqdefault.jpg)"><span class="mono play">▶</span><h3>XXX Behavior<small>Original · Siona Records · 2025</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=gKlW6AOuP4I" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/gKlW6AOuP4I/hqdefault.jpg)"><span class="mono play">▶</span><h3>Think About You All The Time<small>Extended Club Version</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=grNt7BbYyP0" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/grNt7BbYyP0/hqdefault.jpg)"><span class="mono play">▶</span><h3>Elephantz<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=Amjpd_W2gCY" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/Amjpd_W2gCY/hqdefault.jpg)"><span class="mono play">▶</span><h3>Bear&#x27;s Back<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=RbdX3N-Wnzs" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/RbdX3N-Wnzs/hqdefault.jpg)"><span class="mono play">▶</span><h3>Nautilus<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=76-jfmo0emo" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/76-jfmo0emo/hqdefault.jpg)"><span class="mono play">▶</span><h3>Radialis<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=CwyxgztwQsw" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/CwyxgztwQsw/hqdefault.jpg)"><span class="mono play">▶</span><h3>Should I Stay<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
+      </div>
+    <p class="mono sub rv">Remixes</p>
+    <div class="list rv">
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=n_38RC0w0Bo" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/n_38RC0w0Bo/hqdefault.jpg)"><span class="mono play">▶</span><h3>Moby · Why Does My Heart Feel So Bad<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=R9iwOQLUKus" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/R9iwOQLUKus/hqdefault.jpg)"><span class="mono play">▶</span><h3>Nicole Moudaber · The Sun at Midnight<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=N9HGnrjdICE" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/N9HGnrjdICE/hqdefault.jpg)"><span class="mono play">▶</span><h3>Hot Since 82 · Therapy<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=zB2N9XK5WUw" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/zB2N9XK5WUw/hqdefault.jpg)"><span class="mono play">▶</span><h3>Dave Seaman · Donkey Engine<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=gT5NUx8616A" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/gT5NUx8616A/hqdefault.jpg)"><span class="mono play">▶</span><h3>Innellea · Collapse<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=icHnXDHazRg" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/icHnXDHazRg/hqdefault.jpg)"><span class="mono play">▶</span><h3>BURAK · Maia<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=FHCHJh094Kc" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/FHCHJh094Kc/hqdefault.jpg)"><span class="mono play">▶</span><h3>Joan Retamero · Magnus<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=whT40HzTzCA" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/whT40HzTzCA/hqdefault.jpg)"><span class="mono play">▶</span><h3>Uncloak · Hollow<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=YRLoPzwOjmE" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/YRLoPzwOjmE/hqdefault.jpg)"><span class="mono play">▶</span><h3>NORR · Can&#x27;t Stand<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=3ryRQX7e-I0" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/3ryRQX7e-I0/hqdefault.jpg)"><span class="mono play">▶</span><h3>Brlee · Visions<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=iYZ1bC8n8Fs" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/iYZ1bC8n8Fs/hqdefault.jpg)"><span class="mono play">▶</span><h3>David Christopher · Shout<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=xro7NNsMy7U" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/xro7NNsMy7U/hqdefault.jpg)"><span class="mono play">▶</span><h3>Lessons · Double or Nothing<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=9jrMprEsQl0" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/9jrMprEsQl0/hqdefault.jpg)"><span class="mono play">▶</span><h3>Ida Engberg · Abataka<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=ovmSuRub670" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/ovmSuRub670/hqdefault.jpg)"><span class="mono play">▶</span><h3>Marc Houle · You Go Out<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      </div>
+  </div>
+
+</section>
+
+<section id="live">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="n">03</span><h2><span class="ac">Live</span> &amp; mixes</h2></div>
+    <p class="mono sub rv">Live sets · YouTube</p>
+    <div class="player rv" id="player" data-id="XR7771GXI1c" role="button" tabindex="0" aria-label="Play: Live at La Estación Córdoba 2025">
+      <img src="https://i.ytimg.com/vi/XR7771GXI1c/maxresdefault.jpg" alt="" loading="lazy" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/XR7771GXI1c/hqdefault.jpg'">
+      <span class="pbtn"><i></i></span>
+      <span class="ptxt">Live at La Estación, Córdoba · 2025</span>
+    </div>
+    <div class="list rv" style="margin-top:14px">
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=XR7771GXI1c" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/XR7771GXI1c/hqdefault.jpg)"><span class="mono play">▶</span><h3>La Estación, Córdoba<small>Live · 2025 · 1h 34m</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=Z2bDNXhVwp0" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/Z2bDNXhVwp0/hqdefault.jpg)"><span class="mono play">▶</span><h3>External The Bow, Argentina<small>Exclusive set · 1h 36m</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=AGDZKpYLLZo" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/AGDZKpYLLZo/hqdefault.jpg)"><span class="mono play">▶</span><h3>Parque de las Luces, Medellín<small>Live · 2025 · 1h 25m</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=ntVqO4xTzpM" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/ntVqO4xTzpM/hqdefault.jpg)"><span class="mono play">▶</span><h3>La Estación, Córdoba<small>Full set · 2h 23m</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=euv_Bnrwsiw" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/euv_Bnrwsiw/hqdefault.jpg)"><span class="mono play">▶</span><h3>Ocaso Festival<small>Sunrise set · 2023 · 2h 20m</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=50jA6tClavA" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/50jA6tClavA/hqdefault.jpg)"><span class="mono play">▶</span><h3>Zamna Brasil · Laroc Club<small>São Paulo · 54m</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=MSHKfiww2Ns" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/MSHKfiww2Ns/hqdefault.jpg)"><span class="mono play">▶</span><h3>Ulter, Ain El Sokhna<small>Egypt · 45m</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item has-img yt" href="https://www.youtube.com/watch?v=Slu9Qw4mTXw" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/Slu9Qw4mTXw/hqdefault.jpg)"><span class="mono play">▶</span><h3>Argentina 2024<small>Recap · 3m</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a class="item" href="https://www.youtube.com/@Magdalena_diy" target="_blank" rel="noopener"><span class="mono">YouTube</span><h3>All videos<small>Her channel</small></h3><span class="go">Open <i>→</i></span></a>
+    </div>
+    <p class="mono sub rv">DJ mixes · SoundCloud</p>
+    <div class="list rv">
+      <a class="item" href="https://on.soundcloud.com/eOfjB2XV7yIyO3nIJd" target="_blank" rel="noopener"><span class="mono">2025</span><h3>Bucht der Träumer Festival<small>DJ mix</small></h3><span class="go">Listen <i>→</i></span></a>
+      <a class="item" href="https://on.soundcloud.com/H5DLcvgTMTcnRCmwFn" target="_blank" rel="noopener"><span class="mono">Radio</span><h3>Circoloco Radio 319<small>Magdalena</small></h3><span class="go">Listen <i>→</i></span></a>
+    </div>
+  </div>
+</section>
+
+<section id="highlights">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="n">04</span><h2>On the road <span class="ac">2026</span></h2></div>
+    <p class="mono rv" style="margin:-18px 0 22px">From her own post · Summer into fall</p>
+    <div class="routebox" id="routebox" aria-hidden="true"></div>
+    <div class="list rv">
+      <div class="item has-img" style="--img:url(img/fotos/13-t.jpg)"><span class="date"><b>04</b><span>JUL 2026</span></span><h3>Mystica<small>Santa Maria, BR</small></h3></div>
+      <div class="item has-img real" style="--img:url(img/flyers/01-t.jpg)"><span class="date"><b>11</b><span>JUL 2026</span></span><h3>PHOXXI<small>Hamburg, DE</small></h3></div>
+      <div class="item has-img" style="--img:url(img/fotos/01-t.jpg)"><span class="date"><b>16</b><span>JUL 2026</span></span><h3>Destino Five Ibiza · Pacha<small>Ibiza, ES</small></h3></div>
+      <div class="item has-img" style="--img:url(img/fotos/15-t.jpg)"><span class="date"><b>25</b><span>JUL 2026</span></span><h3>Letsescape x Nomade<small>Batroun, LB</small></h3></div>
+      <div class="item has-img" style="--img:url(img/fotos/14-t.jpg)"><span class="date"><b>31</b><span>JUL 2026</span></span><h3>Key Producciones & Keymood<small>Canelones, UY</small></h3></div>
+      <div class="item has-img" style="--img:url(img/fotos/11-t.jpg)"><span class="date"><b>01</b><span>AUG 2026</span></span><h3>Dos22<small>Asunción, PY</small></h3></div>
+      <div class="item has-img real" style="--img:url(img/fotos/10-t.jpg)"><span class="date"><b>08</b><span>AUG 2026</span></span><h3>Salón Amador & Perception<small>Medellín, CO</small></h3></div>
+      <div class="item has-img" style="--img:url(img/fotos/19-t.jpg)"><span class="date"><b>14</b><span>AUG 2026</span></span><h3>Illusions & Nomade Beach<small>Ulcinj, ME</small></h3></div>
+      <div class="item has-img" style="--img:url(img/fotos/16-t.jpg)"><span class="date"><b>15</b><span>AUG 2026</span></span><h3>Brunch BCN · Nacar Club<small>Barcelona, ES</small></h3></div>
+      <div class="item has-img" style="--img:url(img/fotos/04-t.jpg)"><span class="date"><b>09</b><span>SEP 2026</span></span><h3>Hï Ibiza<small>Ibiza, ES</small></h3></div>
+      <div class="item has-img real" style="--img:url(img/flyers/03-t.jpg)"><span class="date"><b>12</b><span>SEP 2026</span></span><h3>Club AMKBA & External<small>Buenos Aires, AR</small></h3></div>
+      <div class="item has-img" style="--img:url(img/fotos/06-t.jpg)"><span class="date"><b>19</b><span>SEP 2026</span></span><h3>El Ático<small>Mendoza, AR</small></h3></div>
+      <div class="item has-img real" style="--img:url(img/flyers/02-t.jpg)"><span class="date"><b>26</b><span>SEP 2026</span></span><h3>External & Jones<small>Mar del Plata, AR</small></h3></div>
+      <div class="item has-img" style="--img:url(img/fotos/05-t.jpg)"><span class="date"><b>02</b><span>OCT 2026</span></span><h3>Rarest Producciones<small>Salta, AR</small></h3></div>
+      <div class="item has-img" style="--img:url(img/fotos/07-t.jpg)"><span class="date"><b>03</b><span>OCT 2026</span></span><h3>Track Club<small>Bahía Blanca, AR</small></h3></div>
+      </div>
+  </div>
+</section>
+
+<section id="posters">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="n">05</span><h2>Show <span class="ac">posters</span></h2></div>
+    <p class="mono rv" style="margin:-18px 0 22px">Tap a poster to open it · download the original file</p>
+    <div class="flyers gal rv" data-gal="posters">
+      <a class="g" href="descargas/flyers/01.jpg" data-full="img/flyers/01.jpg" data-cap="PHOXXI · Hamburg · 11 Jul 2026" download><img loading="lazy" decoding="async" src="img/flyers/01-t.jpg" alt="Poster: PHOXXI, Hamburg · 11 Jul 2026"><span class="cap">PHOXXI<small>Hamburg · 11 Jul 2026</small></span></a>
+      <a class="g" href="descargas/flyers/02.jpg" data-full="img/flyers/02.jpg" data-cap="Mr Jones · Mar del Plata" download><img loading="lazy" decoding="async" src="img/flyers/02-t.jpg" alt="Poster: Mr Jones, Mar del Plata"><span class="cap">Mr Jones<small>Mar del Plata</small></span></a>
+      <a class="g" href="descargas/flyers/03.jpg" data-full="img/flyers/03.jpg" data-cap="AMK Club · Buenos Aires" download><img loading="lazy" decoding="async" src="img/flyers/03-t.jpg" alt="Poster: AMK Club, Buenos Aires"><span class="cap">AMK Club<small>Buenos Aires</small></span></a>
+      <a class="g" href="descargas/flyers/04.png" data-full="img/flyers/04.jpg" data-cap="D-Edge · Rio de Janeiro" download><img loading="lazy" decoding="async" src="img/flyers/04-t.jpg" alt="Poster: D-Edge, Rio de Janeiro"><span class="cap">D-Edge<small>Rio de Janeiro</small></span></a>
+      <a class="g" href="descargas/flyers/05.png" data-full="img/flyers/05.jpg" data-cap="Bonzai · Belgrade" download><img loading="lazy" decoding="async" src="img/flyers/05-t.jpg" alt="Poster: Bonzai, Belgrade"><span class="cap">Bonzai<small>Belgrade</small></span></a>
+      <a class="g" href="descargas/flyers/06.jpg" data-full="img/flyers/06.jpg" data-cap="77 · London" download><img loading="lazy" decoding="async" src="img/flyers/06-t.jpg" alt="Poster: 77, London"><span class="cap">77<small>London</small></span></a>
+      <a class="g" href="descargas/flyers/07.jpg" data-full="img/flyers/07.jpg" data-cap="Crobar · Buenos Aires · 10 Mar 2023" download><img loading="lazy" decoding="async" src="img/flyers/07-t.jpg" alt="Poster: Crobar, Buenos Aires · 10 Mar 2023"><span class="cap">Crobar<small>Buenos Aires · 10 Mar 2023</small></span></a>
+      <a class="g" href="descargas/flyers/08.jpg" data-full="img/flyers/08.jpg" data-cap="Quattro · San Juan · 31 Dec 2025" download><img loading="lazy" decoding="async" src="img/flyers/08-t.jpg" alt="Poster: Quattro, San Juan · 31 Dec 2025"><span class="cap">Quattro<small>San Juan · 31 Dec 2025</small></span></a>
+      <a class="g" href="descargas/flyers/09.png" data-full="img/flyers/09.jpg" data-cap="La Estación · Córdoba" download><img loading="lazy" decoding="async" src="img/flyers/09-t.jpg" alt="Poster: La Estación, Córdoba"><span class="cap">La Estación<small>Córdoba</small></span></a>
+      <a class="g" href="descargas/flyers/10.jpg" data-full="img/flyers/10.jpg" data-cap="SHADOWS · Cova Santa, Ibiza · 19 Jul 2019" download><img loading="lazy" decoding="async" src="img/flyers/10-t.jpg" alt="Poster: SHADOWS, Cova Santa, Ibiza · 19 Jul 2019"><span class="cap">SHADOWS<small>Cova Santa, Ibiza · 19 Jul 2019</small></span></a>
+      <a class="g" href="descargas/flyers/11.jpg" data-full="img/flyers/11.jpg" data-cap="Rituals · Munich" download><img loading="lazy" decoding="async" src="img/flyers/11-t.jpg" alt="Poster: Rituals, Munich"><span class="cap">Rituals<small>Munich</small></span></a>
+      <a class="g" href="descargas/flyers/12.png" data-full="img/flyers/12.jpg" data-cap="Hi I&#x27;m SCI · Medellín" download><img loading="lazy" decoding="async" src="img/flyers/12-t.jpg" alt="Poster: Hi I&#x27;m SCI, Medellín"><span class="cap">Hi I&#x27;m SCI<small>Medellín</small></span></a>
+      <a class="g" href="descargas/flyers/13.jpg" data-full="img/flyers/13.jpg" data-cap="Beonix · Cyprus" download><img loading="lazy" decoding="async" src="img/flyers/13-t.jpg" alt="Poster: Beonix, Cyprus"><span class="cap">Beonix<small>Cyprus</small></span></a>
+      <a class="g" href="descargas/flyers/14.png" data-full="img/flyers/14.jpg" data-cap="The Bow · Buenos Aires" download><img loading="lazy" decoding="async" src="img/flyers/14-t.jpg" alt="Poster: The Bow, Buenos Aires"><span class="cap">The Bow<small>Buenos Aires</small></span></a>
+      <a class="g" href="descargas/flyers/15.png" data-full="img/flyers/15.jpg" data-cap="Unrealm · Bogotá" download><img loading="lazy" decoding="async" src="img/flyers/15-t.jpg" alt="Poster: Unrealm, Bogotá"><span class="cap">Unrealm<small>Bogotá</small></span></a>
+      <a class="g" href="descargas/flyers/16.jpg" data-full="img/flyers/16.jpg" data-cap="Ku De Ta · Bali" download><img loading="lazy" decoding="async" src="img/flyers/16-t.jpg" alt="Poster: Ku De Ta, Bali"><span class="cap">Ku De Ta<small>Bali</small></span></a>
+      <a class="g" href="descargas/flyers/17.jpg" data-full="img/flyers/17.jpg" data-cap="SHADOWS · Watergate, Berlin" download><img loading="lazy" decoding="async" src="img/flyers/17-t.jpg" alt="Poster: SHADOWS, Watergate, Berlin"><span class="cap">SHADOWS<small>Watergate, Berlin</small></span></a>
+      <a class="g" href="descargas/flyers/18.jpg" data-full="img/flyers/18.jpg" data-cap="Soulnova · Los Angeles" download><img loading="lazy" decoding="async" src="img/flyers/18-t.jpg" alt="Poster: Soulnova, Los Angeles"><span class="cap">Soulnova<small>Los Angeles</small></span></a>
+      <a class="g" href="descargas/flyers/19.jpg" data-full="img/flyers/19.jpg" data-cap="SHADOWS · PAL, Hamburg · 16 Feb 2019" download><img loading="lazy" decoding="async" src="img/flyers/19-t.jpg" alt="Poster: SHADOWS, PAL, Hamburg · 16 Feb 2019"><span class="cap">SHADOWS<small>PAL, Hamburg · 16 Feb 2019</small></span></a>
+      <a class="g" href="descargas/flyers/20.jpg" data-full="img/flyers/20.jpg" data-cap="Rotofest · Cuenca · 24 Oct 2019" download><img loading="lazy" decoding="async" src="img/flyers/20-t.jpg" alt="Poster: Rotofest, Cuenca · 24 Oct 2019"><span class="cap">Rotofest<small>Cuenca · 24 Oct 2019</small></span></a>
+      </div>
+  </div>
+</section>
+
+<section id="bio">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="n">04</span><h2>The <span class="ac">artist</span></h2></div>
+    <div class="bio rv">
+      <p class="mono">About the artist</p>
+      <div class="todo"><b>Awaiting from the artist</b>Official bio goes here, exactly as supplied.</div>
+    </div>
+    <p class="mono sub rv">Press</p>
+    <div class="list rv">
+      <a class="item" href="https://www.nastymagazine.com/music/outside-the-box-magdalena/" target="_blank" rel="noopener"><span class="mono">Interview</span><h3>Outside the Box<small>Nasty Magazine</small></h3><span class="go">Read <i>→</i></span></a>
+    </div>
+  </div>
+</section>
+
+<section id="rider">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="n">05</span><h2>Tech &amp; <span class="ac">hospitality</span></h2></div>
+    <div class="rv">
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-p="tech">Technical</button>
+        <button class="tab" role="tab" aria-selected="false" data-p="hosp">Hospitality</button>
+      </div>
+      <div class="panel" id="tech"><div class="todo"><b>Technical rider</b>Not published online. Request it from booking: <a class="ul" href="mailto:booking@metropole.agency?subject=Technical%20rider%20-%20Magdalena">booking@metropole.agency</a>.</div></div>
+      <div class="panel" id="hosp" hidden><div class="todo"><b>Hospitality rider</b>Not published online. Request it from booking: <a class="ul" href="mailto:booking@metropole.agency?subject=Hospitality%20rider%20-%20Magdalena">booking@metropole.agency</a>.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="press">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="n">06</span><h2>Press <span class="ac">photos</span></h2></div>
+    <div class="flyers gal rv" data-gal="photos">
+      <a class="g" href="descargas/fotos/01.png" data-full="img/fotos/01.jpg" data-cap="DJ Mag · Portrait" download><img loading="lazy" decoding="async" src="img/fotos/01-t.jpg" alt="Press photo: DJ Mag, Portrait"><span class="cap">DJ Mag<small>Portrait</small></span></a>
+      <a class="g" href="descargas/fotos/02.jpg" data-full="img/fotos/02.jpg" data-cap="Attack Magazine · Portrait" download><img loading="lazy" decoding="async" src="img/fotos/02-t.jpg" alt="Press photo: Attack Magazine, Portrait"><span class="cap">Attack Magazine<small>Portrait</small></span></a>
+      <a class="g" href="descargas/fotos/03.jpg" data-full="img/fotos/03.jpg" data-cap="House Mag · Portrait" download><img loading="lazy" decoding="async" src="img/fotos/03-t.jpg" alt="Press photo: House Mag, Portrait"><span class="cap">House Mag<small>Portrait</small></span></a>
+      <a class="g" href="descargas/fotos/04.jpg" data-full="img/fotos/04.jpg" data-cap="District · Studio portrait" download><img loading="lazy" decoding="async" src="img/fotos/04-t.jpg" alt="Press photo: District, Studio portrait"><span class="cap">District<small>Studio portrait</small></span></a>
+      <a class="g" href="descargas/fotos/05.jpg" data-full="img/fotos/05.jpg" data-cap="Nasty · Studio portrait" download><img loading="lazy" decoding="async" src="img/fotos/05-t.jpg" alt="Press photo: Nasty, Studio portrait"><span class="cap">Nasty<small>Studio portrait</small></span></a>
+      <a class="g" href="descargas/fotos/06.jpg" data-full="img/fotos/06.jpg" data-cap="Nasty · Seated in the studio" download><img loading="lazy" decoding="async" src="img/fotos/06-t.jpg" alt="Press photo: Nasty, Seated in the studio"><span class="cap">Nasty<small>Seated in the studio</small></span></a>
+      <a class="g" href="descargas/fotos/07.jpg" data-full="img/fotos/07.jpg" data-cap="Instagram · Profile portrait" download><img loading="lazy" decoding="async" src="img/fotos/07-t.jpg" alt="Press photo: Instagram, Profile portrait"><span class="cap">Instagram<small>Profile portrait</small></span></a>
+      <a class="g" href="descargas/fotos/08.jpg" data-full="img/fotos/08.jpg" data-cap="Mixmag España · Editorial portrait" download><img loading="lazy" decoding="async" src="img/fotos/08-t.jpg" alt="Press photo: Mixmag España, Editorial portrait"><span class="cap">Mixmag España<small>Editorial portrait</small></span></a>
+      <a class="g" href="descargas/fotos/09.jpg" data-full="img/fotos/09.jpg" data-cap="Nicho Experience · Portrait" download><img loading="lazy" decoding="async" src="img/fotos/09-t.jpg" alt="Press photo: Nicho Experience, Portrait"><span class="cap">Nicho Experience<small>Portrait</small></span></a>
+      <a class="g" href="descargas/fotos/10.jpg" data-full="img/fotos/10.jpg" data-cap="Instagram · Medellín" download><img loading="lazy" decoding="async" src="img/fotos/10-t.jpg" alt="Press photo: Instagram, Medellín"><span class="cap">Instagram<small>Medellín</small></span></a>
+      <a class="g" href="descargas/fotos/11.jpg" data-full="img/fotos/11.jpg" data-cap="Rave Jungle · SHADOWS in the booth" download><img loading="lazy" decoding="async" src="img/fotos/11-t.jpg" alt="Press photo: Rave Jungle, SHADOWS in the booth"><span class="cap">Rave Jungle<small>SHADOWS in the booth</small></span></a>
+      <a class="g" href="descargas/fotos/12.jpg" data-full="img/fotos/12.jpg" data-cap="When We Dip · Portrait" download><img loading="lazy" decoding="async" src="img/fotos/12-t.jpg" alt="Press photo: When We Dip, Portrait"><span class="cap">When We Dip<small>Portrait</small></span></a>
+      <a class="g" href="descargas/fotos/13.jpg" data-full="img/fotos/13.jpg" data-cap="Instagram · In the booth" download><img loading="lazy" decoding="async" src="img/fotos/13-t.jpg" alt="Press photo: Instagram, In the booth"><span class="cap">Instagram<small>In the booth</small></span></a>
+      <a class="g" href="descargas/fotos/14.jpg" data-full="img/fotos/14.jpg" data-cap="Instagram · Set in Santiago" download><img loading="lazy" decoding="async" src="img/fotos/14-t.jpg" alt="Press photo: Instagram, Set in Santiago"><span class="cap">Instagram<small>Set in Santiago</small></span></a>
+      <a class="g" href="descargas/fotos/15.jpg" data-full="img/fotos/15.jpg" data-cap="Xceed · Portrait" download><img loading="lazy" decoding="async" src="img/fotos/15-t.jpg" alt="Press photo: Xceed, Portrait"><span class="cap">Xceed<small>Portrait</small></span></a>
+      <a class="g" href="descargas/fotos/16.jpg" data-full="img/fotos/16.jpg" data-cap="Diynamic · Press portrait" download><img loading="lazy" decoding="async" src="img/fotos/16-t.jpg" alt="Press photo: Diynamic, Press portrait"><span class="cap">Diynamic<small>Press portrait</small></span></a>
+      <a class="g" href="descargas/fotos/17.jpg" data-full="img/fotos/17.jpg" data-cap="Booking Agent Info · Editorial portrait" download><img loading="lazy" decoding="async" src="img/fotos/17-t.jpg" alt="Press photo: Booking Agent Info, Editorial portrait"><span class="cap">Booking Agent Info<small>Editorial portrait</small></span></a>
+      <a class="g" href="descargas/fotos/18.jpg" data-full="img/fotos/18.jpg" data-cap="FPWS · Press portrait" download><img loading="lazy" decoding="async" src="img/fotos/18-t.jpg" alt="Press photo: FPWS, Press portrait"><span class="cap">FPWS<small>Press portrait</small></span></a>
+      <a class="g" href="descargas/fotos/19.jpg" data-full="img/fotos/19.jpg" data-cap="Mixmag Brasil · View of the bridge" download><img loading="lazy" decoding="async" src="img/fotos/19-t.jpg" alt="Press photo: Mixmag Brasil, View of the bridge"><span class="cap">Mixmag Brasil<small>View of the bridge</small></span></a>
+      <a class="g" href="descargas/fotos/20.jpg" data-full="img/fotos/20.jpg" data-cap="Mixmag Brasil · Editorial cover" download><img loading="lazy" decoding="async" src="img/fotos/20-t.jpg" alt="Press photo: Mixmag Brasil, Editorial cover"><span class="cap">Mixmag Brasil<small>Editorial cover</small></span></a>
+      <a class="g logo-tile" href="descargas/logo-magdalena.png" download="magdalena-logo.png"><svg viewBox="0 0 3840 417" aria-hidden="true"><use href="#wm"/></svg><span class="cap">Logo<small>PNG · download</small></span></a>
+    </div>
+    <div class="btns rv" style="margin-top:22px"><a class="btn ghost" href="https://magdalenamerchedition.komi.io/" target="_blank" rel="noopener"><span>Merch — Magdalena Edition</span></a></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="n">07</span><span class="mono">Booking &amp; contact</span></div>
+    <h2 class="rv">Let’s <span>talk.</span></h2>
+    <div class="btns rv">
+      <a class="btn solid" href="mailto:booking@metropole.agency?subject=Booking%20request%20-%20Magdalena"><span>Booking · Metropole Talent</span></a>
+      <a class="btn ghost" href="mailto:magdalena.promo@gmail.com"><span>Send your promos</span></a>
+    </div>
+    <p class="mono rv">Booking: <a class="ul" href="mailto:booking@metropole.agency?subject=Booking%20request%20-%20Magdalena">booking@metropole.agency</a> · <a class="ul" href="https://metropole.agency/magdalena" target="_blank" rel="noopener">Magdalena at Metropole Talent</a></p>
+    <p class="mono rv" style="margin-top:8px">Promos: <a class="ul" href="mailto:magdalena.promo@gmail.com">magdalena.promo@gmail.com</a></p>
+    <div class="socials rv">
+      <a href="https://www.instagram.com/magdalena_ofc/" target="_blank" rel="noopener"><span>Instagram</span><i>↗</i></a>
+      <a href="https://open.spotify.com/intl-de/artist/4wlgF2WCCPNhQ0FpNwO3vc" target="_blank" rel="noopener"><span>Spotify</span><i>↗</i></a>
+      <a href="https://soundcloud.com/magdalena_diy" target="_blank" rel="noopener"><span>SoundCloud</span><i>↗</i></a>
+      <a href="https://www.youtube.com/@Magdalena_diy" target="_blank" rel="noopener"><span>YouTube</span><i>↗</i></a>
+      <a href="https://www.beatport.com/artist/magdalena-de/575841" target="_blank" rel="noopener"><span>Beatport</span><i>↗</i></a>
+      <a href="https://www.facebook.com/magdalena.diynamic/" target="_blank" rel="noopener"><span>Facebook</span><i>↗</i></a>
+      <a href="https://www.bandsintown.com/a/409761-magdalena" target="_blank" rel="noopener"><span>Bandsintown</span><i>↗</i></a>
+      <a href="https://metropole.agency/magdalena" target="_blank" rel="noopener"><span>Metropole Talent</span><i>↗</i></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="btn ghost lb-x" id="lbX" type="button" aria-label="Close"><span>Close</span></button>
+  <button class="lb-n lb-p" id="lbP" type="button" aria-label="Previous">‹</button>
+  <figure><img id="lbImg" alt=""><figcaption><span id="lbCap"></span><a class="btn solid" id="lbDl" download><span>Download original</span></a></figcaption></figure>
+  <button class="lb-n" id="lbN" type="button" aria-label="Next">›</button>
+</div>
+
+<div class="fx" id="fx" aria-hidden="true">
+  <img class="gl" id="gl" src="img/lentes2.png" alt="" width="1200" height="314">
+  <div class="shards" id="shards"></div>
+  <svg class="emblem" id="emblem" viewBox="0 0 120 108">
+    <path pathLength="1" d="M60 4 L116 102 L4 102 Z"/>
+    <path pathLength="1" d="M60 30 L96 96 L24 96 Z"/>
+    <path pathLength="1" d="M60 56 L78 90 L42 90 Z"/>
+    <line pathLength="1" x1="60" y1="4" x2="28" y2="102"/>
+    <line pathLength="1" x1="60" y1="4" x2="60" y2="102"/>
+    <line pathLength="1" x1="60" y1="4" x2="92" y2="102"/>
+  </svg>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="mono">© Magdalena</span>
+    <span class="mono">Press kit by Playskit ✦</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var root=document.documentElement,tx=50,ty=30,x=50,y=30;
+  addEventListener('pointermove',function(e){tx=e.clientX/innerWidth*100;ty=e.clientY/innerHeight*100},{passive:true});
+  (function loop(){x+=(tx-x)*.08;y+=(ty-y)*.08;root.style.setProperty('--glow-x',x+'%');root.style.setProperty('--glow-y',y+'%');requestAnimationFrame(loop)})();
+
+  var hero=document.getElementById('top'),stage=document.getElementById('stage');
+  var tiltEls=[document.getElementById('portrait'),document.getElementById('cover')];
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+  // smooth scroll (optional: if Lenis does not load, native scroll stays)
+  try{
+    if(window.Lenis&&!reduce){
+      var lenis=new Lenis({lerp:.1});
+      (function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(0);
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();lenis.scrollTo(el,{offset:-20})}})});
+    }
+  }catch(err){}
+
+  // ---- reflector beam: apex fixed at the top, it swings toward the pointer; idle = slow sweep ----
+  var beam=document.getElementById('beam'),dust=document.getElementById('dust');
+  var ang=0,angT=0,len=900,px=null,py=null,on=true,pulseT=0,t0=performance.now();
+  for(var i=0;i<16;i++){var s=document.createElement('s');
+    var y=Math.random()*.85+.08;s.style.cssText='top:'+(y*100)+'%;left:'+((Math.random()-.5)*y*70)+'%;--d:'+(4+Math.random()*5).toFixed(1)+'s;--w:-'+(Math.random()*6).toFixed(1)+'s';dust.appendChild(s)}
+  function measure(){var r=hero.getBoundingClientRect();len=Math.max(560,Math.min(1500,r.height*1.02));beam.style.setProperty('--len',len+'px')}
+  measure();addEventListener('resize',measure);
+  hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();px=e.clientX-r.left-r.width/2;py=e.clientY-r.top+14});
+  hero.addEventListener('pointerleave',function(){px=null});
+  hero.addEventListener('pointerdown',function(e){if(e.target.closest('a,button'))return;beam.classList.add('pulse');clearTimeout(pulseT);pulseT=setTimeout(function(){beam.classList.remove('pulse')},700)});
+  new IntersectionObserver(function(es){on=es[0].isIntersecting}).observe(hero);
+  (function loop(t){requestAnimationFrame(loop);if(!on)return;
+    if(px!==null){angT=Math.max(-38,Math.min(38,Math.atan2(px,Math.max(py,80))*180/Math.PI))}
+    else if(!reduce){angT=Math.sin((t-t0)/2600)*14+Math.sin((t-t0)/1700)*4}
+    ang+=(angT-ang)*.07;beam.style.setProperty('--a',ang.toFixed(2)+'deg')})(0);
+
+
+  // ---- the logo letters that she covers come to the front where the pointer is (and sweep by themselves when idle) ----
+  var wmFront=document.querySelector('.wordmark.l-front'),rx=50,rxT=50,lastMove=-9999;
+  stage.addEventListener('pointermove',function(e){var r=wmFront.getBoundingClientRect();rxT=Math.max(-10,Math.min(110,(e.clientX-r.left)/r.width*100));lastMove=performance.now()});
+  (function wl(t){requestAnimationFrame(wl);if(reduce)return;
+    if(t-lastMove>2200)rxT=50+46*Math.sin(t/1700);
+    rx+=(rxT-rx)*.12;wmFront.style.setProperty('--rx',rx.toFixed(1)+'%')})(0);
+
+  // ---- hero photo tilts toward the pointer ----
+  if(!reduce){
+    stage.addEventListener('pointermove',function(e){
+      var r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      tiltEls.forEach(function(el){el.style.transform='rotateY('+(x*9)+'deg) rotateX('+(-y*7)+'deg)';el.style.setProperty('--mx',(x*2).toFixed(3));el.style.setProperty('--my',(y*2).toFixed(3))});
+    });
+    stage.addEventListener('pointerleave',function(){tiltEls.forEach(function(el){el.style.transform='';el.style.setProperty('--mx',0);el.style.setProperty('--my',0)})});
+  }
+
+
+  document.querySelectorAll('.list,.flyers').forEach(function(l){[].slice.call(l.children).forEach(function(c,i){c.style.setProperty('--i',Math.min(i,14));c.style.setProperty('--sx',(i%2?'60px':'-60px'))})});
+
+
+
+  // ---- letters scramble like in her video: they swap for other letters of the word (some cut in half), then lock one by one ----
+  var LG={"glyphs":{"M":{"w":405,"d":"M404.0 396.5 L325.1 396.0 L325.0 147.8 L202.0 297.0 L83.0 147.1 L82.7 396.0 L0.0 396.5 L0.0 11.4 L75.0 11.6 L202.0 173.8 L329.0 11.6 L404.0 11.5 L404.0 396.5Z"},"A":{"w":386,"d":"M79.0 396.5 L0.1 396.0 L146.5 12.0 L221.0 11.4 L221.4 14.0 L79.0 396.5Z M384.0 396.5 L302.0 396.5 L266.0 305.7 L159.1 305.0 L186.6 234.0 L313.4 234.0 L384.0 396.5Z"},"G":{"w":370,"d":"M207.0 404.1 L166.0 403.3 L132.0 396.3 L98.0 382.3 L71.0 364.4 L43.7 337.0 L24.6 308.0 L9.7 272.0 L1.6 234.0 L-0.3 194.0 L4.7 152.0 L15.6 116.0 L25.7 95.0 L35.6 79.0 L58.0 52.7 L88.0 29.6 L122.0 13.7 L162.0 4.8 L192.0 3.5 L216.0 5.7 L242.0 11.7 L266.0 20.7 L292.0 34.7 L318.0 53.7 L341.3 76.0 L356.7 95.0 L298.0 146.0 L272.0 118.8 L253.0 102.6 L236.0 92.7 L215.0 85.7 L187.0 82.7 L160.0 85.7 L134.0 95.5 L115.3 109.0 L98.6 129.0 L86.7 154.0 L80.6 180.0 L79.6 214.0 L84.6 243.0 L93.9 267.0 L107.8 289.0 L125.0 306.4 L140.0 316.5 L158.0 324.2 L176.0 328.2 L195.0 329.0 L214.0 327.3 L238.0 321.2 L263.0 310.4 L285.6 297.0 L285.0 249.6 L222.2 249.0 L223.0 182.3 L369.1 183.0 L368.9 333.0 L332.0 362.1 L291.0 384.3 L248.0 398.3 L207.0 404.1Z"},"D":{"w":342,"d":"M149.0 396.1 L0.2 396.0 L1.0 11.4 L149.0 11.9 L182.0 15.7 L220.0 25.7 L256.0 42.7 L286.6 66.0 L302.3 83.0 L312.4 97.0 L329.1 130.0 L336.2 153.0 L340.3 177.0 L341.6 199.0 L340.3 227.0 L336.2 251.0 L329.4 274.0 L319.5 296.0 L309.3 313.0 L295.2 331.0 L280.0 346.2 L263.0 359.4 L243.0 371.4 L221.0 381.3 L199.0 388.3 L176.0 393.2 L149.0 396.1Z M139.2 317.0 L168.0 313.1 L196.0 303.2 L218.0 289.3 L234.3 273.0 L247.4 252.0 L255.4 229.0 L258.3 199.0 L255.4 175.0 L247.1 152.0 L236.3 135.0 L219.0 117.7 L198.0 104.7 L177.0 96.8 L151.0 91.8 L84.0 90.7 L83.5 316.0 L84.0 317.3 L139.2 317.0Z"},"L":{"w":263,"d":"M261.0 396.5 L-0.2 396.0 L0.0 11.8 L83.4 12.0 L83.7 317.0 L261.0 317.3 L261.0 396.5Z"},"E":{"w":290,"d":"M289.0 396.4 L-0.6 396.0 L0.0 11.4 L285.4 12.0 L285.0 86.6 L83.0 87.1 L83.0 162.1 L237.0 162.4 L237.6 237.0 L83.0 237.9 L82.7 320.0 L84.0 321.2 L289.0 321.4 L289.0 396.4Z"},"N":{"w":346,"d":"M345.0 396.1 L273.2 396.0 L84.0 163.5 L82.9 396.0 L-0.5 396.0 L0.0 11.5 L71.0 11.5 L261.0 244.9 L261.6 12.0 L345.0 11.9 L345.0 396.1Z"}},"pos":[8,500,929,1421,1803,2271,2617,3006,3431],"word":"MAGDALENA","W":3840,"H":417},symWm=document.getElementById('wm'),ORIG=symWm.innerHTML,WORD='MAGDALENA'.split(''),GAPW=88,scrRun=false,scrCool=0;
+  function wmBuild(chars,modes){
+    var tot=0,i,out='',x;chars.forEach(function(c,k){tot+=LG.glyphs[c].w+(k?GAPW:0)});x=(LG.W-tot)/2;
+    for(i=0;i<chars.length;i++){var g=LG.glyphs[chars[i]],m=modes[i];
+      if(m===3){out+='<g clip-path="url(#wmT)"><path transform="translate('+(x-9).toFixed(1)+' 0)" d="'+g.d+'"/></g><g clip-path="url(#wmB)"><path transform="translate('+(x+9).toFixed(1)+' 0)" d="'+g.d+'"/></g>'}
+      else out+=(m?'<g clip-path="url(#'+(m===1?'wmT':'wmB')+')">':'<g>')+'<path transform="translate('+x.toFixed(1)+' 0)" d="'+g.d+'"/></g>';
+      x+=g.w+GAPW}
+    return '<g fill="currentColor" fill-rule="evenodd">'+out+'</g>';
+  }
+  function wmScramble(dur){
+    if(scrRun)return;scrRun=true;var t0=performance.now(),lock=WORD.map(function(_,i){return dur*(.45+i*.075+Math.random()*.1)}),last=0;
+    (function step(now){
+      var el=now-t0,done=el>=lock[lock.length-1]+30;
+      if(done){symWm.innerHTML=ORIG;grabLetters();scrRun=false;scrCool=now;return}
+      if(now-last>105){last=now;var ch=[],md=[];
+        WORD.forEach(function(c,i){if(el>=lock[i]){ch.push(c);md.push(0)}else{ch.push(WORD[Math.floor(Math.random()*WORD.length)]);var r=Math.random();md.push(r<.22?1:r<.44?2:r<.58?3:0)}});
+        symWm.innerHTML=wmBuild(ch,md)}
+      requestAnimationFrame(step)})(t0);
+  }
+
+  function grabLetters(){}
+
+  // same trick for text: letters of the line swap among themselves, then settle left to right
+  function txtScramble(el,dur){
+    if(el.__s)return;var nodes=[],w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);
+    while(w.nextNode())if(w.currentNode.nodeValue.trim())nodes.push(w.currentNode);
+    if(!nodes.length)return;var orig=nodes.map(function(n){return n.nodeValue}),letters=orig.join('').replace(/[^A-Za-z]/g,'').split(''),total=letters.length,t0=performance.now(),last=0;
+    if(!total)return;el.__s=1;
+    (function step(now){var p=(now-t0)/dur;
+      if(p>=1){nodes.forEach(function(n,i){if(n.__o!==undefined){var o=n.__o,t=o.trim();n.nodeValue=t?o.replace(t,trs(t)):o}else n.nodeValue=orig[i]});el.__s=0;return}
+      if(now-last>70){last=now;var idx=0;nodes.forEach(function(n,i){n.nodeValue=orig[i].replace(/[A-Za-z]/g,function(c){var k=idx++;return k/total<p?c:letters[Math.floor(Math.random()*letters.length)]})})}
+      requestAnimationFrame(step)})(t0);
+  }
+  setTimeout(function(){wmScramble(1100);txtScramble(document.querySelector('.tag b'),1100)},600);
+  stage.addEventListener('pointerenter',function(){if(performance.now()-scrCool>3200)wmScramble(800)});
+  var scrSeen=false;addEventListener('scroll',function(){if(!scrSeen&&scrollY>160){scrSeen=true;wmScramble(700)}},{passive:true});
+  setInterval(function(){if(scrollY<700)wmScramble(850)},3400);
+  if('IntersectionObserver' in window){var ho=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){txtScramble(e.target,900);ho.unobserve(e.target)}})},{threshold:.5});
+    document.querySelectorAll('.sec-h h2').forEach(function(t){ho.observe(t)})}
+
+  // ---- glasses: leave her face on scroll, grow, burst into triangles, give way to her symbol ----
+  var fx=document.getElementById('fx'),gl=document.getElementById('gl'),shards=document.getElementById('shards');
+  var G={cx:0,cy0:0,w:100,h:30,S:600,ok:false},st='g',embT=0,emblemEl=document.getElementById('emblem');
+  function geo(){
+    var pr=document.getElementById('portrait'),r=pr.getBoundingClientRect();
+    if(!r.width){G.ok=false;return}
+    G.ok=true;G.w=r.width*.506;G.h=G.w*(gl.naturalHeight&&gl.naturalWidth?gl.naturalHeight/gl.naturalWidth:.333);
+    G.cx=r.left+r.width*.5;G.cy0=r.top+scrollY+r.height*.456;
+    G.S=Math.max(520,Math.min(innerHeight*1.05,hero.offsetHeight*.8));
+    gl.style.width=G.w+'px';shards.style.width=G.w+'px';shards.style.height=G.h+'px';
+  }
+  function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}
+  function pose(p){
+    var e=ease(p),s=1-.55*e,
+        y=G.cy0+(innerHeight*.6-G.cy0)*e,x=G.cx;
+    return 'translate('+(x-G.w/2).toFixed(1)+'px,'+(y-G.h/2).toFixed(1)+'px) scale('+s.toFixed(3)+')';
+  }
+  function burst(){
+    shards.innerHTML='';var cols=8,rows=2,i,c,r,tris=[];
+    for(c=0;c<cols;c++)for(r=0;r<rows;r++){var x0=c/cols,x1=(c+1)/cols,y0=r/rows,y1=(r+1)/rows;
+      tris.push([[x0,y0],[x1,y0],[x0,y1]]);tris.push([[x1,y0],[x1,y1],[x0,y1]])}
+    tris.forEach(function(t){var el=document.createElement('i'),cx=(t[0][0]+t[1][0]+t[2][0])/3,cy=(t[0][1]+t[1][1]+t[2][1])/3;
+      el.style.clipPath='polygon('+t.map(function(p){return (p[0]*100).toFixed(1)+'% '+(p[1]*100).toFixed(1)+'%'}).join(',')+')';
+      el.style.setProperty('--dx',((cx-.5)*innerWidth*(.5+Math.random()*.9)).toFixed(0)+'px');
+      el.style.setProperty('--dy',((cy-.5)*260+(Math.random()-.5)*340).toFixed(0)+'px');
+      el.style.setProperty('--r',((Math.random()-.5)*220).toFixed(0)+'deg');
+      el.style.setProperty('--s',(.15+Math.random()*.6).toFixed(2));
+      el.style.animationDelay=(Math.random()*70).toFixed(0)+'ms';shards.appendChild(el)});
+  }
+  function fxUpdate(){return;
+    if(!G.ok)return;
+    var y=scrollY,p=Math.min(1,y/G.S),ns=y<G.S?'g':(y<G.S+innerHeight*1.5?'b':'x'),t=pose(1);
+    var layerA=document.getElementById('layerA'),layerB=document.getElementById('layerB'),q=Math.min(1,y/(G.S*.28)),ea=q*q*(3-2*q);
+    layerA.style.opacity=(1-ea).toFixed(3);layerB.style.opacity=Math.max(0,Math.min(1,ea*1.15-.08)).toFixed(3);
+    if(ns==='g'){gl.style.transform=pose(p);gl.style.opacity=(1-.98*ease(p)).toFixed(3)}
+    emblemEl.style.opacity=(ns==='b'&&fx.classList.contains('emb'))?Math.max(0,Math.min(1,1-(y-(G.S+innerHeight*.35))/(innerHeight*.9))).toFixed(2):0;
+    if(ns!==st){
+      clearTimeout(embT);
+      if(ns==='g'){gl.style.display='block';gl.style.transform=pose(p);gl.style.opacity=(1-.98*ease(p)).toFixed(3)}
+      else if(st==='g'){gl.style.display='none'}
+      else if(ns==='b'){fx.classList.add('emb')}
+      if(ns==='x'){fx.classList.remove('emb')}
+      st=ns;
+    }
+  }
+  gl.addEventListener('load',function(){geo();fxUpdate()});
+  geo();addEventListener('resize',function(){geo();fxUpdate()});addEventListener('load',function(){geo();fxUpdate()});
+  var fxTick=false;addEventListener('scroll',function(){if(!fxTick){fxTick=true;requestAnimationFrame(function(){fxTick=false;fxUpdate()})}},{passive:true});
+  fxUpdate();
+
+
+  // ---- the portrait smears sideways with scroll speed (horizontal motion blur) ----
+  var hbvv=document.getElementById('hbvv'),ptr=document.getElementById('portrait'),lastY=scrollY,sv=0,smeared=false;
+  (function sm(){requestAnimationFrame(sm);if(reduce)return;
+    var d=Math.min(60,Math.abs(scrollY-lastY));lastY=scrollY;sv=sv*.86+d*.14*1.0;
+    if(sv>.9){hbvv.setAttribute('stdDeviation',Math.min(12,sv*.7).toFixed(1)+' 0');if(!smeared){ptr.style.filter='url(#hbv)';smeared=true}}
+    else if(smeared){ptr.style.filter='';smeared=false}})();
+
+
+  // ---- route of the 2026 run: the line travels from city to city as you scroll through the dates ----
+  (function(){
+    var sec=document.getElementById('highlights'),box=document.getElementById('routebox');if(!sec||!box)return;
+    var list=sec.querySelector('.list'),tiles=[].slice.call(list.children);
+    var LL=[[-53.81,-29.69],[9.99,53.55],[1.43,38.91],[35.66,34.26],[-56.28,-34.52],[-57.58,-25.26],[-75.57,6.25],[19.2,41.93],[2.17,41.39],[1.43,38.91],[-58.38,-34.6],[-68.84,-32.89],[-57.55,-38],[-65.41,-24.79],[-62.27,-38.72]];
+    if(tiles.length!==LL.length)return;
+    var VW=1000,VH=560,NS='http://www.w3.org/2000/svg';
+    function pt(ll){return [((ll[0]+85)/125)*(VW-100)+50,((58-ll[1])/106)*(VH-100)+50]}
+    var pts=LL.map(pt),segs=[],d='M'+pts[0][0].toFixed(1)+' '+pts[0][1].toFixed(1),i;
+    for(i=1;i<pts.length;i++){var a=pts[i-1],b=pts[i],mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,dist=Math.hypot(b[0]-a[0],b[1]-a[1]),cx=mx,cy=my-Math.min(dist*.30,120)-4;
+      var leg='M'+a[0].toFixed(1)+' '+a[1].toFixed(1)+' Q'+cx.toFixed(1)+' '+cy.toFixed(1)+' '+b[0].toFixed(1)+' '+b[1].toFixed(1);segs.push(leg);d+=' Q'+cx.toFixed(1)+' '+cy.toFixed(1)+' '+b[0].toFixed(1)+' '+b[1].toFixed(1)}
+    function el(n,at){var e=document.createElementNS(NS,n);for(var k in at)e.setAttribute(k,at[k]);return e}
+    var svg=el('svg',{viewBox:'0 0 '+VW+' '+VH,focusable:'false'}),g=el('g',{});
+    for(i=0;i<=8;i++){g.appendChild(el('path',{class:'r-grid',d:'M'+(50+i*112.5)+' 30V'+(VH-30)}))}
+    for(i=0;i<=4;i++){g.appendChild(el('path',{class:'r-grid',d:'M30 '+(50+i*115)+'H'+(VW-30)}))}
+    svg.appendChild(g);
+    var base=el('path',{class:'r-base',d:d}),line=el('path',{class:'r-line',d:d});svg.appendChild(base);svg.appendChild(line);
+    var nodes=pts.map(function(p){var n=el('path',{class:'rn',d:'M'+p[0].toFixed(1)+' '+(p[1]-9).toFixed(1)+' L'+(p[0]+8).toFixed(1)+' '+(p[1]+6).toFixed(1)+' L'+(p[0]-8).toFixed(1)+' '+(p[1]+6).toFixed(1)+' Z'});svg.appendChild(n);return n});
+    var head=el('path',{class:'r-head',d:'M0 -12 L10 7 L-10 7 Z'});svg.appendChild(head);
+    var cap=document.createElement('div');cap.className='r-cap';cap.innerHTML='<b></b><span></span>';
+    box.appendChild(svg);box.appendChild(cap);
+    var total=line.getTotalLength(),cum=[0],tmp=el('path',{});svg.appendChild(tmp);
+    segs.forEach(function(s,k){tmp.setAttribute('d',s);cum.push(cum[k]+tmp.getTotalLength())});svg.removeChild(tmp);
+    var scale=total/cum[cum.length-1];cum=cum.map(function(v){return v*scale});
+    line.style.strokeDasharray=total;line.style.strokeDashoffset=total;
+    var curK=-1;
+    function txt(t,sel){var n=t.querySelector(sel);return n?n.textContent.replace(/\s+/g,' ').trim():''}
+    function upd(){
+      var rb=box.getBoundingClientRect(),r=list.getBoundingClientRect(),a=rb.bottom+8,den=r.height-(innerHeight-a);
+      var p=den>0?Math.max(0,Math.min(1,(a-r.top)/den)):0,kf=p*(LL.length-1),k=Math.floor(kf),f=kf-k;
+      if(k>=LL.length-1){k=LL.length-1;f=0}
+      var len=cum[k]+(k<LL.length-1?f*(cum[k+1]-cum[k]):0);
+      line.style.strokeDashoffset=Math.max(0,total-len);
+      var pnt=line.getPointAtLength(Math.max(.1,len));head.setAttribute('transform','translate('+pnt.x.toFixed(1)+' '+(pnt.y-2).toFixed(1)+')');
+      var near=Math.round(kf);
+      nodes.forEach(function(n,j){n.classList.toggle('on',j<=near)});
+      if(near!==curK){curK=near;tiles.forEach(function(t,j){t.classList.toggle('now',j===near)});
+        var t=tiles[near],day=txt(t,'.date b'),mon=txt(t,'.date span');
+        cap.firstChild.textContent=day+' '+mon+' · '+(t.querySelector('h3').firstChild.nodeValue||'').trim();
+        cap.lastChild.textContent=txt(t,'small')+' · '+String(near+1).padStart(2,'0')+'/'+LL.length}
+    }
+    var tick=false;function onS(){if(!tick){tick=true;requestAnimationFrame(function(){tick=false;upd()})}}
+    addEventListener('scroll',onS,{passive:true});addEventListener('resize',onS);upd();
+    window.__routeUpd=function(){curK=-1;upd()};
+  })();
+
+
+  // ---- gestures that need numbers: the poster deck, the counting dates, the sliding rider panels ----
+  document.querySelectorAll('.socials').forEach(function(l){[].slice.call(l.children).forEach(function(c,i){c.style.setProperty('--i',i)})});
+  function setDeck(){var g=document.querySelector('#posters .flyers');if(!g)return;var gr=g.getBoundingClientRect(),cx=gr.left+gr.width/2,cy=gr.top+gr.height/2;
+    [].slice.call(g.children).forEach(function(c,i){var r=c.getBoundingClientRect();c.style.setProperty('--tx',(cx-(r.left+r.width/2)).toFixed(0)+'px');c.style.setProperty('--ty',(cy-(r.top+r.height/2)).toFixed(0)+'px');c.style.setProperty('--tr',(((i*53)%31)-15)+'deg')})}
+  addEventListener('load',setDeck);addEventListener('resize',setDeck);setTimeout(setDeck,600);
+  (function(){var b=document.querySelector('#tour .date b');if(!b)return;var n=parseInt(b.textContent,10),done=false;
+    if(!n||!('IntersectionObserver' in window))return;
+    new IntersectionObserver(function(es,o){if(es[0].isIntersecting&&!done){done=true;o.disconnect();var t0=performance.now();
+      (function s(now){var p=Math.min(1,(now-t0)/1100),e=1-Math.pow(1-p,3);b.textContent=String(Math.round(n*e)).padStart(2,'0');if(p<1)requestAnimationFrame(s);else b.textContent=String(n)})(t0)}},{threshold:.5}).observe(b)})();
+  var cH=document.querySelector('#contact h2');
+  if(cH&&'IntersectionObserver' in window){var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){txtScramble(e.target,1100);co.unobserve(e.target)}})},{threshold:.5});co.observe(cH)}
+
+  // ---- scroll progress + fullscreen menu ----
+  var prog=document.getElementById('prog'),menu=document.getElementById('menu'),mbtn=document.getElementById('menuBtn');
+  function upProg(){var d=document.documentElement.scrollHeight-innerHeight;prog.style.transform='scaleX('+(d>0?Math.min(1,scrollY/d):0)+')'}
+  addEventListener('scroll',upProg,{passive:true});addEventListener('resize',upProg);upProg();
+  function menuSet(open){menu.hidden=false;requestAnimationFrame(function(){menu.classList.toggle('open',open)});
+    document.body.classList.toggle('menu-open',open);mbtn.setAttribute('aria-expanded',open);mbtn.firstChild.textContent=(window.__T||function(s){return s})(open?'Close':'Menu');mbtn.firstChild.__o=undefined;
+    if(!open)setTimeout(function(){if(!menu.classList.contains('open'))menu.hidden=true},380)}
+  mbtn.addEventListener('click',function(){menuSet(!menu.classList.contains('open'))});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menuSet(false)})});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open'))menuSet(false)});
+
+
+
+  // ---- click-to-play set (YouTube, no tracking until it is played) ----
+  var pl=document.getElementById('player');
+  if(pl){function playSet(){if(pl.classList.contains('on'))return;pl.classList.add('on');var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+pl.getAttribute('data-id')+'?autoplay=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title='Live at La Estación, Córdoba 2025';pl.appendChild(f)}
+    pl.addEventListener('click',playSet);pl.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();playSet()}})}
+
+  // ---- viewer for posters and press photos ----
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap'),lbDl=document.getElementById('lbDl');
+  var cur=[],ci=0;
+  function lbShow(i){ci=(i+cur.length)%cur.length;var a=cur[ci];lbImg.src=a.getAttribute('data-full');lbImg.alt=a.getAttribute('data-cap');lbCap.textContent=a.getAttribute('data-cap');lbDl.href=a.getAttribute('href')}
+  function lbOpen(list,i){cur=list;lb.hidden=false;document.body.classList.add('menu-open');lbShow(i);requestAnimationFrame(function(){lb.classList.add('open')})}
+  function lbClose(){lb.classList.remove('open');document.body.classList.remove('menu-open');setTimeout(function(){if(!lb.classList.contains('open'))lb.hidden=true},260)}
+  document.querySelectorAll('.gal').forEach(function(g){var list=[].slice.call(g.querySelectorAll('a.g[data-full]'));
+    list.forEach(function(a,i){a.addEventListener('click',function(e){e.preventDefault();lbOpen(list,i)})})});
+  document.getElementById('lbX').addEventListener('click',lbClose);
+  document.getElementById('lbP').addEventListener('click',function(){lbShow(ci-1)});
+  document.getElementById('lbN').addEventListener('click',function(){lbShow(ci+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)lbClose()});
+  addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')lbClose();if(e.key==='ArrowLeft')lbShow(ci-1);if(e.key==='ArrowRight')lbShow(ci+1)});
+
+
+  // ---- English / Spanish ----
+  var ES={"Menu":"Menú","Tour":"Fechas de","dates":"gira","Her":"Su","music":"música","& mixes":"y mixes","On the road":"En ruta","2026":"2026","Show":"Carteles de","posters":"shows","The":"La","artist":"artista","Tech &":"Técnico y","hospitality":"hospitalidad","Press":"Fotos de","photos":"prensa","Close":"Cerrar","Tour dates":"Fechas","Music":"Música","Live & mixes":"En vivo y mixes","2026 run":"Gira 2026","Posters":"Carteles","Bio":"Biografía","Riders":"Riders","Press":"Prensa","Press photos":"Fotos de prensa","Booking & contact":"Booking y contacto","Melodic house & melodic techno":"Melodic house y melodic techno","Hamburg · Official press kit":"Hamburgo · Press kit oficial","Listen":"Escuchar","Green mode":"Modo verde","Blue mode":"Modo azul","Instagram followers":"Seguidores en Instagram","Hamburg":"Hamburgo","Based in":"Radicada en","House & techno":"House y techno","London, United Kingdom":"Londres, Reino Unido","Tickets":"Entradas","All dates on Bandsintown":"Todas las fechas en Bandsintown","Out now":"Ya disponible","RSVP for the exclusive VIP stream and download":"Reserva tu lugar para el stream VIP exclusivo y la descarga","RSVP":"Reservar","Productions":"Producciones","Watch":"Ver","Extended Club Version":"Versión extendida club","Magdalena Remix":"Remix de Magdalena","Live sets · YouTube":"Sets en vivo · YouTube","Live at La Estación, Córdoba · 2025":"En vivo en La Estación, Córdoba · 2025","Live":"En vivo","Exclusive set":"Set exclusivo","Full set":"Set completo","Sunrise set":"Set del amanecer","Recap":"Resumen","Egypt":"Egipto","All videos":"Todos los videos","Her channel":"Su canal","Open":"Abrir","DJ mixes · SoundCloud":"Mixes de DJ · SoundCloud","DJ mix":"Mix de DJ","From her own post · Summer into fall":"De su propio post · Del verano al otoño","Santa Maria":"Santa María","AUG 2026":"AGO 2026","DEC 2026":"DIC 2026","Miami, United States":"Miami, Estados Unidos","Tap a poster to open it · download the original file":"Toca un cartel para abrirlo · descarga el archivo original","Rio de Janeiro":"Río de Janeiro","Belgrade":"Belgrado","London":"Londres","Munich":"Múnich","Cyprus":"Chipre","About the artist":"Sobre la artista","Awaiting from the artist":"Pendiente de la artista","Official bio goes here, exactly as supplied.":"Aquí va la biografía oficial, tal como la entregue la artista.","Interview":"Entrevista","Read":"Leer","Technical":"Técnico","Hospitality":"Hospitalidad","Technical rider":"Rider técnico","Hospitality rider":"Rider de hospitalidad","Not published online. Request it from booking:":"No está publicado online. Pídelo a booking:","Portrait":"Retrato","Studio portrait":"Retrato de estudio","Seated in the studio":"Sentada en el estudio","Profile portrait":"Retrato de perfil","Editorial portrait":"Retrato editorial","SHADOWS in the booth":"SHADOWS en cabina","In the booth":"En cabina","Set in Santiago":"Set en Santiago","Press portrait":"Retrato de prensa","View of the bridge":"Vista del puente","Editorial cover":"Portada editorial","PNG · download":"PNG · descargar","Let’s":"Hablemos","talk.":"ya.","Send your promos":"Envía tus promos","Magdalena at Metropole Talent":"Magdalena en Metropole Talent","Download original":"Descargar original","Press kit by Playskit ✦":"Press kit de Playskit ✦","Switch colour mode":"Cambiar modo de color","Play: Live at La Estación Córdoba 2025":"Reproducir: En vivo en La Estación, Córdoba 2025"},MON={"Jan": "ene", "Feb": "feb", "Mar": "mar", "Apr": "abr", "May": "may", "Jun": "jun", "Jul": "jul", "Aug": "ago", "Sep": "sep", "Oct": "oct", "Nov": "nov", "Dec": "dic"},lang='en';
+  function trs(s){
+    if(lang!=='es')return s;
+    if(ES.hasOwnProperty(s))return ES[s];
+    if(s.indexOf(' · ')>-1)return s.split(' · ').map(trs).join(' · ');
+    var m;
+    if((m=s.match(/^(\d{1,2}) (\w{3}) (\d{4})$/))&&MON[m[2]])return m[1]+' '+MON[m[2]]+' '+m[3];
+    if((m=s.match(/^(\d+)h (\d+)m$/)))return m[1]+' h '+m[2]+' min';
+    if((m=s.match(/^(\d+)m$/)))return m[1]+' min';
+    if((m=s.match(/^(.*), (BR|DE|ES|LB|UY|PY|CO|ME|AR)$/))&&ES.hasOwnProperty(m[1]))return ES[m[1]]+', '+m[2];
+    if((m=s.match(/^(.*), (Berlin|Ibiza)$/)))return trs(m[1])+', '+m[2];
+    return s;
+  }
+  function eachText(fn){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentElement;return(!p||/SCRIPT|STYLE|NOSCRIPT/.test(p.tagName)||!n.nodeValue.trim())?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT}}),a=[];while(w.nextNode())a.push(w.currentNode);a.forEach(fn)}
+  function applyLang(l){
+    lang=l;document.documentElement.lang=l==='es'?'es':'en-GB';
+    eachText(function(n){if(n.__o===undefined)n.__o=n.nodeValue;var o=n.__o,t=o.trim();if(!t)return;n.nodeValue=o.replace(t,trs(t))});
+    document.querySelectorAll('[data-cap],[aria-label]').forEach(function(e){
+      ['data-cap','aria-label'].forEach(function(a){var v=e.getAttribute(a);if(v===null)return;var k='__'+a;if(e[k]===undefined)e[k]=v;e.setAttribute(a,trs(e[k]))})});
+    document.querySelectorAll('img[alt]').forEach(function(e){if(e.__alt===undefined)e.__alt=e.alt;if(e.__alt&&e.getAttribute('data-cap')===null&&e.closest('a.g')){var p=e.closest('a.g');e.alt=(l==='es'?'Cartel/foto: ':'')+(p.getAttribute('data-cap')||e.__alt)}});
+    var lb=document.getElementById('langLbl');if(lb){var ii=lb.querySelectorAll('i');ii[0].className=l==='es'?'':'on';ii[1].className=l==='es'?'on':''}
+    if(window.__refreshLabels)window.__refreshLabels();
+    if(window.__routeUpd)window.__routeUpd();
+    try{localStorage.setItem('mg-lang',l)}catch(e){}
+  }
+  document.getElementById('langBtn').addEventListener('click',function(){applyLang(lang==='es'?'en':'es')});
+  window.__T=function(s){return trs(s)};
+
+
+  // ---- liquid background (green mode only) ----
+  (function(){
+    var cv=document.getElementById('liquid'),gl=null,uR,uT,uM,uS,raf=0,run=false,last=0,mx=.5,my=.5,sx=.5,sy=.5,ok=null;
+    var VS='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    var FS='precision mediump float;uniform vec2 uR;uniform float uT;uniform vec2 uM;uniform float uS;'+
+      'void main(){vec2 uv=(gl_FragCoord.xy-.5*uR)/min(uR.x,uR.y);float asp=uR.x/uR.y;float f=0.;'+
+      'for(int i=0;i<7;i++){float fi=float(i);vec2 c=vec2(sin(uT*.21+fi*1.9)*.62*asp+sin(uT*.13+fi)*.18,cos(uT*.17+fi*2.3)*.55-uS*(.25+fi*.07)+sin(uT*.11+fi*.7)*.16);'+
+      'if(i==0)c=(uM-.5)*vec2(asp,1.)*1.9;'+
+      'float r=.17+.05*sin(uT*.31+fi*1.3);vec2 d=uv-c;f+=r*r/(dot(d,d)+.0006);}'+
+      'vec3 base=vec3(.012,.055,.028);vec3 deep=vec3(.04,.30,.10);vec3 lime=vec3(.71,.95,.23);'+
+      'float body=smoothstep(.55,1.0,f);float edge=smoothstep(.96,1.04,f);float rim=smoothstep(.98,1.06,f)-smoothstep(1.06,1.5,f);'+
+      'vec3 col=base+deep*smoothstep(.15,.95,f)*.9;col=mix(col,lime*.55,body*.55);col=mix(col,lime*.95,edge*.55);col+=lime*rim*.8;'+
+      'col+=vec3(.06,.2,.12)*sin(uv.x*6.+uT*.4+f*3.)*.06*body;gl_FragColor=vec4(col,1.);}';
+    function sh(t,s){var o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);return gl.getShaderParameter(o,gl.COMPILE_STATUS)?o:null}
+    function init(){
+      if(ok!==null)return ok;
+      try{gl=cv.getContext('webgl',{antialias:false,alpha:false,powerPreference:'low-power'})}catch(e){gl=null}
+      if(!gl){ok=false;return false}
+      var v=sh(gl.VERTEX_SHADER,VS),f=sh(gl.FRAGMENT_SHADER,FS);if(!v||!f){ok=false;return false}
+      var pr=gl.createProgram();gl.attachShader(pr,v);gl.attachShader(pr,f);gl.linkProgram(pr);
+      if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){ok=false;return false}
+      gl.useProgram(pr);var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);
+      gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+      var a=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(a);gl.vertexAttribPointer(a,2,gl.FLOAT,false,0,0);
+      uR=gl.getUniformLocation(pr,'uR');uT=gl.getUniformLocation(pr,'uT');uM=gl.getUniformLocation(pr,'uM');uS=gl.getUniformLocation(pr,'uS');
+      ok=true;return true}
+    function size(){cv.width=Math.max(2,Math.round(innerWidth*.5));cv.height=Math.max(2,Math.round(innerHeight*.5));if(gl)gl.viewport(0,0,cv.width,cv.height)}
+    function frame(t){
+      if(!run)return;raf=requestAnimationFrame(frame);if(t-last<32)return;last=t;
+      sx+=(mx-sx)*.06;sy+=(my-sy)*.06;
+      gl.uniform2f(uR,cv.width,cv.height);gl.uniform1f(uT,t/1000);gl.uniform2f(uM,sx,sy);gl.uniform1f(uS,(window.scrollY||0)*.0009);
+      gl.drawArrays(gl.TRIANGLES,0,3)}
+    addEventListener('pointermove',function(e){mx=e.clientX/innerWidth;my=1-e.clientY/innerHeight},{passive:true});
+    addEventListener('resize',size);
+    document.addEventListener('visibilitychange',function(){if(document.hidden){run=false;cancelAnimationFrame(raf)}else if(cv.offsetParent!==null&&ok){run=true;raf=requestAnimationFrame(frame)}});
+    window.__liquid=function(on){
+      if(on){if(!init())return;size();if(!run){run=true;raf=requestAnimationFrame(frame)}}
+      else{run=false;cancelAnimationFrame(raf)}};
+  })();
+
+  // ---- mode switch: blue <-> green. Changes colours, hero design and the ORDER of the sections ----
+  var orders={blue:['tour','music','live','highlights','posters','bio','rider','press','contact'],green:['music','live','highlights','posters','tour','press','bio','rider','contact']};
+  var main=document.querySelector('main'),btn=document.getElementById('themeBtn'),lbl=document.getElementById('themeLbl');
+  function setMode(m,save){
+    root.setAttribute('data-theme',m);
+    orders[m].forEach(function(id){var el=document.getElementById(id);if(el)main.appendChild(el)});
+    main.querySelectorAll('section .n').forEach(function(n,i){n.textContent=('0'+(i+1)).slice(-2)});
+    lbl.textContent=(window.__T||function(s){return s})(m==='green'?'Blue mode':'Green mode');lbl.__o=undefined;
+    var ml=menu.querySelector('ol'),items={};ml.querySelectorAll('li').forEach(function(li){items[li.querySelector('a').getAttribute('href').slice(1)]=li});
+    orders[m].concat(['contact']).filter(function(v,i,a){return a.indexOf(v)===i}).forEach(function(id,i){var li=items[id];if(li){ml.appendChild(li);li.querySelector('b').textContent=('0'+(i+1)).slice(-2)}});
+    measure();setTimeout(function(){geo();fxUpdate()},60);if(window.__liquid)window.__liquid(m==='green');
+    if(save){try{localStorage.setItem('mg-mode',m)}catch(e){}}
+  }
+  btn.addEventListener('click',function(){setMode(root.getAttribute('data-theme')==='green'?'blue':'green',true)});
+  var saved=null;try{saved=localStorage.getItem('mg-mode')}catch(e){}
+  setMode(saved==='green'?'green':'blue',false);
+  window.__refreshLabels=function(){lbl.textContent=window.__T(root.getAttribute('data-theme')==='green'?'Blue mode':'Green mode');mbtn.firstChild.textContent=window.__T(menu.classList.contains('open')?'Close':'Menu')};
+  var savedL=null;try{savedL=localStorage.getItem('mg-lang')}catch(e){}
+  if(savedL==='es')applyLang('es');
+
+
+  document.querySelectorAll('.btn').forEach(function(b){
+    b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.3)+'px)'});
+    b.addEventListener('pointerleave',function(){b.style.transform=''});
+  });
+
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  } else els.forEach(function(e){e.classList.add('in')});
+
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(o){o.setAttribute('aria-selected',o===t)});
+    var dir=t.dataset.p==='hosp'?1:-1;document.querySelectorAll('.panel').forEach(function(p){var show=p.id===t.dataset.p;p.hidden=!show;if(show){p.style.setProperty('--pd',(dir*50)+'px');p.classList.remove('pin');void p.offsetWidth;p.classList.add('pin')}});
+  })});
+})();
+</script>
+</body>
+</html>
