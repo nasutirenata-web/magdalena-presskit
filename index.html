@@ -511,6 +511,67 @@ html[data-theme=green] section::after{content:"";position:absolute;z-index:0;poi
   background:#fff;opacity:.14;-webkit-mask:url(img/magdalena-vertical-rail.svg) top left/100% auto repeat-y;mask:url(img/magdalena-vertical-rail.svg) top left/100% auto repeat-y;transition:opacity .4s}
 html[data-theme=green] section:hover::after{opacity:.26}
 
+
+/* ---- green mode: her green photo is the whole background; it pans down to her feet as you scroll, and their black shadow stretches and sways ---- */
+.gbg{position:fixed;inset:0;z-index:0;display:none;pointer-events:none;overflow:hidden;background:#0a2a14}
+html[data-theme=green] .gbg{display:block}
+html[data-theme=green] .liquid{display:none!important}
+.gbg i{position:absolute;display:block}
+.gimg{inset:-3%;background:url(img/verde-2.jpg) 50% var(--py,0%)/cover no-repeat;filter:saturate(1.15) blur(1.2px);transform:translate3d(var(--gx,0px),0,0) scale(1.06)}
+.fshadow{left:calc(52% + var(--sx,0px));bottom:-12%;width:clamp(120px,24vmin,320px);height:var(--sh,38vh);transform:translateX(-50%) skewX(var(--sk,0deg));transform-origin:50% 100%;
+  background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.7) 38%,rgba(0,0,0,.28) 72%,transparent 100%);filter:blur(22px);opacity:.9}
+.gshade{inset:0;background:linear-gradient(180deg,rgba(2,16,7,.40) 0%,rgba(2,16,7,.58) 55%,rgba(2,12,5,.74) 100%)}
+
+
+/* ---- green cover: no box — the photo melts into the background photo; the vertical name is the live, glitching logo ---- */
+html[data-theme=green] .cover{clip-path:none;width:min(100%,640px)}
+html[data-theme=green] .cover .cv1>img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(180deg,transparent 0,#000 12%,#000 80%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(180deg,transparent 0,#000 12%,#000 80%,transparent 100%);mask-composite:intersect}
+.cover .vn{position:absolute;left:5%;top:7%;height:84%;width:auto;aspect-ratio:417/3840;-webkit-mask:none;mask:none;background:none;color:#fff;filter:drop-shadow(0 4px 22px rgba(0,30,10,.4));overflow:visible}
+/* the name repeats, transparent, down the whole page — a wide rail on each side */
+html[data-theme=green] section::after{left:max(0px,calc((100vw - 1180px)/2 - 120px));width:clamp(44px,7vw,104px);opacity:.10}
+html[data-theme=green] section::before{content:"";position:absolute;z-index:0;pointer-events:none;top:0;bottom:0;right:max(0px,calc((100vw - 1180px)/2 - 120px));width:clamp(44px,7vw,104px);background:#fff;opacity:.07;-webkit-mask:url(img/magdalena-vertical-rail.svg) top right/100% auto repeat-y;mask:url(img/magdalena-vertical-rail.svg) top right/100% auto repeat-y}
+html[data-theme=green] section:hover::after{opacity:.16}
+.gshade{background:linear-gradient(180deg,rgba(2,16,7,.12) 0%,rgba(2,16,7,.50) 45%,rgba(2,12,5,.72) 100%)!important}
+
+
+/* ---- her music: pick a type, then slide through it sideways ---- */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin:-8px 0 22px}
+.filters button{font-family:'Syncopate',sans-serif;font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:rgba(255,255,255,.06);border:0;padding:13px 22px;cursor:pointer;border-radius:999px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:inset 0 1px 0 rgba(255,255,255,.25);transition:background .25s,color .25s,transform .25s}
+.filters button:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
+.filters button[aria-pressed=true]{background:var(--lime);color:#0a0d11;box-shadow:0 0 28px rgba(var(--beam),.35)}
+.railwrap{position:relative}
+.rail{display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:8px 4px 22px;cursor:grab;overscroll-behavior-x:contain;outline:0}
+.rail::-webkit-scrollbar{display:none}
+.rail.drag{cursor:grabbing;scroll-snap-type:none}
+.rail .item{flex:0 0 clamp(236px,28vw,310px);scroll-snap-align:start;-webkit-user-select:none;user-select:none}
+.rail .item[hidden]{display:none!important}
+.rail img,.rail a{-webkit-user-drag:none}
+.rbtn{position:absolute;top:calc(50% - 30px);z-index:5;width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;color:#fff;font-size:26px;line-height:1;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.5),0 10px 30px rgba(0,0,0,.35);transition:transform .25s,background .25s,opacity .25s}
+.rbtn:hover{transform:scale(1.1);background:var(--lime);color:#0a0d11}
+.rprev{left:-14px}.rnext{right:-14px}
+.rbtn[disabled]{opacity:0;pointer-events:none}
+@media(max-width:700px){.rbtn{display:none}.rail .item{flex-basis:78%}}
+
+
+/* ---- press photos: a fan of overlapping photos in their own shape; hover opens it, drag or arrows slide it sideways ---- */
+.fan{display:flex!important;align-items:center;gap:0;overflow-x:auto;overflow-y:visible;padding:64px 40px 54px;scrollbar-width:none;cursor:grab;--fh:clamp(300px,46vh,440px);scroll-padding-left:40px;outline:0}
+.fan::-webkit-scrollbar{display:none}
+.fan.drag{cursor:grabbing}
+.fan a.g{flex:none;display:block;height:var(--fh);width:auto;aspect-ratio:auto;margin-left:calc(var(--fh)*-.36);border:0;border-radius:12px;background:var(--flyer);box-shadow:-16px 0 36px rgba(0,0,0,.48);transform-origin:50% 118%;transform:perspective(900px) translateY(var(--ty,0px)) rotate(var(--r,0deg)) scale(var(--s,1)) rotateY(var(--ry,0deg));transition:margin-left .75s cubic-bezier(.2,.7,.2,1),transform .55s cubic-bezier(.2,.7,.2,1),filter .4s,box-shadow .4s;-webkit-user-select:none;user-select:none}
+.fan a.g:first-child{margin-left:0}
+.fan a.g img{position:static;width:auto;height:100%;max-width:none;object-fit:cover;display:block;border-radius:inherit;-webkit-user-drag:none}
+.fan a.g:nth-child(7n+1){--r:-5deg;--ty:10px}.fan a.g:nth-child(7n+2){--r:-3deg;--ty:2px}.fan a.g:nth-child(7n+3){--r:-1deg;--ty:-6px}.fan a.g:nth-child(7n+4){--r:1deg;--ty:-10px}.fan a.g:nth-child(7n+5){--r:3deg;--ty:-4px}.fan a.g:nth-child(7n+6){--r:5deg;--ty:4px}.fan a.g:nth-child(7n){--r:2deg;--ty:12px}
+.fan:hover a.g,.fan.open a.g{margin-left:calc(var(--fh)*-.2)}
+.fan:hover a.g:first-child,.fan.open a.g:first-child{margin-left:0}
+.fan a.g.lens{box-shadow:0 26px 60px rgba(0,0,0,.6)}
+.fan .gl{position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .25s;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.28),transparent 52%)}
+.fan a.g.lens .gl{opacity:1}
+.fan .cap{opacity:0;transition:opacity .3s;border-radius:0 0 12px 12px}
+.fan a.g:hover .cap{opacity:1}
+.fanwrap .rbtn{top:calc(50% - 26px)}
+@media (hover:none){.fan a.g{margin-left:16px;--r:0deg;--ty:0px}.fan a.g:first-child{margin-left:0}.fan .cap{opacity:1}}
+@media(max-width:700px){.fan{--fh:clamp(260px,52vh,380px);padding:40px 16px 36px}}
+
 /* sections UNFOLD: they open from a centre line like a folded sheet, tiles then open one by one from a triangle corner */
 
 /* YouTube tiles + click-to-play set */
@@ -547,6 +608,7 @@ html[data-theme=green] section:hover::after{opacity:.26}
 <i class="progress" id="prog" aria-hidden="true"></i>
 <canvas class="smoke" id="smoke" aria-hidden="true"></canvas>
 <canvas class="liquid" id="liquid" aria-hidden="true"></canvas>
+<div class="gbg" id="gbg" aria-hidden="true"><i class="gimg"></i><i class="fshadow"></i><i class="gshade"></i></div>
 <div class="tri-bg" aria-hidden="true"></div>
 <nav>
   <a class="logo" href="#top">Magdalena</a>
@@ -581,8 +643,7 @@ html[data-theme=green] section:hover::after{opacity:.26}
         <svg class="wordmark l-front" viewBox="0 0 3840 417" role="img" aria-label="Magdalena"><use href="#wm"/></svg>
       </div>
       <div class="cover v-green" id="cover">
-        <span class="cv1"><img src="img/verde-1.jpg" alt="Magdalena in a black suit, looking back over her shoulder against a green haze" width="907" height="1402"><span class="vn" aria-hidden="true"></span></span>
-        <img src="img/verde-2.jpg" alt="Magdalena in profile, head tilted back, in green light" width="720" height="960" loading="lazy">
+        <span class="cv1"><img src="img/verde-1.jpg" alt="Magdalena in a black suit, looking back over her shoulder against a green haze" width="907" height="1402"><svg class="vn" viewBox="0 0 417 3840" aria-hidden="true"><g transform="translate(0 3840) rotate(-90)"><use href="#wm" width="3840" height="417"/></g></svg></span>
       </div>
     </div>
     <div class="row">
@@ -627,55 +688,63 @@ html[data-theme=green] section:hover::after{opacity:.26}
 <section id="music">
   <div class="wrap">
     <div class="sec-h rv"><span class="n">02</span><h2>Her <span class="ac">music</span></h2></div>
-    <div class="list rv">
-      <a class="item has-img disc tilt" href="https://open.spotify.com/track/1ZNkbSuEpmxNiU6pQGAVoL" target="_blank" rel="noopener" style="--img:url(https://i.scdn.co/image/ab67616d0000b273d5c27566d7b814a334a1637e);--cov:url(https://i.scdn.co/image/ab67616d0000b273d5c27566d7b814a334a1637e)"><span class="vin" aria-hidden="true"><i></i></span>
+    <div class="filters rv" role="group" aria-label="Filter her music">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="new" aria-pressed="false">Out now</button>
+      <button type="button" data-f="prod" aria-pressed="false">Productions</button>
+      <button type="button" data-f="remix" aria-pressed="false">Remixes</button>
+    </div>
+    <div class="railwrap rv">
+      <button type="button" class="rbtn rprev" aria-label="Previous">‹</button>
+      <div class="rail" id="mrail" tabindex="0">
+
+      <a data-k="new" class="item has-img disc tilt" href="https://open.spotify.com/track/1ZNkbSuEpmxNiU6pQGAVoL" target="_blank" rel="noopener" style="--img:url(https://i.scdn.co/image/ab67616d0000b273d5c27566d7b814a334a1637e);--cov:url(https://i.scdn.co/image/ab67616d0000b273d5c27566d7b814a334a1637e)"><span class="vin" aria-hidden="true"><i></i></span>
         <span class="mono">Out now</span>
         <h3>Tell Me How You Want It<small>Magdalena</small></h3>
         <span class="go">Spotify <i>→</i></span>
       </a>
-      <a class="item has-img disc tilt" href="https://www.beatport.com/de/release/four-to-the-floor-52/7346857" target="_blank" rel="noopener" style="--img:url(https://geo-media.beatport.com/image_size/500x500/29402253-342c-4bc4-813a-8a4ffc92529d.jpg);--cov:url(https://geo-media.beatport.com/image_size/500x500/29402253-342c-4bc4-813a-8a4ffc92529d.jpg)"><span class="vin" aria-hidden="true"><i></i></span>
+      <a data-k="new" class="item has-img disc tilt" href="https://www.beatport.com/de/release/four-to-the-floor-52/7346857" target="_blank" rel="noopener" style="--img:url(https://geo-media.beatport.com/image_size/500x500/29402253-342c-4bc4-813a-8a4ffc92529d.jpg);--cov:url(https://geo-media.beatport.com/image_size/500x500/29402253-342c-4bc4-813a-8a4ffc92529d.jpg)"><span class="vin" aria-hidden="true"><i></i></span>
         <span class="mono">Out now</span>
         <h3>Tell Me How You Want It<small>Magdalena</small></h3>
         <span class="go">Beatport <i>→</i></span>
       </a>
-      <a class="item has-img disc tilt" href="https://laylo.com/magdalena_ofc/FQdoAu" target="_blank" rel="noopener" style="--img:url(https://public.laylo.com/resized_drop_images/20261022-a8d5b6f356c1_640.jpeg);--cov:url(https://public.laylo.com/resized_drop_images/20261022-a8d5b6f356c1_640.jpeg)"><span class="vin" aria-hidden="true"><i></i></span>
+      <a data-k="new" class="item has-img disc tilt" href="https://laylo.com/magdalena_ofc/FQdoAu" target="_blank" rel="noopener" style="--img:url(https://public.laylo.com/resized_drop_images/20261022-a8d5b6f356c1_640.jpeg);--cov:url(https://public.laylo.com/resized_drop_images/20261022-a8d5b6f356c1_640.jpeg)"><span class="vin" aria-hidden="true"><i></i></span>
         <span class="mono">2026</span>
         <h3>Mountains Of Es Cubells Rework<small>RSVP for the exclusive VIP stream and download</small></h3>
         <span class="go">RSVP <i>→</i></span>
       </a>
+    
+      <a data-k="prod" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=1Vs1vAojQ84" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/1Vs1vAojQ84/hqdefault.jpg)"><span class="mono play">▶</span><h3>XXX Behavior<small>Original · Siona Records · 2025</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="prod" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=gKlW6AOuP4I" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/gKlW6AOuP4I/hqdefault.jpg)"><span class="mono play">▶</span><h3>Think About You All The Time<small>Extended Club Version</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="prod" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=grNt7BbYyP0" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/grNt7BbYyP0/hqdefault.jpg)"><span class="mono play">▶</span><h3>Elephantz<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="prod" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=Amjpd_W2gCY" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/Amjpd_W2gCY/hqdefault.jpg)"><span class="mono play">▶</span><h3>Bear&#x27;s Back<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="prod" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=RbdX3N-Wnzs" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/RbdX3N-Wnzs/hqdefault.jpg)"><span class="mono play">▶</span><h3>Nautilus<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="prod" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=76-jfmo0emo" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/76-jfmo0emo/hqdefault.jpg)"><span class="mono play">▶</span><h3>Radialis<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="prod" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=CwyxgztwQsw" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/CwyxgztwQsw/hqdefault.jpg)"><span class="mono play">▶</span><h3>Should I Stay<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
+      
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=n_38RC0w0Bo" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/n_38RC0w0Bo/hqdefault.jpg)"><span class="mono play">▶</span><h3>Moby · Why Does My Heart Feel So Bad<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=R9iwOQLUKus" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/R9iwOQLUKus/hqdefault.jpg)"><span class="mono play">▶</span><h3>Nicole Moudaber · The Sun at Midnight<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=N9HGnrjdICE" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/N9HGnrjdICE/hqdefault.jpg)"><span class="mono play">▶</span><h3>Hot Since 82 · Therapy<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=zB2N9XK5WUw" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/zB2N9XK5WUw/hqdefault.jpg)"><span class="mono play">▶</span><h3>Dave Seaman · Donkey Engine<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=gT5NUx8616A" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/gT5NUx8616A/hqdefault.jpg)"><span class="mono play">▶</span><h3>Innellea · Collapse<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=icHnXDHazRg" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/icHnXDHazRg/hqdefault.jpg)"><span class="mono play">▶</span><h3>BURAK · Maia<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=FHCHJh094Kc" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/FHCHJh094Kc/hqdefault.jpg)"><span class="mono play">▶</span><h3>Joan Retamero · Magnus<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=whT40HzTzCA" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/whT40HzTzCA/hqdefault.jpg)"><span class="mono play">▶</span><h3>Uncloak · Hollow<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=YRLoPzwOjmE" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/YRLoPzwOjmE/hqdefault.jpg)"><span class="mono play">▶</span><h3>NORR · Can&#x27;t Stand<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=3ryRQX7e-I0" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/3ryRQX7e-I0/hqdefault.jpg)"><span class="mono play">▶</span><h3>Brlee · Visions<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=iYZ1bC8n8Fs" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/iYZ1bC8n8Fs/hqdefault.jpg)"><span class="mono play">▶</span><h3>David Christopher · Shout<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=xro7NNsMy7U" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/xro7NNsMy7U/hqdefault.jpg)"><span class="mono play">▶</span><h3>Lessons · Double or Nothing<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=9jrMprEsQl0" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/9jrMprEsQl0/hqdefault.jpg)"><span class="mono play">▶</span><h3>Ida Engberg · Abataka<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      <a data-k="remix" class="item has-img yt tilt" href="https://www.youtube.com/watch?v=ovmSuRub670" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/ovmSuRub670/hqdefault.jpg)"><span class="mono play">▶</span><h3>Marc Houle · You Go Out<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
+      
+      </div>
+      <button type="button" class="rbtn rnext" aria-label="Next">›</button>
     </div>
     <div class="btns rv" style="margin-top:22px">
       <a class="btn ghost" href="https://open.spotify.com/intl-de/artist/4wlgF2WCCPNhQ0FpNwO3vc" target="_blank" rel="noopener"><span>Spotify</span></a>
       <a class="btn ghost" href="https://www.beatport.com/artist/magdalena-de/575841" target="_blank" rel="noopener"><span>Beatport</span></a>
       <a class="btn ghost" href="https://soundcloud.com/magdalena_diy" target="_blank" rel="noopener"><span>SoundCloud</span></a>
     </div>
-      <p class="mono sub rv">Productions</p>
-    <div class="list rv">
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=1Vs1vAojQ84" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/1Vs1vAojQ84/hqdefault.jpg)"><span class="mono play">▶</span><h3>XXX Behavior<small>Original · Siona Records · 2025</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=gKlW6AOuP4I" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/gKlW6AOuP4I/hqdefault.jpg)"><span class="mono play">▶</span><h3>Think About You All The Time<small>Extended Club Version</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=grNt7BbYyP0" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/grNt7BbYyP0/hqdefault.jpg)"><span class="mono play">▶</span><h3>Elephantz<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=Amjpd_W2gCY" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/Amjpd_W2gCY/hqdefault.jpg)"><span class="mono play">▶</span><h3>Bear&#x27;s Back<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=RbdX3N-Wnzs" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/RbdX3N-Wnzs/hqdefault.jpg)"><span class="mono play">▶</span><h3>Nautilus<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=76-jfmo0emo" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/76-jfmo0emo/hqdefault.jpg)"><span class="mono play">▶</span><h3>Radialis<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=CwyxgztwQsw" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/CwyxgztwQsw/hqdefault.jpg)"><span class="mono play">▶</span><h3>Should I Stay<small>Original Mix</small></h3><span class="go">Watch <i>→</i></span></a>
-      </div>
-    <p class="mono sub rv">Remixes</p>
-    <div class="list rv">
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=n_38RC0w0Bo" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/n_38RC0w0Bo/hqdefault.jpg)"><span class="mono play">▶</span><h3>Moby · Why Does My Heart Feel So Bad<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=R9iwOQLUKus" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/R9iwOQLUKus/hqdefault.jpg)"><span class="mono play">▶</span><h3>Nicole Moudaber · The Sun at Midnight<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=N9HGnrjdICE" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/N9HGnrjdICE/hqdefault.jpg)"><span class="mono play">▶</span><h3>Hot Since 82 · Therapy<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=zB2N9XK5WUw" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/zB2N9XK5WUw/hqdefault.jpg)"><span class="mono play">▶</span><h3>Dave Seaman · Donkey Engine<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=gT5NUx8616A" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/gT5NUx8616A/hqdefault.jpg)"><span class="mono play">▶</span><h3>Innellea · Collapse<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=icHnXDHazRg" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/icHnXDHazRg/hqdefault.jpg)"><span class="mono play">▶</span><h3>BURAK · Maia<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=FHCHJh094Kc" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/FHCHJh094Kc/hqdefault.jpg)"><span class="mono play">▶</span><h3>Joan Retamero · Magnus<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=whT40HzTzCA" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/whT40HzTzCA/hqdefault.jpg)"><span class="mono play">▶</span><h3>Uncloak · Hollow<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=YRLoPzwOjmE" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/YRLoPzwOjmE/hqdefault.jpg)"><span class="mono play">▶</span><h3>NORR · Can&#x27;t Stand<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=3ryRQX7e-I0" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/3ryRQX7e-I0/hqdefault.jpg)"><span class="mono play">▶</span><h3>Brlee · Visions<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=iYZ1bC8n8Fs" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/iYZ1bC8n8Fs/hqdefault.jpg)"><span class="mono play">▶</span><h3>David Christopher · Shout<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=xro7NNsMy7U" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/xro7NNsMy7U/hqdefault.jpg)"><span class="mono play">▶</span><h3>Lessons · Double or Nothing<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=9jrMprEsQl0" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/9jrMprEsQl0/hqdefault.jpg)"><span class="mono play">▶</span><h3>Ida Engberg · Abataka<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      <a class="item has-img yt tilt" href="https://www.youtube.com/watch?v=ovmSuRub670" target="_blank" rel="noopener" style="--img:url(https://i.ytimg.com/vi/ovmSuRub670/hqdefault.jpg)"><span class="mono play">▶</span><h3>Marc Houle · You Go Out<small>Magdalena Remix</small></h3><span class="go">Watch <i>→</i></span></a>
-      </div>
   </div>
 
 </section>
@@ -840,7 +909,10 @@ html[data-theme=green] section:hover::after{opacity:.26}
 <section id="press">
   <div class="wrap">
     <div class="sec-h rv"><span class="n">06</span><h2>Press <span class="ac">photos</span></h2></div>
-    <div class="flyers gal rv" data-gal="photos">
+    <p class="mono rv" style="margin:-18px 0 6px">Move over the fan · wheel, drag or edges to slide · tap a photo to open it</p>
+    <div class="railwrap fanwrap rv">
+      <button type="button" class="rbtn rprev" aria-label="Previous">‹</button>
+    <div class="flyers fan gal" data-gal="photos" id="pfan" tabindex="0">
       <a class="g" href="descargas/fotos/01.png" data-full="img/fotos/01.jpg" data-cap="DJ Mag · Portrait" download><img loading="lazy" decoding="async" src="img/fotos/01-t.jpg" alt="Press photo: DJ Mag, Portrait"><span class="cap">DJ Mag<small>Portrait</small></span></a>
       <a class="g" href="descargas/fotos/02.jpg" data-full="img/fotos/02.jpg" data-cap="Attack Magazine · Portrait" download><img loading="lazy" decoding="async" src="img/fotos/02-t.jpg" alt="Press photo: Attack Magazine, Portrait"><span class="cap">Attack Magazine<small>Portrait</small></span></a>
       <a class="g" href="descargas/fotos/03.jpg" data-full="img/fotos/03.jpg" data-cap="House Mag · Portrait" download><img loading="lazy" decoding="async" src="img/fotos/03-t.jpg" alt="Press photo: House Mag, Portrait"><span class="cap">House Mag<small>Portrait</small></span></a>
@@ -862,6 +934,8 @@ html[data-theme=green] section:hover::after{opacity:.26}
       <a class="g" href="descargas/fotos/19.jpg" data-full="img/fotos/19.jpg" data-cap="Mixmag Brasil · View of the bridge" download><img loading="lazy" decoding="async" src="img/fotos/19-t.jpg" alt="Press photo: Mixmag Brasil, View of the bridge"><span class="cap">Mixmag Brasil<small>View of the bridge</small></span></a>
       <a class="g" href="descargas/fotos/20.jpg" data-full="img/fotos/20.jpg" data-cap="Mixmag Brasil · Editorial cover" download><img loading="lazy" decoding="async" src="img/fotos/20-t.jpg" alt="Press photo: Mixmag Brasil, Editorial cover"><span class="cap">Mixmag Brasil<small>Editorial cover</small></span></a>
       <a class="g logo-tile" href="descargas/logo-magdalena.png" download="magdalena-logo.png"><svg viewBox="0 0 3840 417" aria-hidden="true"><use href="#wm"/></svg><span class="cap">Logo<small>PNG · download</small></span></a>
+    </div>
+      <button type="button" class="rbtn rnext" aria-label="Next">›</button>
     </div>
     <div class="btns rv" style="margin-top:22px"><a class="btn ghost" href="https://magdalenamerchedition.komi.io/" target="_blank" rel="noopener"><span>Merch — Magdalena Edition</span></a></div>
   </div>
@@ -1219,6 +1293,59 @@ html[data-theme=green] section:hover::after{opacity:.26}
       t.addEventListener('pointerleave',function(){t.style.setProperty('--rx','0deg');t.style.setProperty('--ry','0deg')})})
   })();
 
+
+  // ---- music rail: filter chips, arrows, drag to slide ----
+  (function(){
+    var rail=document.getElementById('mrail');if(!rail)return;var wrap=rail.parentNode,prev=wrap.querySelector('.rprev'),next=wrap.querySelector('.rnext'),chips=[].slice.call(document.querySelectorAll('#music .filters button'));
+    function edges(){var max=rail.scrollWidth-rail.clientWidth;prev.disabled=rail.scrollLeft<8;next.disabled=rail.scrollLeft>max-8}
+    function go(dir){rail.scrollBy({left:dir*Math.max(240,rail.clientWidth*.8),behavior:'smooth'})}
+    prev.addEventListener('click',function(){go(-1)});next.addEventListener('click',function(){go(1)});
+    rail.addEventListener('scroll',edges,{passive:true});addEventListener('resize',edges);
+    chips.forEach(function(b){b.addEventListener('click',function(){chips.forEach(function(c){c.setAttribute('aria-pressed',c===b?'true':'false')});
+      [].slice.call(rail.children).forEach(function(it){it.hidden=!(b.dataset.f==='all'||it.dataset.k===b.dataset.f)});
+      rail.scrollTo({left:0,behavior:'smooth'});setTimeout(edges,350)})});
+    var down=false,sx=0,sl=0,moved=0;
+    rail.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;down=true;moved=0;sx=e.clientX;sl=rail.scrollLeft});
+    addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>4){moved=1;rail.classList.add('drag')}if(moved)rail.scrollLeft=sl-dx});
+    addEventListener('pointerup',function(){if(!down)return;down=false;setTimeout(function(){rail.classList.remove('drag')},0)});
+    rail.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=0}},true);
+    rail.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){go(1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(-1);e.preventDefault()}});
+    setTimeout(edges,300);addEventListener('load',edges);
+  })();
+
+
+  // ---- press fan: drag to slide, arrows, opens on hover/after touch ----
+  (function(){
+    var fan=document.getElementById('pfan');if(!fan)return;var wrap=fan.parentNode,prev=wrap.querySelector('.rprev'),next=wrap.querySelector('.rnext');
+    function edges(){var max=fan.scrollWidth-fan.clientWidth;prev.disabled=fan.scrollLeft<8;next.disabled=fan.scrollLeft>max-8}
+    function go(d){fan.classList.add('open');fan.scrollBy({left:d*Math.max(260,fan.clientWidth*.7),behavior:'smooth'})}
+    prev.addEventListener('click',function(){go(-1)});next.addEventListener('click',function(){go(1)});
+    fan.addEventListener('scroll',edges,{passive:true});addEventListener('resize',edges);
+    var down=false,sx=0,sl=0,moved=0;
+    fan.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;down=true;moved=0;sx=e.clientX;sl=fan.scrollLeft});
+    addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>4){moved=1;fan.classList.add('drag')}if(moved)fan.scrollLeft=sl-dx});
+    addEventListener('pointerup',function(){if(!down)return;down=false;setTimeout(function(){fan.classList.remove('drag')},0)});
+    fan.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=0}},true);
+    fan.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){go(1);e.preventDefault()}else if(e.key==='ArrowLeft'){go(-1);e.preventDefault()}});
+    // lens: the photos near the cursor grow, lift and lean; the rest lean away like a real fan
+    var cards=[].slice.call(fan.querySelectorAll('a.g')),inside=false,ex=0,edgeT=0,px=0,py=0,pe=null;
+    cards.forEach(function(c){var g=document.createElement('span');g.className='gl';g.setAttribute('aria-hidden','true');c.appendChild(g)});
+    function lens(e){px=e.clientX;py=e.clientY;
+      cards.forEach(function(c){var r=c.getBoundingClientRect(),cx=r.left+r.width/2,d=(px-cx)/Math.max(120,r.width*.9),k=Math.exp(-d*d*1.1);
+        c.style.setProperty('--s',(1+.3*k).toFixed(3));c.style.setProperty('--ty',(-30*k).toFixed(1)+'px');c.style.setProperty('--r',(Math.max(-1,Math.min(1,d))*-5*(1-k*.8)).toFixed(2)+'deg');
+        c.style.zIndex=String(Math.round(k*100)+1);c.classList.toggle('lens',k>.82);
+        if(k>.82){var x=(px-r.left)/r.width,y=(py-r.top)/r.height;c.style.setProperty('--ry',((x-.5)*16).toFixed(1)+'deg');c.style.setProperty('--gx',(x*100).toFixed(0)+'%');c.style.setProperty('--gy',(y*100).toFixed(0)+'%')}else c.style.setProperty('--ry','0deg')});
+      var fr=fan.getBoundingClientRect(),z=Math.min(110,fr.width*.16);ex=px<fr.left+z?-(1-(px-fr.left)/z):(px>fr.right-z?(1-(fr.right-px)/z):0)}
+    function rest(){cards.forEach(function(c){['--s','--ty','--r','--ry','--gx','--gy'].forEach(function(p){c.style.removeProperty(p)});c.style.zIndex='';c.classList.remove('lens')});ex=0}
+    fan.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse'||down)return;inside=true;lens(e);if(!edgeT)edgeT=setInterval(function(){if(ex)fan.scrollLeft+=ex*16},16)});
+    fan.addEventListener('pointerleave',function(){inside=false;clearInterval(edgeT);edgeT=0;rest()});
+    fan.addEventListener('scroll',function(){if(inside&&px)lens({clientX:px,clientY:py})},{passive:true});
+    // the mouse wheel slides the fan sideways while there is room to slide
+    fan.addEventListener('wheel',function(e){if(Math.abs(e.deltaY)<=Math.abs(e.deltaX))return;var max=fan.scrollWidth-fan.clientWidth,d=e.deltaY;
+      if((d>0&&fan.scrollLeft<max-2)||(d<0&&fan.scrollLeft>2)){fan.scrollLeft+=d*1.2;e.preventDefault()}},{passive:false});
+    setTimeout(edges,400);addEventListener('load',edges);
+  })();
+
   // ---- scroll progress + fullscreen menu ----
   var prog=document.getElementById('prog'),menu=document.getElementById('menu'),mbtn=document.getElementById('menuBtn');
   function upProg(){var d=document.documentElement.scrollHeight-innerHeight;prog.style.transform='scaleX('+(d>0?Math.min(1,scrollY/d):0)+')'}
@@ -1253,7 +1380,7 @@ html[data-theme=green] section:hover::after{opacity:.26}
 
 
   // ---- English / Spanish ----
-  var ES={"Menu":"Menú","Follow":"Seguir","More":"Más","Link in bio":"Todos los links","Tickets · London":"Entradas · Londres","Tickets · Miami":"Entradas · Miami","Tour":"Fechas de","dates":"gira","Her":"Su","music":"música","& mixes":"y mixes","On the road":"En ruta","2026":"2026","Show":"Carteles de","posters":"shows","The":"La","artist":"artista","Tech &":"Técnico y","hospitality":"hospitalidad","Press":"Fotos de","photos":"prensa","Close":"Cerrar","Tour dates":"Fechas","Music":"Música","Live & mixes":"En vivo y mixes","2026 run":"Gira 2026","Posters":"Carteles","Bio":"Biografía","Riders":"Riders","Press":"Prensa","Press photos":"Fotos de prensa","Booking & contact":"Booking y contacto","Melodic techno, indie dance & deep house":"Melodic techno, indie dance y deep house","Hamburg · Official press kit":"Hamburgo · Press kit oficial","Listen":"Escuchar","Green mode":"Modo verde","Blue mode":"Modo azul","Instagram followers":"Seguidores en Instagram","Hamburg":"Hamburgo","Based in":"Radicada en","Indie dance & deep house":"Indie dance y deep house","London, United Kingdom":"Londres, Reino Unido","Tickets":"Entradas","All dates on Bandsintown":"Todas las fechas en Bandsintown","Out now":"Ya disponible","RSVP for the exclusive VIP stream and download":"Reserva tu lugar para el stream VIP exclusivo y la descarga","RSVP":"Reservar","Productions":"Producciones","Watch":"Ver","Extended Club Version":"Versión extendida club","Magdalena Remix":"Remix de Magdalena","Live sets · YouTube":"Sets en vivo · YouTube","Live at La Estación, Córdoba · 2025":"En vivo en La Estación, Córdoba · 2025","Live":"En vivo","Exclusive set":"Set exclusivo","Full set":"Set completo","Sunrise set":"Set del amanecer","Recap":"Resumen","Egypt":"Egipto","All videos":"Todos los videos","Her channel":"Su canal","Open":"Abrir","DJ mixes · SoundCloud":"Mixes de DJ · SoundCloud","DJ mix":"Mix de DJ","From her own post · Summer into fall":"De su propio post · Del verano al otoño","Santa Maria":"Santa María","AUG 2026":"AGO 2026","DEC 2026":"DIC 2026","Miami, United States":"Miami, Estados Unidos","Tap a poster to open it · download the original file":"Toca un cartel para abrirlo · descarga el archivo original","Rio de Janeiro":"Río de Janeiro","Belgrade":"Belgrado","London":"Londres","Munich":"Múnich","Cyprus":"Chipre","About the artist":"Sobre la artista","Awaiting from the artist":"Pendiente de la artista","Interview · Nasty Magazine":"Entrevista · Nasty Magazine","Outside the Box / Magdalena":"Outside the Box / Magdalena","“On instinct, identity and the freedom to evolve.”":"“Sobre el instinto, la identidad y la libertad de evolucionar.”","A club owner before she was a DJ, a crowd reader before she was a producer: Magdalena on running Hamburg’s EGO and learning music from the other side of the booth.":"Dueña de club antes que DJ, lectora de la pista antes que productora: Magdalena habla de dirigir el EGO de Hamburgo y de aprender música desde el otro lado de la cabina.","Read the interview":"Leer la entrevista","Germany":"Alemania","Argentina":"Argentina","Brazil":"Brasil","Serbia":"Serbia","United Kingdom":"Reino Unido","Spain":"España","Colombia":"Colombia","Indonesia":"Indonesia","United States":"Estados Unidos","Ecuador":"Ecuador","Cova Santa, Ibiza":"Cova Santa, Ibiza","11 Jul 2026":"11 jul 2026","10 Mar 2023":"10 mar 2023","31 Dec 2025":"31 dic 2025","19 Jul 2019":"19 jul 2019","16 Feb 2019":"16 feb 2019","24 Oct 2019":"24 oct 2019","Magdalena is a DJ, producer and promoter from Hamburg, working in the city’s deep melodic, indie dance, techno and house scenes since she was fifteen.":"Magdalena es DJ, productora y promotora de Hamburgo, y trabaja desde los quince años en las escenas melódica profunda, indie dance, techno y house de la ciudad.","She ran management, bookings and artist relations at the legendary EGO club, where she also played her first sets. Her music has come out on Diynamic, Mobilee, Kitball, Selador, Bedrock, Crosstown Rebels, Knee Deep In Sound, Anjunadeep and Mood, and “Should I Stay” on the 10 Years of Diynamic compilation (2016) still defines her sound: emotional, deep, and made for the dancefloor.":"Estuvo a cargo de la gestión, las reservas y la relación con artistas en el mítico club EGO, donde también tocó sus primeros sets. Su música salió en Diynamic, Mobilee, Kitball, Selador, Bedrock, Crosstown Rebels, Knee Deep In Sound, Anjunadeep y Mood, y “Should I Stay”, en el compilado 10 Years of Diynamic (2016), sigue definiendo su sonido: emotivo, profundo y hecho para la pista.","Her SHADOWS parties have travelled from Ibiza through Europe to North America, and her sets have reached Pacha and Amnesia in Ibiza, Watergate in Berlin, Melt, Tomorrowland and Sonus.":"Sus fiestas SHADOWS viajaron de Ibiza a Europa y Norteamérica, y sus sets llegaron a Pacha y Amnesia en Ibiza, Watergate en Berlín, Melt, Tomorrowland y Sonus.","Official bio goes here, exactly as supplied.":"Aquí va la biografía oficial, tal como la entregue la artista.","Interview":"Entrevista","Read":"Leer","Technical":"Técnico","Hospitality":"Hospitalidad","Technical rider":"Rider técnico","Hospitality rider":"Rider de hospitalidad","Not published online. Request it from booking:":"No está publicado online. Pídelo a booking:","Portrait":"Retrato","Studio portrait":"Retrato de estudio","Seated in the studio":"Sentada en el estudio","Profile portrait":"Retrato de perfil","Editorial portrait":"Retrato editorial","SHADOWS in the booth":"SHADOWS en cabina","In the booth":"En cabina","Set in Santiago":"Set en Santiago","Press portrait":"Retrato de prensa","View of the bridge":"Vista del puente","Editorial cover":"Portada editorial","PNG · download":"PNG · descargar","Let’s":"Hablemos","talk.":"ya.","Send your promos":"Envía tus promos","Magdalena at Metropole Talent":"Magdalena en Metropole Talent","Download original":"Descargar original","Press kit by Playskit ✦":"Press kit de Playskit ✦","Switch colour mode":"Cambiar modo de color","Play: Live at La Estación Córdoba 2025":"Reproducir: En vivo en La Estación, Córdoba 2025"},MON={"Jan": "ene", "Feb": "feb", "Mar": "mar", "Apr": "abr", "May": "may", "Jun": "jun", "Jul": "jul", "Aug": "ago", "Sep": "sep", "Oct": "oct", "Nov": "nov", "Dec": "dic"},lang='en';
+  var ES={"Menu":"Menú","Follow":"Seguir","More":"Más","Link in bio":"Todos los links","Tickets · London":"Entradas · Londres","Tickets · Miami":"Entradas · Miami","Tour":"Fechas de","dates":"gira","Her":"Su","music":"música","& mixes":"y mixes","On the road":"En ruta","2026":"2026","Show":"Carteles de","posters":"shows","The":"La","artist":"artista","Tech &":"Técnico y","hospitality":"hospitalidad","Press":"Fotos de","photos":"prensa","Close":"Cerrar","Tour dates":"Fechas","Music":"Música","Live & mixes":"En vivo y mixes","2026 run":"Gira 2026","Posters":"Carteles","Bio":"Biografía","Riders":"Riders","Press":"Prensa","Press photos":"Fotos de prensa","Booking & contact":"Booking y contacto","Melodic techno, indie dance & deep house":"Melodic techno, indie dance y deep house","Hamburg · Official press kit":"Hamburgo · Press kit oficial","Listen":"Escuchar","Green mode":"Modo verde","Blue mode":"Modo azul","Instagram followers":"Seguidores en Instagram","Hamburg":"Hamburgo","Based in":"Radicada en","Indie dance & deep house":"Indie dance y deep house","London, United Kingdom":"Londres, Reino Unido","Tickets":"Entradas","All dates on Bandsintown":"Todas las fechas en Bandsintown","Out now":"Ya disponible","RSVP for the exclusive VIP stream and download":"Reserva tu lugar para el stream VIP exclusivo y la descarga","RSVP":"Reservar","Productions":"Producciones","Watch":"Ver","Extended Club Version":"Versión extendida club","Magdalena Remix":"Remix de Magdalena","Live sets · YouTube":"Sets en vivo · YouTube","Live at La Estación, Córdoba · 2025":"En vivo en La Estación, Córdoba · 2025","Live":"En vivo","Exclusive set":"Set exclusivo","Full set":"Set completo","Sunrise set":"Set del amanecer","Recap":"Resumen","Egypt":"Egipto","All videos":"Todos los videos","Her channel":"Su canal","Open":"Abrir","DJ mixes · SoundCloud":"Mixes de DJ · SoundCloud","DJ mix":"Mix de DJ","From her own post · Summer into fall":"De su propio post · Del verano al otoño","Santa Maria":"Santa María","AUG 2026":"AGO 2026","DEC 2026":"DIC 2026","Miami, United States":"Miami, Estados Unidos","Tap a poster to open it · download the original file":"Toca un cartel para abrirlo · descarga el archivo original","Rio de Janeiro":"Río de Janeiro","Belgrade":"Belgrado","London":"Londres","Munich":"Múnich","Cyprus":"Chipre","About the artist":"Sobre la artista","Awaiting from the artist":"Pendiente de la artista","Move over the fan · wheel, drag or edges to slide · tap a photo to open it":"Pasá el mouse por el abanico · rueda, arrastre o los bordes para deslizar · tocá una foto para abrirla","All":"Todo","Out now":"Ya salió","Productions":"Producciones","Remixes":"Remixes","Previous":"Anterior","Next":"Siguiente","Interview · Nasty Magazine":"Entrevista · Nasty Magazine","Outside the Box / Magdalena":"Outside the Box / Magdalena","“On instinct, identity and the freedom to evolve.”":"“Sobre el instinto, la identidad y la libertad de evolucionar.”","A club owner before she was a DJ, a crowd reader before she was a producer: Magdalena on running Hamburg’s EGO and learning music from the other side of the booth.":"Dueña de club antes que DJ, lectora de la pista antes que productora: Magdalena habla de dirigir el EGO de Hamburgo y de aprender música desde el otro lado de la cabina.","Read the interview":"Leer la entrevista","Germany":"Alemania","Argentina":"Argentina","Brazil":"Brasil","Serbia":"Serbia","United Kingdom":"Reino Unido","Spain":"España","Colombia":"Colombia","Indonesia":"Indonesia","United States":"Estados Unidos","Ecuador":"Ecuador","Cova Santa, Ibiza":"Cova Santa, Ibiza","11 Jul 2026":"11 jul 2026","10 Mar 2023":"10 mar 2023","31 Dec 2025":"31 dic 2025","19 Jul 2019":"19 jul 2019","16 Feb 2019":"16 feb 2019","24 Oct 2019":"24 oct 2019","Magdalena is a DJ, producer and promoter from Hamburg, working in the city’s deep melodic, indie dance, techno and house scenes since she was fifteen.":"Magdalena es DJ, productora y promotora de Hamburgo, y trabaja desde los quince años en las escenas melódica profunda, indie dance, techno y house de la ciudad.","She ran management, bookings and artist relations at the legendary EGO club, where she also played her first sets. Her music has come out on Diynamic, Mobilee, Kitball, Selador, Bedrock, Crosstown Rebels, Knee Deep In Sound, Anjunadeep and Mood, and “Should I Stay” on the 10 Years of Diynamic compilation (2016) still defines her sound: emotional, deep, and made for the dancefloor.":"Estuvo a cargo de la gestión, las reservas y la relación con artistas en el mítico club EGO, donde también tocó sus primeros sets. Su música salió en Diynamic, Mobilee, Kitball, Selador, Bedrock, Crosstown Rebels, Knee Deep In Sound, Anjunadeep y Mood, y “Should I Stay”, en el compilado 10 Years of Diynamic (2016), sigue definiendo su sonido: emotivo, profundo y hecho para la pista.","Her SHADOWS parties have travelled from Ibiza through Europe to North America, and her sets have reached Pacha and Amnesia in Ibiza, Watergate in Berlin, Melt, Tomorrowland and Sonus.":"Sus fiestas SHADOWS viajaron de Ibiza a Europa y Norteamérica, y sus sets llegaron a Pacha y Amnesia en Ibiza, Watergate en Berlín, Melt, Tomorrowland y Sonus.","Official bio goes here, exactly as supplied.":"Aquí va la biografía oficial, tal como la entregue la artista.","Interview":"Entrevista","Read":"Leer","Technical":"Técnico","Hospitality":"Hospitalidad","Technical rider":"Rider técnico","Hospitality rider":"Rider de hospitalidad","Not published online. Request it from booking:":"No está publicado online. Pídelo a booking:","Portrait":"Retrato","Studio portrait":"Retrato de estudio","Seated in the studio":"Sentada en el estudio","Profile portrait":"Retrato de perfil","Editorial portrait":"Retrato editorial","SHADOWS in the booth":"SHADOWS en cabina","In the booth":"En cabina","Set in Santiago":"Set en Santiago","Press portrait":"Retrato de prensa","View of the bridge":"Vista del puente","Editorial cover":"Portada editorial","PNG · download":"PNG · descargar","Let’s":"Hablemos","talk.":"ya.","Send your promos":"Envía tus promos","Magdalena at Metropole Talent":"Magdalena en Metropole Talent","Download original":"Descargar original","Press kit by Playskit ✦":"Press kit de Playskit ✦","Switch colour mode":"Cambiar modo de color","Play: Live at La Estación Córdoba 2025":"Reproducir: En vivo en La Estación, Córdoba 2025"},MON={"Jan": "ene", "Feb": "feb", "Mar": "mar", "Apr": "abr", "May": "may", "Jun": "jun", "Jul": "jul", "Aug": "ago", "Sep": "sep", "Oct": "oct", "Nov": "nov", "Dec": "dic"},lang='en';
   function trs(s){
     if(lang!=='es')return s;
     if(ES.hasOwnProperty(s))return ES[s];
@@ -1362,6 +1489,19 @@ html[data-theme=green] section:hover::after{opacity:.26}
       else{run=false;cancelAnimationFrame(raf)}};
   })();
 
+
+  // ---- green background: pan down the photo with the scroll; the feet's shadow stretches and sways ----
+  (function(){
+    var root=document.getElementById('gbg');if(!root)return;var img=root.querySelector('.gimg'),sh=root.querySelector('.fshadow'),tm=0,mx=.5;
+    addEventListener('pointermove',function(e){mx=e.clientX/innerWidth},{passive:true});
+    function tick(){var max=Math.max(1,document.documentElement.scrollHeight-innerHeight),p=Math.min(1,Math.max(0,(window.scrollY||0)/max)),t=Date.now();
+      img.style.setProperty('--py',(p*100).toFixed(2)+'%');img.style.setProperty('--gx',((mx-.5)*-22).toFixed(1)+'px');
+      sh.style.setProperty('--sh',(34+p*52).toFixed(1)+'vh');
+      sh.style.setProperty('--sx',(Math.sin(t/1700)*innerWidth*.022+(mx-.5)*innerWidth*.05).toFixed(1)+'px');
+      sh.style.setProperty('--sk',(Math.sin(t/2300)*7+(mx-.5)*8).toFixed(2)+'deg')}
+    window.__gbg=function(on){clearInterval(tm);tm=0;if(on){tick();tm=setInterval(tick,40)}};
+  })();
+
   // ---- mode switch: blue <-> green. Changes colours, hero design and the ORDER of the sections ----
   var orders={blue:['tour','music','live','highlights','posters','bio','rider','press','contact'],green:['music','live','highlights','posters','tour','press','bio','rider','contact']};
   var main=document.querySelector('main'),btn=document.getElementById('themeBtn'),lbl=document.getElementById('themeLbl');
@@ -1372,7 +1512,7 @@ html[data-theme=green] section:hover::after{opacity:.26}
     lbl.textContent=(window.__T||function(s){return s})(m==='green'?'Blue mode':'Green mode');lbl.__o=undefined;
     var ml=menu.querySelector('ol'),items={};ml.querySelectorAll('li').forEach(function(li){items[li.querySelector('a').getAttribute('href').slice(1)]=li});
     orders[m].concat(['contact']).filter(function(v,i,a){return a.indexOf(v)===i}).forEach(function(id,i){var li=items[id];if(li){ml.appendChild(li);li.querySelector('b').textContent=('0'+(i+1)).slice(-2)}});
-    measure();setTimeout(function(){geo();fxUpdate()},60);if(window.__liquid)window.__liquid(m==='green');if(window.__smoke)window.__smoke(m!=='green');
+    measure();setTimeout(function(){geo();fxUpdate()},60);if(window.__liquid)window.__liquid(false);if(window.__gbg)window.__gbg(m==='green');if(window.__smoke)window.__smoke(m!=='green');
     if(save){try{localStorage.setItem('mg-mode',m)}catch(e){}}
   }
   btn.addEventListener('click',function(){setMode(root.getAttribute('data-theme')==='green'?'blue':'green',true)});
