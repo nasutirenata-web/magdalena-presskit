@@ -90,6 +90,7 @@ section{padding:clamp(64px,10vw,130px) 0}
 .sec-h h2{font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(34px,6vw,76px);letter-spacing:-.03em;line-height:1;text-transform:uppercase}
 .sub{margin:44px 0 14px}
 
+.bio-t{max-width:62ch;font-size:clamp(17px,1.5vw,21px);line-height:1.6;color:var(--ink);margin:0 0 18px}
 .todo{border:1px dashed var(--line);padding:22px;color:var(--mute);border-radius:6px}
 .todo b{display:block;color:var(--lime);font-family:'DM Mono';font-size:11px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;font-weight:500}
 
@@ -352,17 +353,25 @@ html[data-theme=green] .fx{display:none!important}
 
 
 /* ---- the 2026 run as a route: a line that travels city to city while you scroll the dates ---- */
-.routebox{position:sticky;top:62px;z-index:6;margin:0 0 18px;padding:12px 14px 10px;border:1px solid var(--line);background:var(--nav);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
-  clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px))}
+/* liquid glass: only the map square — clear frosted pane, bright specular rim, soft inner glow */
+.routebox{position:sticky;top:62px;z-index:6;margin:0 0 18px}
+.r-map{position:relative;border-radius:30px;isolation:isolate;overflow:hidden;padding:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,.02) 38%,rgba(255,255,255,.01) 62%,rgba(255,255,255,.07) 100%);
+  -webkit-backdrop-filter:blur(8px) saturate(170%) brightness(1.05);backdrop-filter:blur(8px) saturate(170%) brightness(1.05);
+  box-shadow:inset 0 1.5px 0 rgba(255,255,255,.6),inset 0 -1.5px 0 rgba(255,255,255,.16),inset 1.5px 0 0 rgba(255,255,255,.26),inset -1.5px 0 0 rgba(255,255,255,.10),inset 0 0 30px rgba(255,255,255,.05),0 18px 50px rgba(0,0,0,.30),0 2px 10px rgba(0,0,0,.2)}
+.r-map::before{content:"";position:absolute;inset:0;z-index:1;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(120% 70% at 18% -10%,rgba(255,255,255,.18),transparent 55%),radial-gradient(90% 60% at 100% 120%,rgba(var(--beam),.14),transparent 60%)}
 .routebox:empty{display:none}
-.routebox svg{width:100%;height:auto;max-height:34vh;display:block}
-.routebox .r-grid{stroke:rgba(var(--beam),.10);stroke-width:1;fill:none}
+.routebox svg{width:100%;height:auto;max-height:36vh;display:block}
+.routebox .rl{fill:#fff;font-family:'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;paint-order:stroke;stroke:rgba(5,12,20,.75);stroke-linejoin:round;pointer-events:none;opacity:0;transition:opacity .35s}
+.routebox .rl.v{opacity:1}
+.routebox .r-grid{stroke:rgba(var(--beam),.16);fill:none}
 .routebox .r-base{stroke:rgba(var(--beam),.28);fill:none;stroke-width:1.2;stroke-dasharray:3 7}
 .routebox .r-line{stroke:var(--lime);fill:none;stroke-width:2.2;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(var(--beam),.7))}
 .routebox .rn{fill:rgba(var(--beam),.30);transition:fill .3s}
 .routebox .rn.on{fill:var(--lime)}
 .routebox .r-head{fill:#fff;filter:drop-shadow(0 0 8px rgba(var(--beam),.9))}
-.r-cap{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.r-cap{text-shadow:0 1px 10px rgba(0,0,0,.7);display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
 .r-cap b{font-weight:500;color:var(--lime)}
 .r-cap span{color:var(--mute);white-space:nowrap}
 #highlights .item.now{border-color:var(--lime);box-shadow:0 0 0 1px var(--lime),0 0 44px rgba(var(--beam),.28)}
@@ -687,7 +696,9 @@ h2.glitching .ac,h2.glitching{color:transparent}
     <div class="sec-h rv"><span class="n">04</span><h2>The <span class="ac">artist</span></h2></div>
     <div class="bio rv">
       <p class="mono">About the artist</p>
-      <div class="todo"><b>Awaiting from the artist</b>Official bio goes here, exactly as supplied.</div>
+      <p class="bio-t">Magdalena is a DJ, producer and promoter from Hamburg, working in the city’s deep melodic, indie dance, techno and house scenes since she was fifteen.</p>
+      <p class="bio-t">She ran management, bookings and artist relations at the legendary EGO club, where she also played her first sets. Her music has come out on Diynamic, Mobilee, Kitball, Selador, Bedrock, Crosstown Rebels, Knee Deep In Sound, Anjunadeep and Mood, and “Should I Stay” on the 10 Years of Diynamic compilation (2016) still defines her sound: emotional, deep, and made for the dancefloor.</p>
+      <p class="bio-t">Her SHADOWS parties have travelled from Ibiza through Europe to North America, and her sets have reached Pacha and Amnesia in Ibiza, Watergate in Berlin, Melt, Tomorrowland and Sonus.</p>
     </div>
     <p class="mono sub rv">Press</p>
     <div class="list rv">
@@ -977,19 +988,39 @@ h2.glitching .ac,h2.glitching{color:transparent}
     for(i=1;i<pts.length;i++){var a=pts[i-1],b=pts[i],mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2,dist=Math.hypot(b[0]-a[0],b[1]-a[1]),cx=mx,cy=my-Math.min(dist*.30,120)-4;
       var leg='M'+a[0].toFixed(1)+' '+a[1].toFixed(1)+' Q'+cx.toFixed(1)+' '+cy.toFixed(1)+' '+b[0].toFixed(1)+' '+b[1].toFixed(1);segs.push(leg);d+=' Q'+cx.toFixed(1)+' '+cy.toFixed(1)+' '+b[0].toFixed(1)+' '+b[1].toFixed(1)}
     function el(n,at){var e=document.createElementNS(NS,n);for(var k in at)e.setAttribute(k,at[k]);return e}
-    var svg=el('svg',{viewBox:'0 0 '+VW+' '+VH,focusable:'false'}),g=el('g',{});
-    for(i=0;i<=8;i++){g.appendChild(el('path',{class:'r-grid',d:'M'+(50+i*112.5)+' 30V'+(VH-30)}))}
-    for(i=0;i<=4;i++){g.appendChild(el('path',{class:'r-grid',d:'M30 '+(50+i*115)+'H'+(VW-30)}))}
+    var svg=el('svg',{viewBox:'0 0 '+VW+' '+VH,focusable:'false'}),g=el('g',{}),grids=[];
+    for(i=-4;i<=12;i++){var gv=el('path',{class:'r-grid',d:'M'+(50+i*112.5)+' -400V'+(VH+400)});grids.push(gv);g.appendChild(gv)}
+    for(i=-4;i<=8;i++){var gh=el('path',{class:'r-grid',d:'M-500 '+(50+i*115)+'H'+(VW+500)});grids.push(gh);g.appendChild(gh)}
     svg.appendChild(g);
     var base=el('path',{class:'r-base',d:d}),line=el('path',{class:'r-line',d:d});svg.appendChild(base);svg.appendChild(line);
-    var nodes=pts.map(function(p){var n=el('path',{class:'rn',d:'M'+p[0].toFixed(1)+' '+(p[1]-9).toFixed(1)+' L'+(p[0]+8).toFixed(1)+' '+(p[1]+6).toFixed(1)+' L'+(p[0]-8).toFixed(1)+' '+(p[1]+6).toFixed(1)+' Z'});svg.appendChild(n);return n});
+    var nodes=pts.map(function(p){var n=el('path',{class:'rn',d:'M0 -9 L8 6 L-8 6 Z'});svg.appendChild(n);return n});
+    var labels=pts.map(function(p){var t=el('text',{class:'rl'});svg.appendChild(t);return t});
     var head=el('path',{class:'r-head',d:'M0 -12 L10 7 L-10 7 Z'});svg.appendChild(head);
     var cap=document.createElement('div');cap.className='r-cap';cap.innerHTML='<b></b><span></span>';
-    box.appendChild(svg);box.appendChild(cap);
+    var map=document.createElement('div');map.className='r-map';map.appendChild(svg);box.appendChild(map);box.appendChild(cap);
     var total=line.getTotalLength(),cum=[0],tmp=el('path',{});svg.appendChild(tmp);
     segs.forEach(function(s,k){tmp.setAttribute('d',s);cum.push(cum[k]+tmp.getTotalLength())});svg.removeChild(tmp);
     var scale=total/cum[cum.length-1];cum=cum.map(function(v){return v*scale});
     line.style.strokeDasharray=total;line.style.strokeDashoffset=total;
+    // camera: the map zooms in on each city as you reach it and pulls back while the line travels
+    var HR=VH/VW,vb={x:0,y:0,w:VW},tg={x:0,y:0,w:VW},hp={x:pts[0][0],y:pts[0][1]},zr=0,zOn=false;
+    function render(){
+      var w=vb.w,hh=w*HR,cw=svg.clientWidth||900,k=w/cw;
+      svg.setAttribute('viewBox',vb.x.toFixed(1)+' '+vb.y.toFixed(1)+' '+w.toFixed(1)+' '+hh.toFixed(1));
+      line.style.strokeWidth=(2.4*k).toFixed(2);base.style.strokeWidth=(1.2*k).toFixed(2);base.style.strokeDasharray=(3*k).toFixed(2)+' '+(7*k).toFixed(2);
+      grids.forEach(function(q){q.style.strokeWidth=k.toFixed(2)});
+      nodes.forEach(function(n,j){n.setAttribute('transform','translate('+pts[j][0].toFixed(1)+' '+pts[j][1].toFixed(1)+') scale('+(k*1.15).toFixed(3)+')')});
+      head.setAttribute('transform','translate('+hp.x.toFixed(1)+' '+(hp.y-2*k).toFixed(1)+') scale('+(k*1.2).toFixed(3)+')');
+      var zoomed=VW/w>1.6;
+      labels.forEach(function(t,j){var p=pts[j],inside=p[0]>vb.x&&p[0]<vb.x+w&&p[1]>vb.y&&p[1]<vb.y+hh;
+        t.setAttribute('x',(p[0]+13*k).toFixed(1));t.setAttribute('y',(p[1]+4*k).toFixed(1));t.style.fontSize=(12*k).toFixed(2)+'px';t.style.strokeWidth=(3.5*k).toFixed(2);
+        t.classList.toggle('v',zoomed&&inside)})}
+    function step(){zr=0;var dx=tg.x-vb.x,dy=tg.y-vb.y,dw=tg.w-vb.w;
+      if(Math.abs(dx)+Math.abs(dy)+Math.abs(dw)<.4){vb.x=tg.x;vb.y=tg.y;vb.w=tg.w;render();zOn=false;return}
+      vb.x+=dx*.16;vb.y+=dy*.16;vb.w+=dw*.16;render();zr=requestAnimationFrame(step)}
+    function aim(px,py,f,atEnd){var c=atEnd?1:Math.pow(Math.cos(Math.PI*f),2),Z=1.3+1.9*c,w=VW/Z,hh=w*HR;
+      tg.w=w;tg.x=Math.max(0,Math.min(VW-w,px-w/2));tg.y=Math.max(0,Math.min(VH-hh,py-hh/2));
+      if(!zOn){zOn=true;zr=requestAnimationFrame(step)}}
     var curK=-1;
     function txt(t,sel){var n=t.querySelector(sel);return n?n.textContent.replace(/\s+/g,' ').trim():''}
     function upd(){
@@ -998,16 +1029,17 @@ h2.glitching .ac,h2.glitching{color:transparent}
       if(k>=LL.length-1){k=LL.length-1;f=0}
       var len=cum[k]+(k<LL.length-1?f*(cum[k+1]-cum[k]):0);
       line.style.strokeDashoffset=Math.max(0,total-len);
-      var pnt=line.getPointAtLength(Math.max(.1,len));head.setAttribute('transform','translate('+pnt.x.toFixed(1)+' '+(pnt.y-2).toFixed(1)+')');
+      var pnt=line.getPointAtLength(Math.max(.1,len));hp.x=pnt.x;hp.y=pnt.y;aim(pnt.x,pnt.y,f,k>=LL.length-1);if(!zOn)render();
       var near=Math.round(kf);
       nodes.forEach(function(n,j){n.classList.toggle('on',j<=near)});
       if(near!==curK){curK=near;tiles.forEach(function(t,j){t.classList.toggle('now',j===near)});
         var t=tiles[near],day=txt(t,'.date b'),mon=txt(t,'.date span');
         cap.firstChild.textContent=day+' '+mon+' · '+(t.querySelector('h3').firstChild.nodeValue||'').trim();
-        cap.lastChild.textContent=txt(t,'small')+' · '+String(near+1).padStart(2,'0')+'/'+LL.length}
+        cap.lastChild.textContent=txt(t,'small')+' · '+String(near+1).padStart(2,'0')+'/'+LL.length;
+        tiles.forEach(function(tt,j){labels[j].textContent=txt(tt,'small').split(',')[0]})}
     }
     var tick=false;function onS(){if(!tick){tick=true;requestAnimationFrame(function(){tick=false;upd()})}}
-    addEventListener('scroll',onS,{passive:true});addEventListener('resize',onS);upd();
+    addEventListener('scroll',onS,{passive:true});addEventListener('resize',onS);upd();vb.x=tg.x;vb.y=tg.y;vb.w=tg.w;render();
     window.__routeUpd=function(){curK=-1;upd()};
   })();
 
@@ -1082,7 +1114,7 @@ h2.glitching .ac,h2.glitching{color:transparent}
 
 
   // ---- English / Spanish ----
-  var ES={"Menu":"Menú","Follow":"Seguir","More":"Más","Link in bio":"Todos los links","Tickets · London":"Entradas · Londres","Tickets · Miami":"Entradas · Miami","Tour":"Fechas de","dates":"gira","Her":"Su","music":"música","& mixes":"y mixes","On the road":"En ruta","2026":"2026","Show":"Carteles de","posters":"shows","The":"La","artist":"artista","Tech &":"Técnico y","hospitality":"hospitalidad","Press":"Fotos de","photos":"prensa","Close":"Cerrar","Tour dates":"Fechas","Music":"Música","Live & mixes":"En vivo y mixes","2026 run":"Gira 2026","Posters":"Carteles","Bio":"Biografía","Riders":"Riders","Press":"Prensa","Press photos":"Fotos de prensa","Booking & contact":"Booking y contacto","Melodic techno, indie dance & deep house":"Melodic techno, indie dance y deep house","Hamburg · Official press kit":"Hamburgo · Press kit oficial","Listen":"Escuchar","Green mode":"Modo verde","Blue mode":"Modo azul","Instagram followers":"Seguidores en Instagram","Hamburg":"Hamburgo","Based in":"Radicada en","Indie dance & deep house":"Indie dance y deep house","London, United Kingdom":"Londres, Reino Unido","Tickets":"Entradas","All dates on Bandsintown":"Todas las fechas en Bandsintown","Out now":"Ya disponible","RSVP for the exclusive VIP stream and download":"Reserva tu lugar para el stream VIP exclusivo y la descarga","RSVP":"Reservar","Productions":"Producciones","Watch":"Ver","Extended Club Version":"Versión extendida club","Magdalena Remix":"Remix de Magdalena","Live sets · YouTube":"Sets en vivo · YouTube","Live at La Estación, Córdoba · 2025":"En vivo en La Estación, Córdoba · 2025","Live":"En vivo","Exclusive set":"Set exclusivo","Full set":"Set completo","Sunrise set":"Set del amanecer","Recap":"Resumen","Egypt":"Egipto","All videos":"Todos los videos","Her channel":"Su canal","Open":"Abrir","DJ mixes · SoundCloud":"Mixes de DJ · SoundCloud","DJ mix":"Mix de DJ","From her own post · Summer into fall":"De su propio post · Del verano al otoño","Santa Maria":"Santa María","AUG 2026":"AGO 2026","DEC 2026":"DIC 2026","Miami, United States":"Miami, Estados Unidos","Tap a poster to open it · download the original file":"Toca un cartel para abrirlo · descarga el archivo original","Rio de Janeiro":"Río de Janeiro","Belgrade":"Belgrado","London":"Londres","Munich":"Múnich","Cyprus":"Chipre","About the artist":"Sobre la artista","Awaiting from the artist":"Pendiente de la artista","Official bio goes here, exactly as supplied.":"Aquí va la biografía oficial, tal como la entregue la artista.","Interview":"Entrevista","Read":"Leer","Technical":"Técnico","Hospitality":"Hospitalidad","Technical rider":"Rider técnico","Hospitality rider":"Rider de hospitalidad","Not published online. Request it from booking:":"No está publicado online. Pídelo a booking:","Portrait":"Retrato","Studio portrait":"Retrato de estudio","Seated in the studio":"Sentada en el estudio","Profile portrait":"Retrato de perfil","Editorial portrait":"Retrato editorial","SHADOWS in the booth":"SHADOWS en cabina","In the booth":"En cabina","Set in Santiago":"Set en Santiago","Press portrait":"Retrato de prensa","View of the bridge":"Vista del puente","Editorial cover":"Portada editorial","PNG · download":"PNG · descargar","Let’s":"Hablemos","talk.":"ya.","Send your promos":"Envía tus promos","Magdalena at Metropole Talent":"Magdalena en Metropole Talent","Download original":"Descargar original","Press kit by Playskit ✦":"Press kit de Playskit ✦","Switch colour mode":"Cambiar modo de color","Play: Live at La Estación Córdoba 2025":"Reproducir: En vivo en La Estación, Córdoba 2025"},MON={"Jan": "ene", "Feb": "feb", "Mar": "mar", "Apr": "abr", "May": "may", "Jun": "jun", "Jul": "jul", "Aug": "ago", "Sep": "sep", "Oct": "oct", "Nov": "nov", "Dec": "dic"},lang='en';
+  var ES={"Menu":"Menú","Follow":"Seguir","More":"Más","Link in bio":"Todos los links","Tickets · London":"Entradas · Londres","Tickets · Miami":"Entradas · Miami","Tour":"Fechas de","dates":"gira","Her":"Su","music":"música","& mixes":"y mixes","On the road":"En ruta","2026":"2026","Show":"Carteles de","posters":"shows","The":"La","artist":"artista","Tech &":"Técnico y","hospitality":"hospitalidad","Press":"Fotos de","photos":"prensa","Close":"Cerrar","Tour dates":"Fechas","Music":"Música","Live & mixes":"En vivo y mixes","2026 run":"Gira 2026","Posters":"Carteles","Bio":"Biografía","Riders":"Riders","Press":"Prensa","Press photos":"Fotos de prensa","Booking & contact":"Booking y contacto","Melodic techno, indie dance & deep house":"Melodic techno, indie dance y deep house","Hamburg · Official press kit":"Hamburgo · Press kit oficial","Listen":"Escuchar","Green mode":"Modo verde","Blue mode":"Modo azul","Instagram followers":"Seguidores en Instagram","Hamburg":"Hamburgo","Based in":"Radicada en","Indie dance & deep house":"Indie dance y deep house","London, United Kingdom":"Londres, Reino Unido","Tickets":"Entradas","All dates on Bandsintown":"Todas las fechas en Bandsintown","Out now":"Ya disponible","RSVP for the exclusive VIP stream and download":"Reserva tu lugar para el stream VIP exclusivo y la descarga","RSVP":"Reservar","Productions":"Producciones","Watch":"Ver","Extended Club Version":"Versión extendida club","Magdalena Remix":"Remix de Magdalena","Live sets · YouTube":"Sets en vivo · YouTube","Live at La Estación, Córdoba · 2025":"En vivo en La Estación, Córdoba · 2025","Live":"En vivo","Exclusive set":"Set exclusivo","Full set":"Set completo","Sunrise set":"Set del amanecer","Recap":"Resumen","Egypt":"Egipto","All videos":"Todos los videos","Her channel":"Su canal","Open":"Abrir","DJ mixes · SoundCloud":"Mixes de DJ · SoundCloud","DJ mix":"Mix de DJ","From her own post · Summer into fall":"De su propio post · Del verano al otoño","Santa Maria":"Santa María","AUG 2026":"AGO 2026","DEC 2026":"DIC 2026","Miami, United States":"Miami, Estados Unidos","Tap a poster to open it · download the original file":"Toca un cartel para abrirlo · descarga el archivo original","Rio de Janeiro":"Río de Janeiro","Belgrade":"Belgrado","London":"Londres","Munich":"Múnich","Cyprus":"Chipre","About the artist":"Sobre la artista","Awaiting from the artist":"Pendiente de la artista","Magdalena is a DJ, producer and promoter from Hamburg, working in the city’s deep melodic, indie dance, techno and house scenes since she was fifteen.":"Magdalena es DJ, productora y promotora de Hamburgo, y trabaja desde los quince años en las escenas melódica profunda, indie dance, techno y house de la ciudad.","She ran management, bookings and artist relations at the legendary EGO club, where she also played her first sets. Her music has come out on Diynamic, Mobilee, Kitball, Selador, Bedrock, Crosstown Rebels, Knee Deep In Sound, Anjunadeep and Mood, and “Should I Stay” on the 10 Years of Diynamic compilation (2016) still defines her sound: emotional, deep, and made for the dancefloor.":"Estuvo a cargo de la gestión, las reservas y la relación con artistas en el mítico club EGO, donde también tocó sus primeros sets. Su música salió en Diynamic, Mobilee, Kitball, Selador, Bedrock, Crosstown Rebels, Knee Deep In Sound, Anjunadeep y Mood, y “Should I Stay”, en el compilado 10 Years of Diynamic (2016), sigue definiendo su sonido: emotivo, profundo y hecho para la pista.","Her SHADOWS parties have travelled from Ibiza through Europe to North America, and her sets have reached Pacha and Amnesia in Ibiza, Watergate in Berlin, Melt, Tomorrowland and Sonus.":"Sus fiestas SHADOWS viajaron de Ibiza a Europa y Norteamérica, y sus sets llegaron a Pacha y Amnesia en Ibiza, Watergate en Berlín, Melt, Tomorrowland y Sonus.","Official bio goes here, exactly as supplied.":"Aquí va la biografía oficial, tal como la entregue la artista.","Interview":"Entrevista","Read":"Leer","Technical":"Técnico","Hospitality":"Hospitalidad","Technical rider":"Rider técnico","Hospitality rider":"Rider de hospitalidad","Not published online. Request it from booking:":"No está publicado online. Pídelo a booking:","Portrait":"Retrato","Studio portrait":"Retrato de estudio","Seated in the studio":"Sentada en el estudio","Profile portrait":"Retrato de perfil","Editorial portrait":"Retrato editorial","SHADOWS in the booth":"SHADOWS en cabina","In the booth":"En cabina","Set in Santiago":"Set en Santiago","Press portrait":"Retrato de prensa","View of the bridge":"Vista del puente","Editorial cover":"Portada editorial","PNG · download":"PNG · descargar","Let’s":"Hablemos","talk.":"ya.","Send your promos":"Envía tus promos","Magdalena at Metropole Talent":"Magdalena en Metropole Talent","Download original":"Descargar original","Press kit by Playskit ✦":"Press kit de Playskit ✦","Switch colour mode":"Cambiar modo de color","Play: Live at La Estación Córdoba 2025":"Reproducir: En vivo en La Estación, Córdoba 2025"},MON={"Jan": "ene", "Feb": "feb", "Mar": "mar", "Apr": "abr", "May": "may", "Jun": "jun", "Jul": "jul", "Aug": "ago", "Sep": "sep", "Oct": "oct", "Nov": "nov", "Dec": "dic"},lang='en';
   function trs(s){
     if(lang!=='es')return s;
     if(ES.hasOwnProperty(s))return ES[s];
