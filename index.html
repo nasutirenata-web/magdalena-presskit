@@ -269,7 +269,10 @@ footer{border-top:0!important}
 
 .tri-bg{display:none!important}
 /* the whole page has her photo's backdrop: blue studio smoke, fixed while you scroll */
-html:not([data-theme=green]) body::before{background:linear-gradient(180deg,rgba(8,16,26,.0) 0%,rgba(8,14,22,.18) 55%,rgba(6,10,16,.45) 100%),url(img/humo-fondo3.jpg) center/cover no-repeat}
+html:not([data-theme=green]) body::before{background:linear-gradient(180deg,rgba(8,16,26,.0) 0%,rgba(8,14,22,.20) 55%,rgba(6,10,16,.50) 100%),url(img/humo-loop.jpg) 0 0/1200px 1280px repeat;animation:smokeA 200s linear infinite}
+html:not([data-theme=green])::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url(img/humo-loop.jpg) 0 0/820px 874px repeat;opacity:.38;mix-blend-mode:screen;animation:smokeB 300s linear infinite}
+@keyframes smokeA{from{background-position:0 0,0 0}to{background-position:0 0,-1200px 0}}
+@keyframes smokeB{from{background-position:0 0}to{background-position:820px 0}}
 html:not([data-theme=green]) body{background-color:#1a2531}
 .portrait .l-main{-webkit-mask-composite:source-in;mask-composite:intersect}
 
