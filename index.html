@@ -269,10 +269,9 @@ footer{border-top:0!important}
 
 .tri-bg{display:none!important}
 /* the whole page has her photo's backdrop: blue studio smoke, fixed while you scroll */
-html:not([data-theme=green]) body::before{background:linear-gradient(180deg,rgba(8,16,26,.0) 0%,rgba(8,14,22,.20) 55%,rgba(6,10,16,.50) 100%),url(img/humo-loop.jpg) 0 0/1200px 1280px repeat;animation:smokeA 200s linear infinite}
-html:not([data-theme=green])::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url(img/humo-loop.jpg) 0 0/820px 874px repeat;opacity:.38;mix-blend-mode:screen;animation:smokeB 300s linear infinite}
-@keyframes smokeA{from{background-position:0 0,0 0}to{background-position:0 0,-1200px 0}}
-@keyframes smokeB{from{background-position:0 0}to{background-position:820px 0}}
+html:not([data-theme=green]) body::before{background:linear-gradient(180deg,rgba(6,12,20,0) 0%,rgba(6,12,20,.22) 55%,rgba(5,9,15,.52) 100%)}
+.smoke{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;display:block}
+html[data-theme=green] .smoke{display:none}
 html:not([data-theme=green]) body{background-color:#1a2531}
 .portrait .l-main{-webkit-mask-composite:source-in;mask-composite:intersect}
 
@@ -452,6 +451,7 @@ html[data-theme=green] .liquid{display:block}
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="hbs" x="-20%" y="0" width="140%" height="100%"><feGaussianBlur stdDeviation="38 0"/></filter><filter id="hbv" x="-20%" y="0" width="140%" height="100%"><feGaussianBlur id="hbvv" stdDeviation="0 0"/></filter></defs><clipPath id="wmT"><rect x="-80" y="-5" width="1200" height="57"/></clipPath><clipPath id="wmB"><rect x="-80" y="52" width="1200" height="60"/></clipPath><symbol id="wm" viewBox="0 0 3840 417"><g fill="currentColor" fill-rule="evenodd"><g class="lt"><path transform="translate(8 0)" d="M404.0 396.5 L325.1 396.0 L325.0 147.8 L202.0 297.0 L83.0 147.1 L82.7 396.0 L0.0 396.5 L0.0 11.4 L75.0 11.6 L202.0 173.8 L329.0 11.6 L404.0 11.5 L404.0 396.5Z"/></g><g class="lt"><path transform="translate(500 0)" d="M79.0 396.5 L0.1 396.0 L146.5 12.0 L221.0 11.4 L221.4 14.0 L79.0 396.5Z M384.0 396.5 L302.0 396.5 L266.0 305.7 L159.1 305.0 L186.6 234.0 L313.4 234.0 L384.0 396.5Z"/></g><g class="lt"><path transform="translate(929 0)" d="M207.0 404.1 L166.0 403.3 L132.0 396.3 L98.0 382.3 L71.0 364.4 L43.7 337.0 L24.6 308.0 L9.7 272.0 L1.6 234.0 L-0.3 194.0 L4.7 152.0 L15.6 116.0 L25.7 95.0 L35.6 79.0 L58.0 52.7 L88.0 29.6 L122.0 13.7 L162.0 4.8 L192.0 3.5 L216.0 5.7 L242.0 11.7 L266.0 20.7 L292.0 34.7 L318.0 53.7 L341.3 76.0 L356.7 95.0 L298.0 146.0 L272.0 118.8 L253.0 102.6 L236.0 92.7 L215.0 85.7 L187.0 82.7 L160.0 85.7 L134.0 95.5 L115.3 109.0 L98.6 129.0 L86.7 154.0 L80.6 180.0 L79.6 214.0 L84.6 243.0 L93.9 267.0 L107.8 289.0 L125.0 306.4 L140.0 316.5 L158.0 324.2 L176.0 328.2 L195.0 329.0 L214.0 327.3 L238.0 321.2 L263.0 310.4 L285.6 297.0 L285.0 249.6 L222.2 249.0 L223.0 182.3 L369.1 183.0 L368.9 333.0 L332.0 362.1 L291.0 384.3 L248.0 398.3 L207.0 404.1Z"/></g><g class="lt"><path transform="translate(1421 0)" d="M149.0 396.1 L0.2 396.0 L1.0 11.4 L149.0 11.9 L182.0 15.7 L220.0 25.7 L256.0 42.7 L286.6 66.0 L302.3 83.0 L312.4 97.0 L329.1 130.0 L336.2 153.0 L340.3 177.0 L341.6 199.0 L340.3 227.0 L336.2 251.0 L329.4 274.0 L319.5 296.0 L309.3 313.0 L295.2 331.0 L280.0 346.2 L263.0 359.4 L243.0 371.4 L221.0 381.3 L199.0 388.3 L176.0 393.2 L149.0 396.1Z M139.2 317.0 L168.0 313.1 L196.0 303.2 L218.0 289.3 L234.3 273.0 L247.4 252.0 L255.4 229.0 L258.3 199.0 L255.4 175.0 L247.1 152.0 L236.3 135.0 L219.0 117.7 L198.0 104.7 L177.0 96.8 L151.0 91.8 L84.0 90.7 L83.5 316.0 L84.0 317.3 L139.2 317.0Z"/></g><g class="lt"><path transform="translate(1803 0)" d="M78.0 396.5 L-0.5 396.0 L146.0 12.2 L221.0 11.5 L78.0 396.5Z M384.0 396.4 L301.0 396.1 L265.0 305.3 L159.0 305.3 L186.0 234.1 L313.0 234.0 L384.0 396.4Z"/></g><g class="lt"><path transform="translate(2271 0)" d="M261.0 396.5 L-0.2 396.0 L0.0 11.8 L83.4 12.0 L83.7 317.0 L261.0 317.3 L261.0 396.5Z"/></g><g class="lt"><path transform="translate(2617 0)" d="M289.0 396.4 L-0.6 396.0 L0.0 11.4 L285.4 12.0 L285.0 86.6 L83.0 87.1 L83.0 162.1 L237.0 162.4 L237.6 237.0 L83.0 237.9 L82.7 320.0 L84.0 321.2 L289.0 321.4 L289.0 396.4Z"/></g><g class="lt"><path transform="translate(3006 0)" d="M345.0 396.1 L273.2 396.0 L84.0 163.5 L82.9 396.0 L-0.5 396.0 L0.0 11.5 L71.0 11.5 L261.0 244.9 L261.6 12.0 L345.0 11.9 L345.0 396.1Z"/></g><g class="lt"><path transform="translate(3431 0)" d="M79.0 396.2 L-0.4 396.0 L146.3 12.0 L221.0 11.4 L79.0 396.2Z M384.0 396.5 L301.1 396.0 L265.0 305.3 L159.0 305.3 L186.0 234.3 L313.0 233.8 L384.0 396.5Z"/></g></g></symbol></svg>
 <i class="progress" id="prog" aria-hidden="true"></i>
+<canvas class="smoke" id="smoke" aria-hidden="true"></canvas>
 <canvas class="liquid" id="liquid" aria-hidden="true"></canvas>
 <div class="tri-bg" aria-hidden="true"></div>
 <nav>
@@ -1073,6 +1073,43 @@ html[data-theme=green] .liquid{display:block}
   window.__T=function(s){return trs(s)};
 
 
+
+  // ---- blue mode: soft smoke that drifts behind her (WebGL, drawn small and smooth, no image, no seams) ----
+  (function(){
+    var cv=document.getElementById('smoke'),gl=null,uR,uT,raf=0,run=false,last=0,ok=null,timer=0;
+    var VS='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    var FS='precision mediump float;uniform vec2 uR;uniform float uT;'+
+      'float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}'+
+      'float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}'+
+      'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*n(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return v;}'+
+      'void main(){vec2 uv=gl_FragCoord.xy/uR.y;vec2 p=uv*1.25;float t=uT*.032;'+
+      'vec2 q=vec2(fbm(p+vec2(t,0.)),fbm(p+vec2(5.2,1.3)-vec2(0.,t)));'+
+      'vec2 r=vec2(fbm(p+2.6*q+vec2(1.7,9.2)+t*1.3),fbm(p+2.6*q+vec2(8.3,2.8)-t));'+
+      'float f=fbm(p+2.6*r);'+
+      'vec3 base=vec3(.065,.105,.15),mid=vec3(.16,.25,.34),hi=vec3(.62,.76,.88);'+
+      'vec3 c=mix(base,mid,smoothstep(.22,.68,f));c=mix(c,hi,smoothstep(.52,.92,f*f*1.7)*.5);'+
+      'float vy=gl_FragCoord.y/uR.y;c*=mix(.72,1.,vy);gl_FragColor=vec4(c,1.);}';
+    function sh(t,s){var o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);return gl.getShaderParameter(o,gl.COMPILE_STATUS)?o:null}
+    function init(){
+      if(ok!==null)return ok;
+      try{gl=cv.getContext('webgl',{antialias:false,alpha:true,powerPreference:'low-power'})}catch(e){gl=null}
+      if(!gl){ok=false;return false}
+      var v=sh(gl.VERTEX_SHADER,VS),f=sh(gl.FRAGMENT_SHADER,FS);if(!v||!f){ok=false;return false}
+      var pr=gl.createProgram();gl.attachShader(pr,v);gl.attachShader(pr,f);gl.linkProgram(pr);
+      if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){ok=false;return false}
+      gl.useProgram(pr);var b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);
+      gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+      var a=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(a);gl.vertexAttribPointer(a,2,gl.FLOAT,false,0,0);
+      uR=gl.getUniformLocation(pr,'uR');uT=gl.getUniformLocation(pr,'uT');ok=true;return true}
+    function size(){cv.width=Math.max(2,Math.round(innerWidth*.4));cv.height=Math.max(2,Math.round(innerHeight*.4));if(gl)gl.viewport(0,0,cv.width,cv.height)}
+    function frame(t){if(!run)return;window.__sf=(window.__sf||0)+1;
+      gl.uniform2f(uR,cv.width,cv.height);gl.uniform1f(uT,t/1000);gl.drawArrays(gl.TRIANGLES,0,3)}
+    function startT(){clearInterval(timer);timer=setInterval(function(){frame(performance.now())},50)}
+    addEventListener('resize',size);
+    document.addEventListener('visibilitychange',function(){if(document.hidden){clearInterval(timer)}else if(ok&&run){startT()}});
+    window.__smoke=function(on){if(on){if(!init())return;size();run=true;frame(performance.now());startT()}else{run=false;clearInterval(timer)}};
+  })();
+
   // ---- liquid background (green mode only) ----
   (function(){
     var cv=document.getElementById('liquid'),gl=null,uR,uT,uM,uS,raf=0,run=false,last=0,mx=.5,my=.5,sx=.5,sy=.5,ok=null;
@@ -1123,7 +1160,7 @@ html[data-theme=green] .liquid{display:block}
     lbl.textContent=(window.__T||function(s){return s})(m==='green'?'Blue mode':'Green mode');lbl.__o=undefined;
     var ml=menu.querySelector('ol'),items={};ml.querySelectorAll('li').forEach(function(li){items[li.querySelector('a').getAttribute('href').slice(1)]=li});
     orders[m].concat(['contact']).filter(function(v,i,a){return a.indexOf(v)===i}).forEach(function(id,i){var li=items[id];if(li){ml.appendChild(li);li.querySelector('b').textContent=('0'+(i+1)).slice(-2)}});
-    measure();setTimeout(function(){geo();fxUpdate()},60);if(window.__liquid)window.__liquid(m==='green');
+    measure();setTimeout(function(){geo();fxUpdate()},60);if(window.__liquid)window.__liquid(m==='green');if(window.__smoke)window.__smoke(m!=='green');
     if(save){try{localStorage.setItem('mg-mode',m)}catch(e){}}
   }
   btn.addEventListener('click',function(){setMode(root.getAttribute('data-theme')==='green'?'blue':'green',true)});
