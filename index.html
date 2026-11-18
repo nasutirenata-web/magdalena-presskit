@@ -593,13 +593,10 @@ html[data-theme=green] section:hover::after{opacity:.16}
 @media(max-width:480px){.trow{grid-template-columns:92px minmax(0,1fr) 18px;gap:10px}.trow img,.trow .allv{width:92px}}
 
 
-/* ---- TV "rain": bursts of static snow, a rolling tracking band, and the photo jittering like a bad signal (green mode) ---- */
-.tvsnow{inset:0!important;width:100%;height:100%;image-rendering:pixelated;opacity:0;mix-blend-mode:screen;pointer-events:none}
-.tvband{left:0;right:0;top:var(--by,-20%);height:16%;opacity:0;background:linear-gradient(180deg,transparent,rgba(255,255,255,.16),rgba(255,255,255,.05),transparent);mix-blend-mode:screen}
-.gbg.tv .tvband{opacity:1}
-.gimg{transform:translate3d(calc(var(--gx,0px) + var(--tx,0px)),0,0) skewX(var(--tsk,0deg)) scale(1.06)!important;filter:saturate(1.15) blur(1.2px) brightness(var(--tb,1)) contrast(var(--tc,1))}
-html[data-theme=green] .cover .cv1{transform:translate(var(--tx,0px),0) skewX(var(--tsk,0deg));filter:brightness(var(--tb,1)) contrast(var(--tc,1))}
-.gbg::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.10) 0 1px,transparent 1px 3px);opacity:.5;mix-blend-mode:multiply}
+/* ---- TV rain on the three stat labels only: the letters fill with static snow, split in red/cyan and jitter, then settle ---- */
+.strip>.wrap>div>b,.strip>.wrap>div>.mono{position:relative}
+.tvx{background-repeat:repeat;background-size:48px 48px;image-rendering:pixelated;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:rgba(255,255,255,.38);text-shadow:2px 0 0 rgba(255,40,90,.85),-2px 0 0 rgba(0,235,255,.85);transform:translate(var(--jx,0px),var(--jy,0px)) skewX(var(--jk,0deg));filter:contrast(1.35)}
+.strip>.wrap>div:hover>b,.strip>.wrap>div:hover>.mono{cursor:default}
 
 /* sections UNFOLD: they open from a centre line like a folded sheet, tiles then open one by one from a triangle corner */
 
@@ -637,7 +634,7 @@ html[data-theme=green] .cover .cv1{transform:translate(var(--tx,0px),0) skewX(va
 <i class="progress" id="prog" aria-hidden="true"></i>
 <canvas class="smoke" id="smoke" aria-hidden="true"></canvas>
 <canvas class="liquid" id="liquid" aria-hidden="true"></canvas>
-<div class="gbg" id="gbg" aria-hidden="true"><i class="gimg"></i><i class="fshadow"></i><i class="gshade"></i><canvas class="tvsnow" id="tvsnow" width="192" height="108"></canvas><i class="tvband"></i></div>
+<div class="gbg" id="gbg" aria-hidden="true"><i class="gimg"></i><i class="fshadow"></i><i class="gshade"></i></div>
 <div class="tri-bg" aria-hidden="true"></div>
 <nav>
   <a class="logo" href="#top">Magdalena</a>
@@ -1378,6 +1375,22 @@ html[data-theme=green] .cover .cv1{transform:translate(var(--tx,0px),0) skewX(va
     setTimeout(edges,400);addEventListener('load',edges);
   })();
 
+
+  // ---- TV rain on the stat letters ----
+  (function(){
+    var els=[].slice.call(document.querySelectorAll('.strip>.wrap>div>b,.strip>.wrap>div>.mono'));if(!els.length)return;
+    var frames=[];for(var f=0;f<4;f++){var c=document.createElement('canvas');c.width=c.height=48;var x=c.getContext('2d'),im=x.createImageData(48,48);
+      for(var i=0;i<im.data.length;i+=4){var v=Math.random()*255|0;im.data[i]=im.data[i+1]=im.data[i+2]=v;im.data[i+3]=255}x.putImageData(im,0,0);frames.push('url('+c.toDataURL()+')')}
+    function rain(group,ms){group.forEach(function(el){if(el.__tv)return;el.__tv=1;var t0=performance.now(),n=0;el.classList.add('tvx');
+      var t=setInterval(function(){var p=(performance.now()-t0)/ms;if(p>=1){clearInterval(t);el.classList.remove('tvx');el.style.cssText=el.style.cssText.replace(/--j[xyk]:[^;]*;?|background-image:[^;]*;?/g,'');el.__tv=0;return}
+        var k=1-p;el.style.backgroundImage=frames[n++%4];el.style.setProperty('--jx',((Math.random()-.5)*10*k).toFixed(1)+'px');el.style.setProperty('--jy',((Math.random()-.5)*3*k).toFixed(1)+'px');el.style.setProperty('--jk',((Math.random()-.5)*8*k).toFixed(1)+'deg');
+        if(Math.random()<.28*k){el.style.visibility='hidden';setTimeout(function(){el.style.visibility=''},40)}},55)})}
+    var strip=document.querySelector('.strip'),done=false;
+    if(strip&&'IntersectionObserver' in window)new IntersectionObserver(function(es,o){if(es[0].isIntersecting&&!done){done=true;o.disconnect();rain(els,1100)}},{threshold:.4}).observe(strip);
+    document.querySelectorAll('.strip>.wrap>div').forEach(function(d){d.addEventListener('pointerenter',function(){rain([].slice.call(d.children),650)})});
+    setInterval(function(){var r=strip&&strip.getBoundingClientRect();if(r&&r.top<innerHeight&&r.bottom>0&&Math.random()<.5)rain([els[Math.floor(Math.random()*els.length)]],520)},6000);
+  })();
+
   // ---- scroll progress + fullscreen menu ----
   var prog=document.getElementById('prog'),menu=document.getElementById('menu'),mbtn=document.getElementById('menuBtn');
   function upProg(){var d=document.documentElement.scrollHeight-innerHeight;prog.style.transform='scaleX('+(d>0?Math.min(1,scrollY/d):0)+')'}
@@ -1543,26 +1556,6 @@ html[data-theme=green] .cover .cv1{transform:translate(var(--tx,0px),0) skewX(va
     window.__gbg=function(on){clearInterval(tm);tm=0;if(on){tick();tm=setInterval(tick,40)}};
   })();
 
-
-  // ---- TV rain: a burst of static + jitter; fires when green mode starts, when a new section arrives, on the cover hover, and now and then ----
-  (function(){
-    var cv=document.getElementById('tvsnow');if(!cv)return;var cx=cv.getContext('2d'),root=document.documentElement,box=document.getElementById('gbg'),timer=0,id=cx.createImageData(cv.width,cv.height),d=id.data;
-    function end(){clearInterval(timer);timer=0;cv.style.opacity=0;box.classList.remove('tv');['--tx','--tsk','--tb','--tc','--by'].forEach(function(p){root.style.removeProperty(p)})}
-    window.__tv=function(ms){if(root.dataset.theme!=='green'||document.hidden)return;ms=ms||650;var t0=performance.now();clearInterval(timer);box.classList.add('tv');
-      timer=setInterval(function(){var p=(performance.now()-t0)/ms;if(p>=1){end();return}
-        for(var i=0;i<d.length;i+=4){var v=Math.random()*255|0;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255}cx.putImageData(id,0,0);
-        var k=Math.pow(1-p,1.3),fl=Math.random();cv.style.opacity=(.18+.5*k*(fl>.2?1:.4)).toFixed(2);
-        root.style.setProperty('--tx',((Math.random()-.5)*34*k).toFixed(1)+'px');root.style.setProperty('--tsk',((Math.random()-.5)*6*k).toFixed(2)+'deg');
-        root.style.setProperty('--tb',(1+(Math.random()-.4)*.7*k).toFixed(2));root.style.setProperty('--tc',(1+Math.random()*.6*k).toFixed(2));
-        root.style.setProperty('--by',(-20+p*130).toFixed(1)+'%')},50)};
-    // when a new section arrives
-    if('IntersectionObserver' in window){var seen={},io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&e.intersectionRatio>.3){if(seen[e.target.id]){return}seen[e.target.id]=1;window.__tv(520)}})},{threshold:[.3]});
-      document.querySelectorAll('section[id]').forEach(function(s){io.observe(s)})}
-    // hover on the cover, and a random blip every few seconds while the hero is on screen
-    var cov=document.getElementById('cover');if(cov)cov.addEventListener('pointerenter',function(){window.__tv(420)});
-    setInterval(function(){if(scrollY<600&&Math.random()<.6)window.__tv(380)},6500);
-  })();
-
   // ---- mode switch: blue <-> green. Changes colours, hero design and the ORDER of the sections ----
   var orders={blue:['tour','music','live','highlights','posters','bio','rider','press','contact'],green:['music','live','highlights','posters','tour','press','bio','rider','contact']};
   var main=document.querySelector('main'),btn=document.getElementById('themeBtn'),lbl=document.getElementById('themeLbl');
@@ -1573,7 +1566,7 @@ html[data-theme=green] .cover .cv1{transform:translate(var(--tx,0px),0) skewX(va
     lbl.textContent=(window.__T||function(s){return s})(m==='green'?'Blue mode':'Green mode');lbl.__o=undefined;
     var ml=menu.querySelector('ol'),items={};ml.querySelectorAll('li').forEach(function(li){items[li.querySelector('a').getAttribute('href').slice(1)]=li});
     orders[m].concat(['contact']).filter(function(v,i,a){return a.indexOf(v)===i}).forEach(function(id,i){var li=items[id];if(li){ml.appendChild(li);li.querySelector('b').textContent=('0'+(i+1)).slice(-2)}});
-    measure();setTimeout(function(){geo();fxUpdate()},60);if(window.__liquid)window.__liquid(false);if(window.__gbg)window.__gbg(m==='green');if(m==='green'&&window.__tv)setTimeout(function(){window.__tv(900)},80);if(window.__smoke)window.__smoke(m!=='green');
+    measure();setTimeout(function(){geo();fxUpdate()},60);if(window.__liquid)window.__liquid(false);if(window.__gbg)window.__gbg(m==='green');if(window.__smoke)window.__smoke(m!=='green');
     if(save){try{localStorage.setItem('mg-mode',m)}catch(e){}}
   }
   btn.addEventListener('click',function(){setMode(root.getAttribute('data-theme')==='green'?'blue':'green',true)});
