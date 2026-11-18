@@ -499,6 +499,18 @@ h2.glitching .ac,h2.glitching{color:transparent}
   .item.tilt:hover .gl{opacity:1}
 }
 
+
+/* ---- green mode: her green photos, and her name running vertically — big on the cover, as a rail down every section ---- */
+.cover .cv1{position:relative;display:block}
+.cover .vn{position:absolute;left:5.5%;top:8%;height:82%;aspect-ratio:417/3840;background:#fff;-webkit-mask:url(img/magdalena-vertical.svg) center/contain no-repeat;mask:url(img/magdalena-vertical.svg) center/contain no-repeat;filter:drop-shadow(0 4px 18px rgba(0,30,10,.35))}
+.cover>img{margin-top:6px}
+html[data-theme=green] .cover{width:min(100%,600px)}
+html[data-theme=green] section{position:relative}
+html[data-theme=green] section>.wrap{position:relative;z-index:1}
+html[data-theme=green] section::after{content:"";position:absolute;z-index:0;pointer-events:none;top:0;bottom:0;left:max(5px,calc((100vw - 1180px)/2 - 66px));width:clamp(15px,2.2vw,32px);
+  background:#fff;opacity:.14;-webkit-mask:url(img/magdalena-vertical-rail.svg) top left/100% auto repeat-y;mask:url(img/magdalena-vertical-rail.svg) top left/100% auto repeat-y;transition:opacity .4s}
+html[data-theme=green] section:hover::after{opacity:.26}
+
 /* sections UNFOLD: they open from a centre line like a folded sheet, tiles then open one by one from a triangle corner */
 
 /* YouTube tiles + click-to-play set */
@@ -569,8 +581,8 @@ h2.glitching .ac,h2.glitching{color:transparent}
         <svg class="wordmark l-front" viewBox="0 0 3840 417" role="img" aria-label="Magdalena"><use href="#wm"/></svg>
       </div>
       <div class="cover v-green" id="cover">
-        <img src="img/portada-hero.jpg" alt="Magdalena seated, in black and white polka-dot trousers, with her name logo across the image" width="1482" height="845">
-        <img src="img/portada-piernas.jpg" alt="The photo continues down to her black boots" width="1482" height="947" loading="lazy">
+        <span class="cv1"><img src="img/verde-1.jpg" alt="Magdalena in a black suit, looking back over her shoulder against a green haze" width="907" height="1402"><span class="vn" aria-hidden="true"></span></span>
+        <img src="img/verde-2.jpg" alt="Magdalena in profile, head tilted back, in green light" width="720" height="960" loading="lazy">
       </div>
     </div>
     <div class="row">
